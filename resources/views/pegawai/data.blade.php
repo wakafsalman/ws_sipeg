@@ -1,159 +1,124 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layout.master')
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+@section('title', 'WAKAF SALMAN SIPEG')
 
-    <title>WAKAF SALMAN SIPEG</title>
-  </head>
-  <body>
-    <h1 class="text-center mb-4">Data Pegawai</h1>
+@section('content')
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      {{$judul}}
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> {{$judul}}</a></li>
+    </ol>
+  </section>
 
-    <div class="container">
-        <a href="/tambah_pegawai" class="btn btn-success mb-4">Tambah +</a>
-        <div class="row g-3 align-items-center mt-2 mb-4">
-            <div class="col-auto">
-                <form action="/pegawai" method="GET">
-                    <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline">
-                </form>
-            </div>
-            <div class="col-auto">
-                <a href="/eksport_pdf" class="btn btn-info">Eksport PDF</a>
-            </div>
-            <div class="col-auto">
-                <a href="/eksport_excel" class="btn btn-success">Eksport Excel</a>
-            </div>
+  <section class="content-header">  
+    <div class="row">
+      <div class="col-md-1">
+        <a href="/tambah_pegawai" class="btn btn-success mb-4">+ Tambah Pegawai</a>
+      </div>
+    </div>
+  </section>
 
-            <div class="col-auto">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Import Data
-                </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form action="/import_excel" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <input type="file" name="file" required>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </form>
+  <section class="content-header">  
+    <div class="row">
+      <div class="col-md-1">
+        <a href="/eksport_pdf" class="btn btn-info">Eksport PDF</a>
+      </div>
+      <div class="col-md-1">
+        <a href="/eksport_excel" class="btn btn-success">Eksport Excel</a>    
+      </div>
+      <div class="col-md-1">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#import-data">
+            Import Data
+        </button>
+        
+        <div class="modal fade" id="import-data">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Import Data</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </div>
+                <form action="/import_excel" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="file" name="file" required>
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Kembali</button>
+                        <button type="submit" class="btn btn-outline pull-left" data-dismiss="modal">Simpan</button>
+                    </div>
+                </form>
                 </div>
+                <!-- /.modal-content -->
             </div>
-            
+        <!-- /.modal-dialog -->
         </div>
-        <div class="row">
-            <!--        
-            @if($message = Session::get('success'))
-            <div class="alert alert-success" role="alert">
-                {{ $message }}
-            </div>
-            @endif
-            -->
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Foto</th>
-                        <th scope="col">Jenis Kelamin</th>
-                        <th scope="col">No. Telepon</th>
-                        <th scope="col">Tempat dan Tanggal Lahir</th>
-                        <th scope="col">Alamat</th>
-                        <th scope="col">Jabatan</th>
-                        <th scope="col">Divisi</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php
-                        $no = 1;
-                    @endphp
-                    @foreach($data as $index => $row)
-                    <tr>
-                        <th scope="row">{{ $index + $data->firstItem() }}</th>
-                        <td>{{ $row->nama }}</td>
-                        <td>
-                            <img src="{{ asset('img/pegawai/'.$row->foto)  }}" style="width: 180px; height: 200px;">
-                        </td>
-                        <td>{{ $row->jenis_kelamin }}</td>
-                        <td>0{{ $row->no_telepon }}</td>
-                        <td>{{ $row->tempat_lahir }}, {{ date('j F Y', strtotime($row->tgl_lahir))}}</td>
-                        <td>{{ $row->alamat }}</td>
-                        <td>{{ $row->jabatan }}</td>
-                        <td>{{ $row->divisi }}</td>
-                        <td>
-                            <a href="/rubah_pegawai/{{ $row->id }}" class="btn btn-info">Edit</a>
-                            <a href="#" class="btn btn-danger hapus" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}">Delete</a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            {{ $data->links() }}
-        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Main content -->
+  <section class="content">
+    <!-- Default box -->
+    <!-- /.box -->
+
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">Daftar Pegawai Wakaf Salman ITB</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Foto</th>
+            <th>Jenis Kelamin</th>
+            <th>No. Telepon</th>
+            <th>Tempat dan Tanggal Lahir</th>
+            <th>Alamat</th>
+            <th>Jabatan</th>
+            <th>Divisi</th>
+            <th>Aksi</th>
+          </tr>
+          </thead>
+          <tbody>
+          @php
+              $no = 1;
+          @endphp    
+          @foreach($data as $row)
+          <tr>
+            <th scope="row">$no++;</th>
+            <td>{{ $row->nama }}</td>
+            <td>
+                <img src="{{ asset('img/pegawai/'.$row->foto)  }}" style="width: 180px; height: 200px;">
+            </td>
+            <td>{{ $row->jenis_kelamin }}</td>
+            <td>0{{ $row->no_telepon }}</td>
+            <td>{{ $row->tempat_lahir }}, {{ date('j F Y', strtotime($row->tgl_lahir))}}</td>
+            <td>{{ $row->alamat }}</td>
+            <td>{{ $row->jabatan }}</td>
+            <td>{{ $row->divisi }}</td>
+            <td>
+                <a href="/rubah_pegawai/{{ $row->id }}" class="btn btn-info">Edit</a>
+                <a href="#" class="btn btn-danger hapus" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}">Delete</a>
+            </td>
+          </tr>
+          @endforeach
+          </tbody>
+        </table>
+      </div>
+      <!-- /.box-body -->
     </div>
 
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
-  </body>
-  <script>
-    $('.hapus').click(function(){
-        var id_pegawai = $(this).attr('data-id');
-        var nama_pegawai = $(this).attr('data-nama');
-        swal({
-            title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data "+nama_pegawai+"? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/hapus_pegawai/"+id_pegawai+""
-                swal("BAAAAM! Data berhasil dihapus", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-    
-  </script>
-  <script>
-    @if(Session::has('success'))
-        toastr.success("{{ Session::get('success') }}")
-    @endif
-  </script>
-</html>
+  </section>
+  <!-- /.content -->
+</div>
+@endsection

@@ -12,21 +12,18 @@ use Maatwebsite\Excel\Facades\Excel;
 class PegawaiController extends Controller
 {
 
-    public function index(Request $request){
+    public function index(){
 
-        if($request->has('search')){
-            $data = Pegawai::where('nama','LIKE','%' .$request->search. '%')->paginate(5);
-        }else{
-            $data = Pegawai::paginate(5);
-        }
-
-        return view('pegawai/data', compact('data'));
+        $data   =   Pegawai::all();
+        $judul  =   'Data Pegawai';
+        return view('pegawai/data', compact('data','judul'));
 
     }
 
     public function tambah_pegawai(){
 
-        return view('pegawai/tambah');
+        $judul  =   'Tambah Data Pegawai';
+        return view('pegawai/tambah', compact('judul'));
 
     }
 
@@ -44,8 +41,9 @@ class PegawaiController extends Controller
 
     public function rubah_pegawai($id){
 
-        $data = Pegawai::find($id);
-        return view('pegawai/rubah', compact('data'));
+        $data   =   Pegawai::find($id);
+        $judul  =   'Rubah Data Pegawai';
+        return view('pegawai/rubah', compact('data','judul'));
 
     }
 
