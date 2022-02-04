@@ -14,13 +14,9 @@ class PegawaiController extends Controller
 
     public function index(Request $request){
 
-        if($request->has('search')){
-            $data = Pegawai::where('nama','LIKE','%' .$request->search. '%')->paginate(5);
-        }else{
-            $data = Pegawai::paginate(5);
-        }
-
-        return view('pegawai/data', compact('data'));
+        $data = Pegawai::all();
+        $judul = 'Data Pegawai';
+        return view('pegawai/data', compact('data','judul'));
 
     }
 

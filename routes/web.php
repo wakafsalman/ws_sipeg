@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WsSipegController;
 use App\Http\Controllers\PegawaiController;
 
 /*
@@ -14,11 +15,8 @@ use App\Http\Controllers\PegawaiController;
 |
 */
 
-//Beranda
-Route::get('/', function () {
-    return view('welcome');
-});
-
+//Wakaf Salman SIPEG
+Route::get('/', [WsSipegController::class, 'index']);
 //Karyawan
 Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai');
 Route::get('/tambah_pegawai', [PegawaiController::class, 'tambah_pegawai'])->name('tambah_pegawai');
