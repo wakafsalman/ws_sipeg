@@ -95,6 +95,8 @@
 <script src="{{asset('template')}}/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('template')}}/dist/js/demo.js"></script>
+<!-- Sweetalert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- page script -->
 <script>
   $(function () {
@@ -108,6 +110,29 @@
       'autoWidth'   : false
     })
   })
+</script>
+<script>
+$('.hapus').click(function(){
+    var id_pegawai = $(this).attr('data-id');
+    var nama_pegawai = $(this).attr('data-nama');
+    swal({
+        title: "Hapus data",
+        text: "Apakah kamu yakin akan menghapus data "+nama_pegawai+"? ",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        })
+        .then((willDelete) => {
+        if (willDelete) {
+            window.location = "/hapus_pegawai/"+id_pegawai+""
+            swal("BAAAAM! Data berhasil dihapus", {
+            icon: "success",
+            });
+        } else {
+            swal("Aksi dibatalkan!");
+        }
+    });
+});
 </script>
 </body>
 </html>

@@ -95,7 +95,7 @@
           @endphp    
           @foreach($data as $row)
           <tr>
-            <th scope="row">$no++;</th>
+            <th scope="row">{{ $no++ }}</th>
             <td>{{ $row->nama }}</td>
             <td>
                 <img src="{{ asset('img/pegawai/'.$row->foto)  }}" style="width: 180px; height: 200px;">
