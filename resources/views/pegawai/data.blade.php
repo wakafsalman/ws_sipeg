@@ -31,34 +31,31 @@
         <a href="/eksport_excel" class="btn btn-success">Eksport Excel</a>    
       </div>
       <div class="col-md-1">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#import-data">
-            Import Data
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-default">
+          Import Data
         </button>
-        
-        <div class="modal fade" id="import-data">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Import Data</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+        <div class="modal fade" id="modal-default">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Import Data</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              </div>
+              <form action="/import_excel" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                  <input type="file" name="file" class="form-control">
                 </div>
-                <form action="/import_excel" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <input type="file" name="file" required>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Kembali</button>
-                        <button type="submit" class="btn btn-outline pull-left" data-dismiss="modal">Simpan</button>
-                    </div>
-                </form>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Kembali</button>
+                  <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
-                <!-- /.modal-content -->
+              </form>
             </div>
-        <!-- /.modal-dialog -->
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
         </div>
       </div>
     </div>
