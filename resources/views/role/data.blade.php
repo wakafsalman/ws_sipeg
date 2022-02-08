@@ -17,7 +17,7 @@
   <section class="content-header">  
     <div class="row">
       <div class="col-md-1">
-        <a href="/tambah_pegawai" class="btn btn-success mb-4">+ Tambah Pegawai</a>
+        <a href="/tambah_role_user" class="btn btn-success mb-4">+ Tambah Role User</a>
       </div>
     </div>
   </section>
@@ -25,10 +25,7 @@
   <section class="content-header">  
     <div class="row">
       <div class="col-md-1">
-        <a href="/eksport_pdf" class="btn btn-info">Eksport PDF</a>
-      </div>
-      <div class="col-md-1">
-        <a href="/eksport_pegawai" class="btn btn-success">Eksport Excel</a>    
+        <a href="/eksport_role_user" class="btn btn-success">Eksport Excel</a>    
       </div>
       <div class="col-md-1">
         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-default">
@@ -42,7 +39,7 @@
                 <h4 class="modal-title">Import Data</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               </div>
-              <form action="/import_pegawai" method="POST" enctype="multipart/form-data">
+              <form action="/import_role_user" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                   <input type="file" name="file" class="form-control">
@@ -67,7 +64,7 @@
 
     <div class="box">
       <div class="box-header">
-        <h3 class="box-title">Daftar Pegawai Wakaf Salman ITB</h3>
+        <h3 class="box-title">Daftar Role User di Wakaf Salman ITB</h3>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
@@ -75,16 +72,7 @@
           <thead>
           <tr>
             <th>No</th>
-            <th>Nama</th>
-            <th>Foto</th>
-            <th>Jenis Kelamin</th>
-            <th>No. Telepon</th>
-            <th>Tempat dan Tanggal Lahir</th>
-            <th>Alamat</th>
-            <!--
-            <th>Jabatan</th>
-            <th>Divisi</th>
-            -->
+            <th>Role</th>
             <th>Aksi</th>
           </tr>
           </thead>
@@ -97,27 +85,8 @@
             <th scope="row">{{ $no++ }}</th>
             <td>{{ $row->nama }}</td>
             <td>
-                <img src="{{ asset('img/pegawai/'.$row->foto)  }}" style="width: 180px; height: 200px;">
-            </td>
-            <td>{{ $row->jenis_kelamin }}</td>
-            @if($row->no_telepon != NULL)
-            <td>0{{ $row->no_telepon }}</td>
-            @else
-              <td></td>
-            @endif
-            @if($row->tempat_lahir != NULL && $row->tgl_lahir != NULL)
-              <td>{{ $row->tempat_lahir }}, {{ date('j F Y', strtotime($row->tgl_lahir))}}</td>
-            @else
-              <td></td>
-            @endif
-            <td>{{ $row->alamat }}</td>
-            <!--
-            <td>{{ $row->jabatan }}</td>
-            <td>{{ $row->divisi }}</td>
-            -->
-            <td>
-                <a href="/rubah_pegawai/{{ $row->id }}" class="btn btn-info">Edit</a>
-                <a href="#" class="btn btn-danger hapus" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}">Delete</a>
+                <a href="/rubah_role_user/{{ $row->id }}" class="btn btn-info">Edit</a>
+                <a href="#" class="btn btn-danger hapus-role-user" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}">Delete</a>
             </td>
           </tr>
           @endforeach

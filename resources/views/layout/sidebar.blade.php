@@ -16,6 +16,34 @@
       <li class="header">MENU UTAMA</li>
       <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="/"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
       <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Pegawai</span></a></li>
+      <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-list-alt"></i>
+          <span>Absensi</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
+          <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-cog"></i>
+          <span>Pengaturan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/user"><i class="fa fa-circle-o"></i>User</a></li>
+          <li><a href="/divisi"><i class="fa fa-circle-o"></i>Divisi</a></li>
+          <li><a href="/jabatan"><i class="fa fa-circle-o"></i>Jabatan</a></li>
+          <li><a href="/role_user"><i class="fa fa-circle-o"></i>Role User</a></li>
+        </ul>
+      </li>
     </ul>
   </section>
   <!-- /.sidebar -->

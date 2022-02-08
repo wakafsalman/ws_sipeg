@@ -38,8 +38,10 @@
     <th>No. Telepon</th>
     <th>Tempat dan Tanggal Lahir</th>
     <th>Alamat</th>
+    <!--
     <th>Jabatan</th>
     <th>Divisi</th>
+    -->
   </tr>
   @php
     $no = 1;
@@ -49,11 +51,21 @@
     <th scope="row">{{ $no++ }}</th>
     <td>{{ $row->nama }}</td>
     <td>{{ $row->jenis_kelamin }}</td>
+    @if($row->no_telepon != NULL)
     <td>0{{ $row->no_telepon }}</td>
-    <td>{{ $row->tempat_lahir }}, {{ date('j F Y', strtotime($row->tgl_lahir))}}</td>
+    @else
+      <td></td>
+    @endif
+    @if($row->tempat_lahir != NULL && $row->tgl_lahir != NULL)
+      <td>{{ $row->tempat_lahir }}, {{ date('j F Y', strtotime($row->tgl_lahir))}}</td>
+    @else
+      <td></td>
+    @endif
     <td>{{ $row->alamat }}</td>
+    <!--
     <td>{{ $row->jabatan }}</td>
     <td>{{ $row->divisi }}</td>
+    -->
   </tr>
   @endforeach
 </table>

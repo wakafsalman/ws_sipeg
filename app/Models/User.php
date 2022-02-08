@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Role;
+use App\Models\Pegawai;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -24,7 +26,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 
@@ -36,4 +37,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function roles(){
+        return $this->belongsTo(Role::class,'id_roles','id');
+    }
+
+    public function pegawais(){
+        return $this->belongsTo(Pegawai::class,'id_pegawais','id');
+    }
+
 }

@@ -72,13 +72,13 @@ class PegawaiController extends Controller
 
     }
 
-    public function eksport_excel(){
+    public function eksport_pegawai(){
 
         return Excel::download(new PegawaiExport, 'Daftar Karyawan Wakaf Salman.xlsx');
 
     }
 
-    public function import_excel(Request $request) {
+    public function import_pegawai(Request $request) {
 
         $data = $request->file('file');
 

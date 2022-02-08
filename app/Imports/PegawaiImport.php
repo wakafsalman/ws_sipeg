@@ -21,9 +21,7 @@ class PegawaiImport implements ToModel
             'tempat_lahir' => $row[4],
             'tgl_lahir' => $row[5],
             'alamat' => $row[6],
-            'jabatan' => $row[7],
-            'divisi' => $row[8],
-            'foto' => $row[9]
+            'foto' => $row[7]
         ]);
 
     }
