@@ -8,7 +8,7 @@
       </div>
       <div class="pull-left info">
         <p>Welcome,</p>
-        <p><b>Ryan Pradhana</b></p>
+        <p><b>{{ Auth::user()->nama }}</b></p>
       </div>
     </div>
     <!-- sidebar menu: : style can be found in sidebar.less -->

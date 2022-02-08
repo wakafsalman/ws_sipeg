@@ -19,7 +19,7 @@
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <img src="{{asset('template')}}/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-            <span class="hidden-xs">Ryan Pradhana</span> 
+            <span class="hidden-xs">{{ Auth::user()->nama }}</span> 
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
@@ -27,7 +27,7 @@
               <img src="{{asset('template')}}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
               <p>
-                Ryan Pradhana - Junior Assistant Manager System Analyst
+                {{ Auth::user()->nama }} - {{ Auth::user()->roles }}
               </p>
             </li>
             <!-- Menu Footer-->
@@ -36,10 +36,7 @@
                 <a href="#" class="btn btn-default btn-flat">Profile</a>
               </div>
               <div class="pull-right">
-                <form id="logout-form" action="#" method="POST" class="d-none">
-                    @csrf
-                    <button type="submit" class="btn btn-default btn-flat">Logout</button>
-                </form>
+                <a href="/logout" class="btn btn-default btn-flat">Logout</a>
               </div>
             </li>
           </ul>

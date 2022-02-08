@@ -34,8 +34,22 @@
       <!-- /.box-body -->
     </div>
     <!-- /.box -->
+    <div class="row">
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+          <div class="inner">
+            <h3>{{ $jumlah }} <small style="color: white;">orang</small> </h3>
+
+            <p>Jumlah Karyawan</p>
+          </div>
+          <div class="icon">
+            <i class="glyphicon glyphicon-user"></i>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </section>
-  <!-- /.content -->
 </div>
 @endsection

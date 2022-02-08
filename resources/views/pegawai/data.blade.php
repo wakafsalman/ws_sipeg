@@ -98,8 +98,16 @@
                 <img src="{{ asset('img/pegawai/'.$row->foto)  }}" style="width: 180px; height: 200px;">
             </td>
             <td>{{ $row->jenis_kelamin }}</td>
+            @if($row->no_telepon != NULL)
             <td>0{{ $row->no_telepon }}</td>
-            <td>{{ $row->tempat_lahir }}, {{ date('j F Y', strtotime($row->tgl_lahir))}}</td>
+            @else
+              <td></td>
+            @endif
+            @if($row->tempat_lahir != NULL && $row->tgl_lahir != NULL)
+              <td>{{ $row->tempat_lahir }}, {{ date('j F Y', strtotime($row->tgl_lahir))}}</td>
+            @else
+              <td></td>
+            @endif
             <td>{{ $row->alamat }}</td>
             <td>{{ $row->jabatan }}</td>
             <td>{{ $row->divisi }}</td>

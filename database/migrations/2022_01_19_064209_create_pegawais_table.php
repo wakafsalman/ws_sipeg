@@ -17,12 +17,12 @@ class CreatePegawaisTable extends Migration
             $table->id();
             $table->string('nama');
             $table->enum('jenis_kelamin',['Laki-Laki','Perempuan']);
-            $table->bigInteger('no_telepon');
-            $table->string('tempat_lahir');
-            $table->date('tgl_lahir');
-            $table->string('alamat');
-            $table->string('jabatan');
-            $table->string('divisi');
+            $table->bigInteger('no_telepon')->nullable();
+            $table->string('tempat_lahir')->nullable();
+            $table->date('tgl_lahir')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('jabatan')->nullable();
+            $table->string('divisi')->nullable();
             $table->string('foto');
             $table->timestamps();
         });
