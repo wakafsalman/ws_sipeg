@@ -38,10 +38,8 @@
     <th>No. Telepon</th>
     <th>Tempat dan Tanggal Lahir</th>
     <th>Alamat</th>
-    <!--
     <th>Jabatan</th>
     <th>Divisi</th>
-    -->
   </tr>
   @php
     $no = 1;
@@ -62,10 +60,8 @@
       <td></td>
     @endif
     <td>{{ $row->alamat }}</td>
-    <!--
-    <td>{{ $row->jabatan }}</td>
-    <td>{{ $row->divisi }}</td>
-    -->
+    <td>{{ $row->jabatans->nama }}</td>
+    <td>{{ $row->divisis->nama }}</td>
   </tr>
   @endforeach
 </table>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Role;
+use App\Models\Pegawai;
 use App\Exports\UserExport;
 use App\Imports\UserImport;
 use Illuminate\Http\Request;
@@ -22,8 +24,10 @@ class UserController extends Controller
 
     public function tambah_user(){
 
-        $judul  =   'Tambah Data User';
-        return view('user/tambah', compact('judul'));
+        $judul      =   'Tambah Data User';
+        $role_user  =   Role::all();
+        $pegawai    =   Pegawai::all();
+        return view('user/tambah', compact('judul','role_user','pegawai'));
 
     }
 
@@ -36,9 +40,11 @@ class UserController extends Controller
 
     public function rubah_user($id){
 
-        $data   =   User::find($id);
-        $judul  =   'Rubah Data User';
-        return view('user/rubah', compact('data','judul'));
+        $data       =   User::find($id);
+        $judul      =   'Rubah Data User';
+        $role_user  =   Role::all();
+        $pegawai    =   Pegawai::all();
+        return view('user/rubah', compact('data','judul','role_user','pegawai'));
 
     }
 

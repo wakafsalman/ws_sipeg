@@ -23,11 +23,11 @@ use App\Http\Controllers\RoleController;
 
 //Wakaf Salman SIPEG
 Route::get('/', [WsSipegController::class, 'index'])->name('login');
-Route::get('/beranda', [WsSipegController::class, 'beranda']);
-Route::post('/proses_login', [WsSipegController::class, 'proses_login'])->name('proses_login');
-Route::get('/logout', [WsSipegController::class, 'logout']);
-Route::get('/daftar', [WsSipegController::class, 'daftar'])->name('daftar');
-Route::post('/proses_daftar', [WsSipegController::class, 'proses_daftar'])->name('proses_daftar');
+Route::get('/beranda', [WsSipegController::class, 'beranda'])->middleware('auth');
+Route::post('/proses_login', [WsSipegController::class, 'proses_login'])->name('proses_login')->middleware('auth');
+Route::get('/logout', [WsSipegController::class, 'logout'])->middleware('auth');
+Route::get('/daftar', [WsSipegController::class, 'daftar'])->name('daftar')->middleware('auth');
+Route::post('/proses_daftar', [WsSipegController::class, 'proses_daftar'])->name('proses_daftar')->middleware('auth');
 
 //Karyawan
 Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai')->middleware('auth');
@@ -36,7 +36,7 @@ Route::post('/proses_tambah_pegawai', [PegawaiController::class, 'proses_tambah_
 Route::get('/rubah_pegawai/{id}', [PegawaiController::class, 'rubah_pegawai'])->name('rubah_pegawai')->middleware('auth');
 Route::post('/proses_rubah_pegawai/{id}', [PegawaiController::class, 'proses_rubah_pegawai'])->name('proses_rubah_pegawai')->middleware('auth');
 Route::get('/hapus_pegawai/{id}', [PegawaiController::class, 'hapus_pegawai'])->name('hapus_pegawai')->middleware('auth');
-Route::get('/eksport_pdf', [PegawaiController::class, 'eksport_pdf'])->name('eksport_pdf');
+Route::get('/eksport_pdf', [PegawaiController::class, 'eksport_pdf'])->name('eksport_pdf')->middleware('auth');
 
 //User
 Route::get('/user', [UserController::class, 'index'])->name('user')->middleware('auth');

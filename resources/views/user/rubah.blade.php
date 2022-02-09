@@ -34,12 +34,26 @@
                     <input type="text" name="email" class="form-control" id="exampleInputEmail" value="{{ $data->email }}">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputRoles" class="form-label">Roles</label>
-                    <input type="text" name="roles" class="form-control" id="exampleInputRoles" value="{{ $data->roles }}">
+                    <label for="exampleInputRole" class="form-label">Role</label>
+                    <select name="id_roles" class="form-control" aria-label="Default select example">
+                      <option selected value="{{ $data->id_roles }}">{{ $data->roles->nama }}</option>
+                        @foreach($role_user as $row)
+                          <option value="{{ $row->id }}">{{ $row->nama }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmployee" class="form-label">Pegawai</label>
+                    <select name="id_pegawais" class="form-control" aria-label="Default select example">
+                      <option selected value="{{ $data->id_pegawais }}">{{ $data->pegawais->nama }}</option>
+                        @foreach($pegawai as $row)
+                          <option value="{{ $row->id }}">{{ $row->nama }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword" class="form-label">Password</label>
-                    <input type="text" name="password" class="form-control" id="exampleInputPassword">
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword" value="{{ $data->password }}">
                 </div>
               </div>
               <!-- /.box-body -->

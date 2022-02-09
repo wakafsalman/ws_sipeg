@@ -52,11 +52,21 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputTitle" class="form-label">Jabatan</label>
-                    <input type="text" name="jabatan" class="form-control" id="exampleInputTitle" value="{{ $data->jabatan }}">
+                    <select name="id_jabatans" class="form-control" aria-label="Default select example">
+                    <option selected value="{{ $data->id_jabatans }}">{{ $data->jabatans->nama }}</option>
+                        @foreach($jabatan as $row)
+                          <option value="{{ $row->id }}">{{ $row->nama }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputDivision" class="form-label">Divisi</label>
-                    <input type="text" name="divisi" class="form-control" id="exampleInputDivision" value="{{ $data->divisi }}">
+                    <select name="id_divisis" class="form-control" aria-label="Default select example">
+                        <option selected value="{{ $data->id_divisis }}">{{ $data->divisis->nama }}</option>
+                        @foreach($divisi as $row)
+                          <option value="{{ $row->id }}">{{ $row->nama }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPhoto" class="form-label">Foto</label>

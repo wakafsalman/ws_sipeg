@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pegawai;
+use App\Models\Jabatan;
+use App\Models\Divisi;
 use App\Exports\PegawaiExport;
 use App\Imports\PegawaiImport;
 use Illuminate\Http\Request;
@@ -22,8 +24,10 @@ class PegawaiController extends Controller
 
     public function tambah_pegawai(){
 
-        $judul  =   'Tambah Data Pegawai';
-        return view('pegawai/tambah', compact('judul'));
+        $judul      =   'Tambah Data Pegawai';
+        $jabatan    =   Jabatan::all();
+        $divisi     =   Divisi::all();
+        return view('pegawai/tambah', compact('judul','jabatan','divisi'));
 
     }
 
@@ -41,9 +45,11 @@ class PegawaiController extends Controller
 
     public function rubah_pegawai($id){
 
-        $data   =   Pegawai::find($id);
-        $judul  =   'Rubah Data Pegawai';
-        return view('pegawai/rubah', compact('data','judul'));
+        $data       =   Pegawai::find($id);
+        $judul      =   'Rubah Data Pegawai';
+        $jabatan    =   Jabatan::all();
+        $divisi     =   Divisi::all();
+        return view('pegawai/rubah', compact('data','judul','jabatan','divisi'));
 
     }
 
@@ -51,6 +57,11 @@ class PegawaiController extends Controller
 
         $data = Pegawai::find($id);
         $data->update($request->all());
+        if($request->hasFile('foto')){
+            $request->file('foto')->move('img/pegawai/', $request->file('foto')->getClientOriginalName());
+            $data->foto = $request->file('foto')->getClientOriginalName();
+            $data->save();
+        }
         return redirect()->route('pegawai')->with('success', 'Data berhasil dirubah');
 
     }

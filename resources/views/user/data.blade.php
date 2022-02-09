@@ -87,7 +87,7 @@
             <th scope="row">{{ $no++ }}</th>
             <td>{{ $row->nama }}</td>
             <td>{{ $row->email }}</td>
-            <td>{{ $row->id_roles }}</td>
+            <td>{{ $row->roles->nama }}</td>
             <td>
                 <a href="/rubah_user/{{ $row->id }}" class="btn btn-info">Edit</a>
                 <a href="#" class="btn btn-danger hapus-user" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}">Delete</a>

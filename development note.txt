@@ -1,1 +1,7 @@
-- bugs delete dan import data
+To do list :
+- akses setiap user
+- implementasi fitur absensi
+- upload data ke server
+- form pake modal
+- ganti template yang sewarna dengan wakaf
+- kerjakan sistem sertifikat

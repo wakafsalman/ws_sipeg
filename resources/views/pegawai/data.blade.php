@@ -81,10 +81,8 @@
             <th>No. Telepon</th>
             <th>Tempat dan Tanggal Lahir</th>
             <th>Alamat</th>
-            <!--
             <th>Jabatan</th>
             <th>Divisi</th>
-            -->
             <th>Aksi</th>
           </tr>
           </thead>
@@ -111,10 +109,8 @@
               <td></td>
             @endif
             <td>{{ $row->alamat }}</td>
-            <!--
-            <td>{{ $row->jabatan }}</td>
-            <td>{{ $row->divisi }}</td>
-            -->
+            <td>{{ $row->jabatans->nama }}</td>
+            <td>{{ $row->divisis->nama }}</td>
             <td>
                 <a href="/rubah_pegawai/{{ $row->id }}" class="btn btn-info">Edit</a>
                 <a href="#" class="btn btn-danger hapus" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}">Delete</a>

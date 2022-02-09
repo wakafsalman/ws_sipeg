@@ -54,7 +54,9 @@
       </div>
     </form>
 
+    <!--
     <a href="/daftar" class="text-center">Daftar user Super Admin doang :D</a>
+    -->
 
   </div>
   <!-- /.login-box-body -->

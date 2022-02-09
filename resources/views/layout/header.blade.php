@@ -27,7 +27,7 @@
               <img src="{{asset('template')}}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
               <p>
-                {{ Auth::user()->nama }} - {{ Auth::user()->roles }}
+                {{ Auth::user()->nama }} - {{ Auth::user()->roles->nama }}
               </p>
             </li>
             <!-- Menu Footer-->
