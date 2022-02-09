@@ -21,8 +21,8 @@ class PegawaiSeeder extends Seeder
             'tempat_lahir' => 'Bandung',
             'tgl_lahir' => '1993-02-24',
             'alamat' => 'Jl. Madurasa Utara No. 14 RT 003 RW 007 Kel.Cigereleng Kec.Regol Kota Bandung 40253',
-            'jabatan' => 'Junior Assistant Manager System Analyst',
-            'divisi' => 'Operation',
+            'id_jabatans' => '1',
+            'id_divisis' => '1',
         ]);
     }
 }
