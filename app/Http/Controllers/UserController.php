@@ -8,6 +8,7 @@ use App\Models\Pegawai;
 use App\Exports\UserExport;
 use App\Imports\UserImport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use PDF;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -33,7 +34,14 @@ class UserController extends Controller
 
     public function proses_tambah_user(Request $request){
 
-        $data = User::create($request->all());
+        $data = User::create([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'id_roles' => $request->id_roles,
+            'id_pegawais' => $request->id_pegawais,
+            'password' => bcrypt($request->password),
+            'remember_token' => Str::random(60),
+        ]);
         return redirect()->route('user')->with('success', 'Data berhasil ditambah');
 
     }
