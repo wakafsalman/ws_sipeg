@@ -76,6 +76,7 @@ Route::get('/absen', [AbsensiController::class, 'absen'])->name('absen');
 Route::get('/absen_masuk', [AbsensiController::class, 'absen_masuk'])->name('absen_masuk');
 Route::post('/proses_absen_masuk', [AbsensiController::class, 'proses_absen_masuk'])->name('proses_absen_masuk');
 Route::get('/absen_keluar', [AbsensiController::class, 'absen_keluar'])->name('absen_keluar');
+Route::post('/proses_absen_keluar', [AbsensiController::class, 'proses_absen_keluar'])->name('proses_absen_keluar');
 
 //PDF
 Route::get('/eksport_pdf', [PegawaiController::class, 'eksport_pdf'])->name('eksport_pdf');

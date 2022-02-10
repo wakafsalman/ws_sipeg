@@ -58,7 +58,11 @@
             <td>WFH</td>
             <td>{{ $row->jam_masuk }}</td>
             <td>{{ $row->rencana_kerja }}</td>
+            @if( $row->jam_keluar != NULL)
             <td>{{ $row->jam_keluar }}</td>
+            @else
+            <td>00:00:00</td>
+            @endif
             <td>
                 <img src="{{ asset('img/hasil-kerja-wfh/'.$row->hasil_kerja)  }}" style="width: 180px; height: 200px;">
             </td>            

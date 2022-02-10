@@ -29,7 +29,6 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
-          <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">

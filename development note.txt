@@ -1,9 +1,9 @@
 To do list :
 - implementasi fitur absensi :
-  - absen keluar
   - menghilangkan tombol ketika sudah absen masuk dan keluar di tanggal tersebut
   - rekapitulasi absensi berdasarkan nama karyawan
-  - export excel
+  - export excel rekap absensi karyawan
+  - modifikasi simpan foto dengan nama tertentu
 - upload sistem ke server
 - form pake modal
 - ganti template yang sewarna dengan wakaf

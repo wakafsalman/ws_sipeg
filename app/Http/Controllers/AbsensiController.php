@@ -20,7 +20,7 @@ class AbsensiController extends Controller
     public function absen(){
 
         $judul  =   'Absensi WFH';
-        $data   =   Absensi::all();
+        $data   =    Absensi::where('id_users', auth()->user()->id_pegawais)->get();
         return view('absensi/absen', compact('judul','data'));
 
     }
@@ -54,8 +54,41 @@ class AbsensiController extends Controller
 
     public function absen_keluar(){
 
-        return view('absensi/absen-keluar');
+        $date = new DateTime('now');
+
+        $judul      =   'Absensi Masuk WFH';
+        $tanggal    =   $date->format('d-m-Y');
+        return view('absensi/absen-keluar', compact('judul','tanggal'));
         
+    }
+
+    public function proses_absen_keluar(Request $request){
+
+        
+        $timezone   =   'Asia/Jakarta';
+        $date       =   new DateTime('now', new DateTimeZone($timezone));
+        $tanggal    =   $date->format('Y-m-d');
+        $localtime  =   $date->format('H:i:s');
+
+        $data = Absensi::where([
+            ['id_users','=',auth()->user()->id_pegawais],
+            ['tanggal','=',$tanggal],
+        ]);
+
+        if($request->hasFile('hasil_kerja')){
+            $request->file('hasil_kerja')->move('img/hasil-kerja-wfh/', $request->file('hasil_kerja')->getClientOriginalName());
+            $absen_keluar=[
+                'jam_keluar'    => $localtime,
+                'hasil_kerja'   => $request->file('hasil_kerja')->getClientOriginalName() 
+            ];
+            $data->update($absen_keluar);
+        }else{
+            $absen_keluar=[
+                'jam_keluar'    => $localtime
+            ];
+            $data->update($absen_keluar);            
+        }
+        return redirect()->route('absen')->with('success', 'Anda berhasil mengisi absen keluar WFH. Selamat beristirahat :) tetap jaga prokes dan kesehatan');
     }
 
 }
