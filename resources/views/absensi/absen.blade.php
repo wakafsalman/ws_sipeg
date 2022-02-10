@@ -18,10 +18,10 @@
   <section class="content-header">  
     <div class="row">
       <div class="col-md-1 pull-right">
-        <a href="#" class="btn btn-success">Absen Keluar</a>    
+        <a href="/absen_keluar" class="btn btn-success">Absen Keluar</a>    
       </div>
       <div class="col-md-1 pull-right">
-        <a href="#" class="btn btn-info">Absen Masuk</a>
+        <a href="/absen_masuk" class="btn btn-info">Absen Masuk</a>
       </div>
     </div>
   </section>
@@ -41,22 +41,29 @@
             <th>Nama</th>
             <th>Keterangan</th>
             <th>Jam Absen Masuk</th>
+            <th>Rencana Kerja</th>
             <th>Jam Absen Keluar</th>
             <th>Hasil Kerja</th>
           </tr>
           </thead>
           <tbody>
+          @php
+              $no = 1;
+          @endphp    
+          @foreach($data as $row)
           <tr>
-            <th scope="row">1</th>
-            <td>8 February 2022</td>
-            <td>Radian Pradhana</td>
+            <th scope="row">{{ $no++ }}</th>
+            <td>{{ $row->tanggal }}</td>
+            <td>{{ $row->pegawais->nama }}</td>
             <td>WFH</td>
-            <td>08:51:19</td>
-            <td>18:10:13</td>
+            <td>{{ $row->jam_masuk }}</td>
+            <td>{{ $row->rencana_kerja }}</td>
+            <td>{{ $row->jam_keluar }}</td>
             <td>
-                <img src="{{ asset('img/absensi-wfh/radian-pradhana/Hasil-Kerja-08-02-2022.png')  }}" style="width: 180px; height: 200px;">
-            </td>
+                <img src="{{ asset('img/hasil-kerja-wfh/'.$row->hasil_kerja)  }}" style="width: 180px; height: 200px;">
+            </td>            
           </tr>
+          @endforeach
           </tbody>
         </table>
       </div>

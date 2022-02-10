@@ -73,8 +73,12 @@ Route::get('/hapus_role_user/{id}', [RoleController::class, 'hapus_role_user'])-
 //Absensi
 Route::get('/absensi', [AbsensiController::class, 'index'])->name('absensi');
 Route::get('/absen', [AbsensiController::class, 'absen'])->name('absen');
+Route::get('/absen_masuk', [AbsensiController::class, 'absen_masuk'])->name('absen_masuk');
+Route::post('/proses_absen_masuk', [AbsensiController::class, 'proses_absen_masuk'])->name('proses_absen_masuk');
+Route::get('/absen_keluar', [AbsensiController::class, 'absen_keluar'])->name('absen_keluar');
 
 //PDF
+Route::get('/eksport_pdf', [PegawaiController::class, 'eksport_pdf'])->name('eksport_pdf');
 
 //Excel
 
