@@ -34,7 +34,7 @@ class AbsensiController extends Controller
     public function absen(){
 
         $date = new DateTime('now');
-        $tanggal    =   $date->format('d-m-Y');
+        $tanggal    =   $date->format('Y-m-d');
 
         $judul      =   'Absensi WFH';        
         $data       =   Absensi::where('id_users', auth()->user()->id_pegawais)->get();

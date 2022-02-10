@@ -21,7 +21,7 @@
         <a href="/absen_keluar" class="btn btn-success">Absen Keluar</a>    
       </div>
       <div class="col-md-1 pull-right">
-        @if($jam_masuk == NULL)
+        @if($jam_masuk->count() == 0)
         <a href="/absen_masuk" class="btn btn-info">Absen Masuk</a>
         @else
         <div></div>
