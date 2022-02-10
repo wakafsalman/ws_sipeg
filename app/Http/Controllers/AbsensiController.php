@@ -33,9 +33,16 @@ class AbsensiController extends Controller
 
     public function absen(){
 
-        $judul  =   'Absensi WFH';
-        $data   =    Absensi::where('id_users', auth()->user()->id_pegawais)->get();
-        return view('absensi/absen', compact('judul','data'));
+        $date = new DateTime('now');
+        $tanggal    =   $date->format('d-m-Y');
+
+        $judul      =   'Absensi WFH';        
+        $data       =   Absensi::where('id_users', auth()->user()->id_pegawais)->get();
+        $jam_masuk  =   Absensi::select('jam_masuk')
+                               ->where('id_users', auth()->user()->id_pegawais)
+                               ->where('tanggal', $tanggal)
+                               ->get(); 
+        return view('absensi/absen', compact('judul','data','jam_masuk'));
 
     }
 

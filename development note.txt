@@ -1,11 +1,9 @@
 To do list :
-- implementasi fitur absensi :
-  - simpan list rencana kerja dan hasil kerja di modal
-  - menghilangkan tombol ketika sudah absen masuk dan keluar di tanggal tersebut
-  - tambah icon-icon
 - upload sistem ke server
+- tambah icon-icon
 - form pake modal
 - modifikasi simpan foto dengan nama tertentu
-- batasi hak akses
+- CRUD profil user
+- batasi hak akses 
 - ganti template yang sewarna dengan wakaf
 - kerjakan sistem sertifikat

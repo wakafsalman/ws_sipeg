@@ -9,9 +9,6 @@
     <h1>
       {{$judul}}
     </h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> {{$judul}}</a></li>
-    </ol>
   </section>
 
   <section class="content-header">  
@@ -75,15 +72,59 @@
             <td>{{ $row->pegawais->nama }}</td>
             <td>WFH</td>
             <td>{{ $row->jam_masuk }}</td>
-            <td>{{ $row->rencana_kerja }}</td>
+            <td>
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-rencana">
+                Lihat
+              </button>
+
+              <div class="modal fade" id="modal-rencana">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Rencana Kerja {{ $row->pegawais->nama }} Tanggal {{ $row->tanggal }}</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    </div>
+                    <div class="modal-body">
+                      <p>{{ $row->rencana_kerja }}</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Kembali</button>
+                    </div>
+                  </div>
+                  <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+              </div>
+            </td>
             @if( $row->jam_keluar != NULL)
             <td>{{ $row->jam_keluar }}</td>
             @else
             <td>00:00:00</td>
             @endif
             <td>
-                <img src="{{ asset('img/hasil-kerja-wfh/'.$row->hasil_kerja)  }}" style="width: 180px; height: 200px;">
-            </td>            
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-hasil">
+                Lihat
+              </button>
+
+              <div class="modal fade" id="modal-hasil">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Hasil Kerja {{ $row->pegawais->nama }} Tanggal {{ $row->tanggal }}</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    </div>
+                    <div class="modal-body">
+                      <img src="{{ asset('img/hasil-kerja-wfh/'.$row->hasil_kerja)  }}" style="width: 580px; height: 300px;">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Kembali</button>
+                    </div>
+                  </div>
+                  <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+              </div>
+            </td>
           </tr>
           @endforeach
           </tbody>
