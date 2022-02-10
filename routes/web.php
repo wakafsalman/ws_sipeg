@@ -98,3 +98,5 @@ Route::post('/import_jabatan', [JabatanController::class, 'import_jabatan'])->na
 /*Role User*/
 Route::get('/eksport_role_user', [RoleController::class, 'eksport_role_user'])->name('eksport_role_user');
 Route::post('/import_role_user', [RoleController::class, 'import_role_user'])->name('import_role_user');
+/*Rekap Absen WFH*/
+Route::get('/eksport_absensi', [AbsensiController::class, 'eksport_absensi'])->name('eksport_absensi');

@@ -3,17 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Models\Absensi;
+use App\Models\Pegawai;
+use App\Exports\AbsensiExport;
 use Illuminate\Http\Request;
 use DateTime;
 use DateTimeZone;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class AbsensiController extends Controller
 {
     //
-    public function index(){
+    public function index(Request $request){
 
-        $judul  =   'Rekap Absensi WFH Pegawai Wakaf Salman ITB';
-        return view('absensi/rekap', compact('judul'));
+        $judul      =   'Rekap Absensi WFH Pegawai Wakaf Salman ITB';
+        $pegawai    =   Pegawai::all();
+        if($request->pegawai != NULL){
+            if($request->pegawai == "All"){
+                $data = Absensi::all();
+            }else{
+                $data = Absensi::where('id_users','LIKE','%'.$request->pegawai.'%')->get();
+            }
+        }else{
+            $data = Absensi::all();
+        }
+        return view('absensi/rekap', compact('judul','data','pegawai'));
 
     }
 
@@ -89,6 +103,12 @@ class AbsensiController extends Controller
             $data->update($absen_keluar);            
         }
         return redirect()->route('absen')->with('success', 'Anda berhasil mengisi absen keluar WFH. Selamat beristirahat :) tetap jaga prokes dan kesehatan');
+    }
+
+    public function eksport_absensi(){
+
+        return Excel::download(new AbsensiExport, 'Rekapitulasi Absensi WFH Wakaf Salman ITB.xlsx');
+
     }
 
 }

@@ -24,17 +24,22 @@
 
   <section class="content-header">  
     <div class="row">
-      <div class="col-md-2">
-          <select name="jenis_kelamin" class="form-control" aria-label="Default select example">
-            <option selected>Radian Pradhana</option>
-            <!--
-            <option value="Laki-Laki">Laki-Laki</option>
-            <option value="Perempuan">Perempuan</option>
-            -->
-          </select>
-      </div>
+      <form method="GET" action="/absensi">
+        <div class="col-md-2">
+            <select name="pegawai" class="form-control" aria-label="Default select example">
+              <option selected>Pilih Pegawai</option>
+              <option value="All">Semua Pegawai</option>
+              @foreach($pegawai as $row)
+                <option value="{{$row->id}}">{{$row->nama}}</option>
+              @endforeach
+            </select>
+        </div>
+        <div class="col-md-1">
+          <button type="submit" class="btn btn-info">Cari</button>
+        </div>
+      </form>
       <div class="col-md-1">
-        <a href="#" class="btn btn-info">Cari</a>    
+        <a href="/eksport_absensi" class="btn btn-success">Eksport Data Absensi</a>    
       </div>
     </div>
   </section>
@@ -46,7 +51,7 @@
     <div class="box">
       <!-- /.box-header -->
       <div class="box-body">
-        <table id="example1" class="table table-bordered table-striped">
+        <table class="table table-bordered">
           <thead>
           <tr>
             <th>No</th>
@@ -54,27 +59,33 @@
             <th>Nama</th>
             <th>Keterangan</th>
             <th>Jam Absen Masuk</th>
+            <th>Rencana Kerja</th>
             <th>Jam Absen Keluar</th>
             <th>Hasil Kerja</th>
-            <th>Aksi</th>
           </tr>
           </thead>
           <tbody>
+          @php
+              $no = 1;
+          @endphp    
+          @foreach($data as $row)
           <tr>
-            <th scope="row">1</th>
-            <td>8 February 2022</td>
-            <td>Radian Pradhana</td>
+            <th scope="row">{{ $no++ }}</th>
+            <td>{{ $row->tanggal }}</td>
+            <td>{{ $row->pegawais->nama }}</td>
             <td>WFH</td>
-            <td>08:51:19</td>
-            <td>18:10:13</td>
+            <td>{{ $row->jam_masuk }}</td>
+            <td>{{ $row->rencana_kerja }}</td>
+            @if( $row->jam_keluar != NULL)
+            <td>{{ $row->jam_keluar }}</td>
+            @else
+            <td>00:00:00</td>
+            @endif
             <td>
-                <img src="{{ asset('img/absensi-wfh/radian-pradhana/Hasil-Kerja-08-02-2022.png')  }}" style="width: 180px; height: 200px;">
-            </td>
-            <td>
-                <a href="#" class="btn btn-info">Edit</a>
-                <a href="#" class="btn btn-danger">Delete</a>
-            </td>
+                <img src="{{ asset('img/hasil-kerja-wfh/'.$row->hasil_kerja)  }}" style="width: 180px; height: 200px;">
+            </td>            
           </tr>
+          @endforeach
           </tbody>
         </table>
       </div>
