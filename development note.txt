@@ -1,9 +1,8 @@
 To do list :
-- upload sistem ke server
-- tambah icon-icon
+- tambah icon-icon dan gambar
 - form pake modal
 - modifikasi simpan foto dengan nama tertentu
 - CRUD profil user
+- screening form
+- edit rencana kerja
 - batasi hak akses 
-- ganti template yang sewarna dengan wakaf
-- kerjakan sistem sertifikat

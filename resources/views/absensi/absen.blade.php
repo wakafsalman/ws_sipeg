@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title', 'WAKAF SALMAN SIPEG')
+@section('title', 'Sistem Employee Wakaf Salman ITB')
 
 @section('content')
 <div class="content-wrapper">
@@ -18,11 +18,11 @@
   <section class="content-header">  
     <div class="row">
       <div class="col-md-1 pull-right">
-        <a href="/absen_keluar" class="btn btn-success">Absen Keluar</a>    
+        <a href="/absen_keluar" class="btn btn-success"><i class="glyphicon glyphicon-log-out"></i> Absen Keluar</a>    
       </div>
       <div class="col-md-1 pull-right">
         @if($jam_masuk->count() == 0)
-        <a href="/absen_masuk" class="btn btn-info">Absen Masuk</a>
+        <a href="/absen_masuk" class="btn btn-info"><i class="glyphicon glyphicon-log-in"></i> Absen Masuk</a>
         @else
         <div></div>
         @endif
@@ -63,6 +63,7 @@
             <td>{{ $row->jam_masuk }}</td>
             <td>
               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-rencana">
+              <i class="glyphicon glyphicon-eye-open"></i> 
                 Lihat
               </button>
 
@@ -90,8 +91,10 @@
             @else
             <td>00:00:00</td>
             @endif
+            @if( $row->hasil_kerja != NULL)
             <td>
               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-hasil">
+              <i class="glyphicon glyphicon-eye-open"></i> 
                 Lihat
               </button>
 
@@ -114,6 +117,9 @@
                 <!-- /.modal-dialog -->
               </div>
             </td>            
+            @else
+            <td></td>
+            @endif
           </tr>
           @endforeach
           </tbody>

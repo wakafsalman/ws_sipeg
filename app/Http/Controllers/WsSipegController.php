@@ -13,7 +13,7 @@ class WsSipegController extends Controller
 
     public function index(){
 
-        $judul = 'WAKAF SALMAN SIPEG';
+        $judul = 'Sistem Employee Wakaf Salman ITB';
         return view('login', compact('judul'));
 
 
@@ -34,26 +34,6 @@ class WsSipegController extends Controller
 
         return redirect('/');
 
-    }
-
-    public function daftar(){
-
-        $judul = 'WAKAF SALMAN SIPEG';
-        return view('daftar', compact('judul'));
-
-    }
-
-    public function proses_daftar(Request $request){
-
-        User::create([
-            'nama' => $request->nama,
-            'email' => $request->email,
-            'roles' => $request->roles,
-            'password' => bcrypt($request->password),
-            'remember_token' => Str::random(60),
-        ]);
-
-        return redirect('/');
     }
 
     public function logout(){

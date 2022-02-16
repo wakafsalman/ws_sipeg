@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title', 'WAKAF SALMAN SIPEG')
+@section('title', 'Sistem Employee Wakaf Salman ITB')
 
 @section('content')
 <div class="content-wrapper">
@@ -17,7 +17,7 @@
   <section class="content-header">  
     <div class="row">
       <div class="col-md-1">
-        <a href="/tambah_user" class="btn btn-success mb-4">+ Tambah User</a>
+        <a href="/tambah_user" class="btn btn-success mb-4"><i class="glyphicon glyphicon-plus"></i> Tambah User</a>
       </div>
     </div>
   </section>
@@ -25,10 +25,11 @@
   <section class="content-header">  
     <div class="row">
       <div class="col-md-1">
-        <a href="/eksport_user" class="btn btn-success">Eksport Excel</a>    
+        <a href="/eksport_user" class="btn btn-success"><i class="glyphicon glyphicon-save"></i> Eksport Excel</a>    
       </div>
       <div class="col-md-1">
         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-default">
+        <i class="glyphicon glyphicon-open"></i>
           Import Data
         </button>
 
@@ -89,8 +90,8 @@
             <td>{{ $row->email }}</td>
             <td>{{ $row->roles->nama }}</td>
             <td>
-                <a href="/rubah_user/{{ $row->id }}" class="btn btn-info">Edit</a>
-                <a href="#" class="btn btn-danger hapus-user" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}">Delete</a>
+                <a href="/rubah_user/{{ $row->id }}" class="btn btn-info"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                <a href="#" class="btn btn-danger hapus-user" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}"><i class="glyphicon glyphicon-trash"></i> Delete</a>
             </td>
           </tr>
           @endforeach

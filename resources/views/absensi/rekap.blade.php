@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title', 'WAKAF SALMAN SIPEG')
+@section('title', 'Sistem Employee Wakaf Salman ITB')
 
 @section('content')
 <div class="content-wrapper">
@@ -32,11 +32,11 @@
             </select>
         </div>
         <div class="col-md-1">
-          <button type="submit" class="btn btn-info">Cari</button>
+          <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i> Cari</button>
         </div>
       </form>
       <div class="col-md-1">
-        <a href="/eksport_absensi" class="btn btn-success">Eksport Data Absensi</a>    
+        <a href="/eksport_absensi" class="btn btn-success"><i class="glyphicon glyphicon-save"></i> Eksport Data Absensi</a>    
       </div>
     </div>
   </section>
@@ -74,6 +74,7 @@
             <td>{{ $row->jam_masuk }}</td>
             <td>
               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-rencana">
+              <i class="glyphicon glyphicon-eye-open"></i> 
                 Lihat
               </button>
 
@@ -103,6 +104,7 @@
             @endif
             <td>
               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-hasil">
+              <i class="glyphicon glyphicon-eye-open"></i>   
                 Lihat
               </button>
 

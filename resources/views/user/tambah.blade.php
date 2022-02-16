@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title', 'WAKAF SALMAN SIPEG')
+@section('title', 'Sistem Employee Wakaf Salman ITB')
 
 @section('content')
 <div class="content-wrapper">
@@ -60,7 +60,7 @@
 
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="/user" class="btn btn-primary">Kembali</a>
+                <a href="/user" class="btn btn-default">Kembali</a>
               </div>
             </form>
           </div>

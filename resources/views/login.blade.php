@@ -6,6 +6,8 @@
   <title>{{ $judul }}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- icon WS -->
+  <link rel="icon" type="image/x-icon" href="{{ asset('img/logo/wakaf-salman.ico') }}"/>
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{asset('template')}}/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -30,7 +32,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="https://wakafsalman.or.id/">Wakaf Salman ITB</a>
+    <a href="https://wakafsalman.or.id/"><img src="{{ asset('img/logo/wakaf-salman.png')  }}" style="width: 350px; height: 200px;"></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -53,10 +55,6 @@
         <!-- /.col -->
       </div>
     </form>
-
-    <!--
-    <a href="/daftar" class="text-center">Daftar user Super Admin doang :D</a>
-    -->
 
   </div>
   <!-- /.login-box-body -->

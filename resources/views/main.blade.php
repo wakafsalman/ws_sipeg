@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title','WAKAF SALMAN SIPEG')
+@section('title','Sistem Employee Wakaf Salman ITB')
 
 @section('content')
 <div class="content-wrapper">
@@ -19,7 +19,7 @@
     <!-- Default box -->
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title">WAKAF SALMAN SIPEG</h3>
+        <h3 class="box-title">Sistem Employee Wakaf Salman ITB</h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
