@@ -16,22 +16,15 @@ class PegawaiController extends Controller
 
     public function index(){
 
-        $data   =   Pegawai::all();
-        $judul  =   'Data Pegawai';
-        return view('pegawai/data', compact('data','judul'));
-
-    }
-
-    public function tambah_pegawai(){
-
-        $judul      =   'Tambah Data Pegawai';
+        $judul      =   'Data Pegawai';
+        $data       =   Pegawai::all();
         $jabatan    =   Jabatan::all();
         $divisi     =   Divisi::all();
-        return view('pegawai/tambah', compact('judul','jabatan','divisi'));
+        return view('pegawai/data', compact('judul','data','jabatan','divisi'));
 
     }
 
-    public function proses_tambah_pegawai(Request $request){
+    public function tambah_pegawai(Request $request){
 
         $data = Pegawai::create($request->all());
         if($request->hasFile('foto')){
@@ -43,17 +36,7 @@ class PegawaiController extends Controller
 
     }
 
-    public function rubah_pegawai($id){
-
-        $data       =   Pegawai::find($id);
-        $judul      =   'Rubah Data Pegawai';
-        $jabatan    =   Jabatan::all();
-        $divisi     =   Divisi::all();
-        return view('pegawai/rubah', compact('data','judul','jabatan','divisi'));
-
-    }
-
-    public function proses_rubah_pegawai(Request $request, $id){
+    public function rubah_pegawai(Request $request, $id){
 
         $data = Pegawai::find($id);
         $data->update($request->all());
@@ -85,7 +68,7 @@ class PegawaiController extends Controller
 
     public function eksport_pegawai(){
 
-        return Excel::download(new PegawaiExport, 'Daftar Karyawan Wakaf Salman.xlsx');
+        return Excel::download(new PegawaiExport, 'Daftar Karyawan Wakaf Salman ITB.xlsx');
 
     }
 

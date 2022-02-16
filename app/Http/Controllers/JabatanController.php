@@ -20,29 +20,14 @@ class JabatanController extends Controller
 
     }
 
-    public function tambah_jabatan(){
-
-        $judul  =   'Tambah Data Jabatan';
-        return view('jabatan/tambah', compact('judul'));
-
-    }
-
-    public function proses_tambah_jabatan(Request $request){
+    public function tambah_jabatan(Request $request){
 
         $data = Jabatan::create($request->all());
         return redirect()->route('jabatan')->with('success', 'Data berhasil ditambah');
 
     }
 
-    public function rubah_jabatan($id){
-
-        $data   =   Jabatan::find($id);
-        $judul  =   'Rubah Data Jabatan';
-        return view('jabatan/rubah', compact('data','judul'));
-
-    }
-
-    public function proses_rubah_jabatan(Request $request, $id){
+    public function rubah_jabatan(Request $request, $id){
 
         $data = Jabatan::find($id);
         $data->update($request->all());
@@ -60,7 +45,7 @@ class JabatanController extends Controller
 
     public function eksport_jabatan(){
 
-        return Excel::download(new JabatanExport, 'Daftar Jabatan di Wakaf Salman.xlsx');
+        return Excel::download(new JabatanExport, 'Daftar Jabatan Wakaf Salman ITB.xlsx');
 
     }
 

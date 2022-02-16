@@ -15,6 +15,7 @@ class PegawaiImport implements ToModel
     public function model(array $row)
     {
         return new Pegawai([
+            
             'nama' => $row[1],
             'jenis_kelamin' => $row[2],
             'no_telepon' => $row[3],

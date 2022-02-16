@@ -1,8 +1,6 @@
 To do list :
-- tambah icon-icon dan gambar
-- form pake modal
-- modifikasi simpan foto dengan nama tertentu
 - CRUD profil user
-- screening form
 - edit rencana kerja
+- screening form
+- modifikasi simpan foto dengan nama tertentu
 - batasi hak akses 

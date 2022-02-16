@@ -20,29 +20,14 @@ class RoleController extends Controller
 
     }
 
-    public function tambah_role_user(){
-
-        $judul  =   'Tambah Data Role User';
-        return view('role/tambah', compact('judul'));
-
-    }
-
-    public function proses_tambah_role_user(Request $request){
+    public function tambah_role_user(Request $request){
 
         $data = Role::create($request->all());
         return redirect()->route('role_user')->with('success', 'Data berhasil ditambah');
 
     }
 
-    public function rubah_role_user($id){
-
-        $data   =   Role::find($id);
-        $judul  =   'Rubah Data Role User';
-        return view('role/rubah', compact('data','judul'));
-
-    }
-
-    public function proses_rubah_role_user(Request $request, $id){
+    public function rubah_role_user(Request $request, $id){
 
         $data = Role::find($id);
         $data->update($request->all());
@@ -60,7 +45,7 @@ class RoleController extends Controller
 
     public function eksport_role_user(){
 
-        return Excel::download(new RoleExport, 'Daftar Role User di Wakaf Salman.xlsx');
+        return Excel::download(new RoleExport, 'Daftar Role User Wakaf Salman ITB.xlsx');
 
     }
 

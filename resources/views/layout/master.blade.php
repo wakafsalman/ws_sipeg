@@ -154,7 +154,7 @@ $('.hapus').click(function(){
         .then((willDelete) => {
         if (willDelete) {
             window.location = "/hapus_pegawai/"+id_pegawai+""
-            swal("BAAAAM! Data berhasil dihapus", {
+            swal("Data berhasil dihapus", {
             icon: "success",
             });
         } else {
@@ -177,7 +177,7 @@ $('.hapus-user').click(function(){
         .then((willDelete) => {
         if (willDelete) {
             window.location = "/hapus_user/"+id_user+""
-            swal("BAAAAM! Data berhasil dihapus", {
+            swal("Data berhasil dihapus", {
             icon: "success",
             });
         } else {
@@ -200,7 +200,7 @@ $('.hapus-divisi').click(function(){
         .then((willDelete) => {
         if (willDelete) {
             window.location = "/hapus_divisi/"+id_divisi+""
-            swal("BAAAAM! Data berhasil dihapus", {
+            swal("Data berhasil dihapus", {
             icon: "success",
             });
         } else {
@@ -223,7 +223,7 @@ $('.hapus-jabatan').click(function(){
         .then((willDelete) => {
         if (willDelete) {
             window.location = "/hapus_jabatan/"+id_jabatan+""
-            swal("BAAAAM! Data berhasil dihapus", {
+            swal("Data berhasil dihapus", {
             icon: "success",
             });
         } else {
@@ -246,7 +246,7 @@ $('.hapus-role-user').click(function(){
         .then((willDelete) => {
         if (willDelete) {
             window.location = "/hapus_role_user/"+id_role_user+""
-            swal("BAAAAM! Data berhasil dihapus", {
+            swal("Data berhasil dihapus", {
             icon: "success",
             });
         } else {

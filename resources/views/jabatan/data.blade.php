@@ -17,7 +17,8 @@
   <section class="content-header">  
     <div class="row">
       <div class="col-md-1">
-        <a href="/tambah_jabatan" class="btn btn-success mb-4"><i class="glyphicon glyphicon-plus"></i> Tambah Jabatan</a>
+        <a href="" class="btn btn-success mb-4" data-toggle="modal" data-target="#modal-tambah-jabatan"><i class="glyphicon glyphicon-plus"></i> Tambah Jabatan</a>
+
       </div>
     </div>
   </section>
@@ -28,33 +29,10 @@
         <a href="/eksport_jabatan" class="btn btn-success"><i class="glyphicon glyphicon-save"></i> Eksport Excel</a>    
       </div>
       <div class="col-md-1">
-        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-default">
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-import-jabatan">
         <i class="glyphicon glyphicon-open"></i>
           Import Data
         </button>
-
-        <div class="modal fade" id="modal-default">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title">Import Data</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              </div>
-              <form action="/import_jabatan" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body">
-                  <input type="file" name="file" class="form-control">
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Kembali</button>
-                  <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-              </form>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
       </div>
     </div>
   </section>
@@ -86,7 +64,7 @@
             <th scope="row">{{ $no++ }}</th>
             <td>{{ $row->nama }}</td>
             <td>
-                <a href="/rubah_jabatan/{{ $row->id }}" class="btn btn-info"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-rubah-jabatan-{{ $row->id }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                 <a href="#" class="btn btn-danger hapus-jabatan" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}"><i class="glyphicon glyphicon-trash"></i> Delete</a>
             </td>
           </tr>
@@ -100,4 +78,7 @@
   </section>
   <!-- /.content -->
 </div>
+
+@include('jabatan.modal')
+
 @endsection

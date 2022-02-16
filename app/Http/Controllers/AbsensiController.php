@@ -16,6 +16,9 @@ class AbsensiController extends Controller
     //
     public function index(Request $request){
 
+        $date = new DateTime('now');
+        $tanggal    =   $date->format('Y-m-d');
+
         $judul      =   'Rekap Absensi WFH Pegawai Wakaf Salman ITB';
         $pegawai    =   Pegawai::all();
         if($request->pegawai != NULL){
@@ -27,7 +30,7 @@ class AbsensiController extends Controller
         }else{
             $data = Absensi::all();
         }
-        return view('absensi/rekap', compact('judul','data','pegawai'));
+        return view('absensi/rekap', compact('tanggal','judul','data','pegawai'));
 
     }
 
@@ -42,21 +45,11 @@ class AbsensiController extends Controller
                                ->where('id_users', auth()->user()->id_pegawais)
                                ->where('tanggal', $tanggal)
                                ->get(); 
-        return view('absensi/absen', compact('judul','data','jam_masuk'));
+        return view('absensi/absen', compact('tanggal','judul','data','jam_masuk'));
 
     }
 
-    public function absen_masuk(){
-
-        $date = new DateTime('now');
-
-        $judul      =   'Absensi Masuk WFH';
-        $tanggal    =   $date->format('d-m-Y');
-        return view('absensi/absen-masuk', compact('judul','tanggal'));
-
-    }
-
-    public function proses_absen_masuk(Request $request){
+    public function absen_masuk(Request $request){
 
         $timezone   =   'Asia/Jakarta';
         $date       =   new DateTime('now', new DateTimeZone($timezone));
@@ -73,17 +66,7 @@ class AbsensiController extends Controller
         return redirect()->route('absen')->with('success', 'Anda berhasil mengisi absen masuk WFH. Selamat bekerja :) tetap jaga prokes dan kesehatan');
     }
 
-    public function absen_keluar(){
-
-        $date = new DateTime('now');
-
-        $judul      =   'Absensi Masuk WFH';
-        $tanggal    =   $date->format('d-m-Y');
-        return view('absensi/absen-keluar', compact('judul','tanggal'));
-        
-    }
-
-    public function proses_absen_keluar(Request $request){
+    public function absen_keluar(Request $request){
 
         
         $timezone   =   'Asia/Jakarta';

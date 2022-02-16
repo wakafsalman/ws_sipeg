@@ -17,22 +17,15 @@ class UserController extends Controller
 
     public function index(){
 
-        $data   =   User::all();
-        $judul  =   'Data User';
-        return view('user/data', compact('data','judul'));
-
-    }
-
-    public function tambah_user(){
-
-        $judul      =   'Tambah Data User';
+        $data       =   User::all();
+        $judul      =   'Data User';
         $role_user  =   Role::all();
         $pegawai    =   Pegawai::all();
-        return view('user/tambah', compact('judul','role_user','pegawai'));
+        return view('user/data', compact('data','judul','role_user','pegawai'));
 
     }
 
-    public function proses_tambah_user(Request $request){
+    public function tambah_user(Request $request){
 
         $data = User::create([
             'nama' => $request->nama,
@@ -46,17 +39,7 @@ class UserController extends Controller
 
     }
 
-    public function rubah_user($id){
-
-        $data       =   User::find($id);
-        $judul      =   'Rubah Data User';
-        $role_user  =   Role::all();
-        $pegawai    =   Pegawai::all();
-        return view('user/rubah', compact('data','judul','role_user','pegawai'));
-
-    }
-
-    public function proses_rubah_user(Request $request, $id){
+    public function rubah_user(Request $request, $id){
 
         $data = User::find($id);
         $data->update($request->all());
