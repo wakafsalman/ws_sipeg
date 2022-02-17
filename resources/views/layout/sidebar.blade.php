@@ -4,7 +4,7 @@
     <!-- Sidebar user panel -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="{{asset('template')}}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        <img src="{{ asset('img/profil/'.Auth::user()->foto)  }}" class="img-circle" alt="User Image" style="width:45px; height:45px;">
       </div>
       <div class="pull-left info">
         <p>Welcome,</p>

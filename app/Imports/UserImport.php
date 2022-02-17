@@ -19,7 +19,8 @@ class UserImport implements ToModel
             'email' => $row[2],
             'password' => $row[4],
             'id_roles' => $row[7],
-            'id_pegawais' => $row[8]
+            'id_pegawais' => $row[8],
+            'foto' => $row[9]
         ]);
     }
 }

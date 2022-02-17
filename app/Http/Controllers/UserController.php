@@ -35,6 +35,11 @@ class UserController extends Controller
             'password' => bcrypt($request->password),
             'remember_token' => Str::random(60),
         ]);
+        if($request->hasFile('foto')){
+            $request->file('foto')->move('img/user/', $request->file('foto')->getClientOriginalName());
+            $data->foto = $request->file('foto')->getClientOriginalName();
+            $data->save();
+        }
         return redirect()->route('user')->with('success', 'Data berhasil ditambah');
 
     }
@@ -43,6 +48,11 @@ class UserController extends Controller
 
         $data = User::find($id);
         $data->update($request->all());
+        if($request->hasFile('foto')){
+            $request->file('foto')->move('img/user/', $request->file('foto')->getClientOriginalName());
+            $data->foto = $request->file('foto')->getClientOriginalName();
+            $data->save();
+        }
         return redirect()->route('user')->with('success', 'Data berhasil dirubah');
 
     }

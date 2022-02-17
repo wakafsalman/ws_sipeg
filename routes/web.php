@@ -26,8 +26,8 @@ Route::get('/', [WsSipegController::class, 'index'])->name('login');
 Route::get('/beranda', [WsSipegController::class, 'beranda']);
 Route::post('/proses_login', [WsSipegController::class, 'proses_login'])->name('proses_login');
 Route::get('/logout', [WsSipegController::class, 'logout']);
-Route::get('/daftar', [WsSipegController::class, 'daftar'])->name('daftar');
-Route::post('/proses_daftar', [WsSipegController::class, 'proses_daftar'])->name('proses_daftar');
+Route::get('/profil', [WsSipegController::class, 'profil'])->name('profil');
+Route::post('/rubah_profil/{id}', [WsSipegController::class, 'rubah_profil'])->name('rubah_profil');
 
 //Karyawan
 Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai');

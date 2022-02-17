@@ -1,5 +1,4 @@
 To do list :
-- CRUD profil user
 - edit rencana kerja
 - screening form
 - modifikasi simpan foto dengan nama tertentu

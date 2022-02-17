@@ -53,6 +53,7 @@
             <th>Nama</th>
             <th>Email</th>
             <th>Roles</th>
+            <th>Foto</th>
             <th>Aksi</th>
           </tr>
           </thead>
@@ -66,6 +67,9 @@
             <td>{{ $row->nama }}</td>
             <td>{{ $row->email }}</td>
             <td>{{ $row->roles->nama }}</td>
+            <td>
+              <img src="{{ asset('img/profil/'.$row->foto)  }}" style="width: 180px; height: 200px;">
+            </td>
             <td>
                 <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-rubah-user-{{ $row->id }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                 <a href="#" class="btn btn-danger hapus-user" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}"><i class="glyphicon glyphicon-trash"></i> Delete</a>

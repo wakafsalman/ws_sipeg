@@ -78,6 +78,6 @@
   <!-- /.content -->
 </div>
 
-@include('absensi.modal')
+@include('divisi.modal')
 
 @endsection

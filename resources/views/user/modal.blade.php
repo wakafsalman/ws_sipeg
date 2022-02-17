@@ -28,7 +28,7 @@
                 <h4 class="modal-title">Tambah Data User</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             </div>
-            <form role="form" action="/tambah_user" method="POST">
+            <form role="form" action="/tambah_user" method="POST" enctype="multipart/form-data">
             @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -58,6 +58,10 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputPhoto" class="form-label">Foto</label>
+                        <input type="file" name="foto" class="form-control" id="exampleInputPhoto">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputPassword" class="form-label">Password</label>
                         <input type="password" name="password" class="form-control" id="exampleInputPassword">
                     </div>
@@ -80,7 +84,7 @@
                 <h4 class="modal-title">Rubah Data User</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             </div>
-            <form role="form" action="/rubah_user/{{ $row->id }}" method="POST">
+            <form role="form" action="/rubah_user/{{ $row->id }}" method="POST" enctype="multipart/form-data">
             @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -108,6 +112,10 @@
                                 <option value="{{ $data->id }}">{{ $data->nama }}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPhoto" class="form-label">Foto</label>
+                        <input type="file" name="foto" class="form-control" id="exampleInputPhoto">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword" class="form-label">Password</label>
