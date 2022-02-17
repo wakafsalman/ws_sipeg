@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\ScreeningController;
 
 
 /*
@@ -67,6 +68,9 @@ Route::post('/absen_masuk', [AbsensiController::class, 'absen_masuk'])->name('ab
 Route::post('/absen_keluar', [AbsensiController::class, 'absen_keluar'])->name('absen_keluar');
 Route::post('/rubah_rencana_kerja/{id}', [AbsensiController::class, 'rubah_rencana_kerja'])->name('rubah_rencana_kerja');
 
+//Screening
+Route::get('/screening', [ScreeningController::class, 'index'])->name('screening');
+
 //PDF
 Route::get('/eksport_pdf', [PegawaiController::class, 'eksport_pdf'])->name('eksport_pdf');
 
@@ -89,3 +93,5 @@ Route::get('/eksport_role_user', [RoleController::class, 'eksport_role_user'])->
 Route::post('/import_role_user', [RoleController::class, 'import_role_user'])->name('import_role_user');
 /*Rekap Absen WFH*/
 Route::get('/eksport_absensi', [AbsensiController::class, 'eksport_absensi'])->name('eksport_absensi');
+/*Rekap Screening Harian*/
+Route::get('/eksport_screening', [ScreeningController::class, 'eksport_screening'])->name('eksport_screening');

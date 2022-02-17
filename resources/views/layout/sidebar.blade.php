@@ -19,7 +19,7 @@
       <!-- Hak Akses Super Admin -->
       @if (auth()->user()->id_roles==1)
       <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Pegawai</span></a></li>
-      <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
+      <li class="treeview {{ request()->is('absensi') || request()->is('screening') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
           <span>Absensi</span>
@@ -28,6 +28,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
+          <li><a href="/screening"><i class="fa fa-circle-o"></i>Rekap Screening Harian</a></li>
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
         </ul>
       </li>
@@ -65,7 +66,7 @@
       <!-- Hak Akses HRD -->
       @elseif (auth()->user()->id_roles==8)
       <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Pegawai</span></a></li>
-      <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
+      <li class="treeview {{ request()->is('absensi') || request()->is('absen')  || request()->is('screening') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
           <span>Absensi</span>
@@ -74,6 +75,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
+          <li><a href="/screening"><i class="fa fa-circle-o"></i>Rekap Screening Harian</a></li>
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>

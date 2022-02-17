@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Absensi;
 use App\Models\Pegawai;
+use App\Models\Screening;
 use App\Exports\AbsensiExport;
 use Illuminate\Http\Request;
 use DateTime;
@@ -92,6 +93,28 @@ class AbsensiController extends Controller
             ];
             $data->update($absen_keluar);            
         }
+
+        Screening::create([
+            'id_users'              =>  auth()->user()->id,
+            'id_pegawais'           =>  auth()->user()->id_pegawais,
+            'tanggal'               =>  $tanggal,
+            'demam'                 =>  $request->demam,
+            'batuk_dahak'           =>  $request->batuk_dahak,
+            'batuk_kering'          =>  $request->batuk_kering,
+            'lelah'                 =>  $request->lelah,
+            'sesak_nafas'           =>  $request->sesak_nafas,
+            'nyeri_sendi'           =>  $request->nyeri_sendi,
+            'sakit_kepala'          =>  $request->sakit_kepala,
+            'bersin'                =>  $request->bersin,
+            'pilek'                 =>  $request->pilek,
+            'hidung_mampet'         =>  $request->hidung_mampet,
+            'mata_berair'           =>  $request->mata_berair,
+            'sakit_tenggorokan'     =>  $request->sakit_tenggorokan,
+            'diare'                 =>  $request->diare,
+            'cium_aroma'            =>  $request->cium_aroma,
+            'rasa_lidah'            =>  $request->rasa_lidah,
+            'lain_lain'             =>  $request->lain_lain,
+        ]);
         return redirect()->route('absen')->with('success', 'Anda berhasil mengisi absen keluar WFH. Selamat beristirahat :) tetap jaga prokes dan kesehatan');
     }
 

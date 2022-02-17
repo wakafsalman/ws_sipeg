@@ -1,5 +1,5 @@
 To do list :
-- screening form
+- bugs nama di rekap screening
 - modifikasi simpan foto dengan nama tertentu
 - rekap hasil kerja dengan link seperti google drive
 - batasi hak akses 
