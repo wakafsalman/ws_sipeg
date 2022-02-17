@@ -1,5 +1,5 @@
 To do list :
-- edit rencana kerja
 - screening form
 - modifikasi simpan foto dengan nama tertentu
+- rekap hasil kerja dengan link seperti google drive
 - batasi hak akses 

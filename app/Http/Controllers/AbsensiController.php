@@ -101,4 +101,12 @@ class AbsensiController extends Controller
 
     }
 
+    public function rubah_rencana_kerja(Request $request, $id){
+
+        $data = Absensi::find($id);
+        $data->update($request->all());
+        return redirect()->route('absen')->with('success', 'Data berhasil dirubah');
+
+    }
+
 }

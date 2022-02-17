@@ -63,6 +63,7 @@
               <i class="glyphicon glyphicon-eye-open"></i> 
                 Lihat
               </button>
+              <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-rubah-rencana-kerja-{{ $row->id }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
             </td>
             @if( $row->jam_keluar != NULL)
             <td>{{ $row->jam_keluar }}</td>

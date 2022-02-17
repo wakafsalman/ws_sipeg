@@ -109,3 +109,30 @@
         </div>
     </div>
 </div>
+
+<!-- Rubah Rencana Kerja -->
+@foreach($data as $row)
+<div class="modal fade" id="modal-rubah-rencana-kerja-{{ $row->id }}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Rubah Rencana Kerja</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            </div>
+            <form role="form" action="/rubah_rencana_kerja/{{ $row->id }}" method="POST">
+            @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputPlanningWork" class="form-label">Rencana Kerja</label>
+                        <textarea class="form-control" name="rencana_kerja" rows="3">{{ $row->rencana_kerja }}</textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Kembali</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endforeach

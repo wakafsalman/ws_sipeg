@@ -36,7 +36,7 @@ class UserController extends Controller
             'remember_token' => Str::random(60),
         ]);
         if($request->hasFile('foto')){
-            $request->file('foto')->move('img/user/', $request->file('foto')->getClientOriginalName());
+            $request->file('foto')->move('img/profil/', $request->file('foto')->getClientOriginalName());
             $data->foto = $request->file('foto')->getClientOriginalName();
             $data->save();
         }
@@ -49,7 +49,7 @@ class UserController extends Controller
         $data = User::find($id);
         $data->update($request->all());
         if($request->hasFile('foto')){
-            $request->file('foto')->move('img/user/', $request->file('foto')->getClientOriginalName());
+            $request->file('foto')->move('img/profil/', $request->file('foto')->getClientOriginalName());
             $data->foto = $request->file('foto')->getClientOriginalName();
             $data->save();
         }

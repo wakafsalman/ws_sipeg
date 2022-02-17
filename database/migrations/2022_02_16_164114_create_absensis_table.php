@@ -17,7 +17,7 @@ class CreateAbsensisTable extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('id_users')->nullable();
-            $table->date('tgl_lahir')->nullable();
+            $table->date('tanggal')->nullable();
             $table->time('jam_masuk')->nullable();
             $table->text('rencana_kerja')->nullable();
             $table->time('jam_keluar')->nullable();
