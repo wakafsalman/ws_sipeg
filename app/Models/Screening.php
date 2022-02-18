@@ -18,7 +18,7 @@ class Screening extends Model
     }
 
     public function pegawais(){
-        return $this->belongsTo(Pegawai::class,'id_users','id');
+        return $this->belongsTo(Pegawai::class,'id_pegawais','id');
     }
 
 }
