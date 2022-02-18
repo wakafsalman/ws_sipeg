@@ -28,8 +28,9 @@ class PegawaiController extends Controller
 
         $data = Pegawai::create($request->all());
         if($request->hasFile('foto')){
-            $request->file('foto')->move('img/pegawai/', $request->file('foto')->getClientOriginalName());
-            $data->foto = $request->file('foto')->getClientOriginalName();
+            $gambar = $request->nama.".".$request->file('foto')->getClientOriginalExtension();
+            $request->file('foto')->move('img/pegawai/', $gambar);
+            $data->foto = $gambar;
             $data->save();
         }
         return redirect()->route('pegawai')->with('success', 'Data berhasil ditambah');
@@ -41,8 +42,9 @@ class PegawaiController extends Controller
         $data = Pegawai::find($id);
         $data->update($request->all());
         if($request->hasFile('foto')){
-            $request->file('foto')->move('img/pegawai/', $request->file('foto')->getClientOriginalName());
-            $data->foto = $request->file('foto')->getClientOriginalName();
+            $gambar = $request->nama.".".$request->file('foto')->getClientOriginalExtension();
+            $request->file('foto')->move('img/pegawai/', $gambar);
+            $data->foto = $gambar;
             $data->save();
         }
         return redirect()->route('pegawai')->with('success', 'Data berhasil dirubah');

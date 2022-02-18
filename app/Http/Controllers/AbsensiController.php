@@ -81,10 +81,11 @@ class AbsensiController extends Controller
         ]);
 
         if($request->hasFile('hasil_kerja')){
-            $request->file('hasil_kerja')->move('img/hasil-kerja-wfh/', $request->file('hasil_kerja')->getClientOriginalName());
+            $gambar = "Hasil Kerja_".auth()->user()->pegawais->nama."_".$tanggal.".".$request->file('hasil_kerja')->getClientOriginalExtension();
+            $request->file('hasil_kerja')->move('img/hasil-kerja-wfh/', $gambar);
             $absen_keluar=[
                 'jam_keluar'    => $localtime,
-                'hasil_kerja'   => $request->file('hasil_kerja')->getClientOriginalName() 
+                'hasil_kerja'   => $gambar 
             ];
             $data->update($absen_keluar);
         }else{

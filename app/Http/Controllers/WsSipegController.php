@@ -54,8 +54,9 @@ class WsSipegController extends Controller
         $data = User::find($id);
         $data->update($request->all());
         if($request->hasFile('foto')){
-            $request->file('foto')->move('img/profil/', $request->file('foto')->getClientOriginalName());
-            $data->foto = $request->file('foto')->getClientOriginalName();
+            $gambar = $request->email.".".$request->file('foto')->getClientOriginalExtension();
+            $request->file('foto')->move('img/profil/', $gambar);
+            $data->foto = $gambar;
             $data->save();
         }
         return redirect()->route('user')->with('success', 'Data berhasil dirubah');
