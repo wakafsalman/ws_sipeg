@@ -27,7 +27,7 @@ class AbsensiExport implements FromCollection, WithHeadings, WithMapping
             $absensi->tanggal,
             $absensi->jam_masuk,
             $absensi->jam_keluar,
-            $absensi->hasil_kerja
+            "https://employee.wakafsalman.or.id/img/hasil-kerja-wfh/".$absensi->hasil_kerja
 
         ] ;
 
