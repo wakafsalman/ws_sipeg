@@ -95,7 +95,7 @@ class AbsensiController extends Controller
         }
 
         Screening::create([
-            'id_users'              =>  auth()->user()->id,
+            'id_users'              =>  auth()->user()->id_pegawais,
             'id_pegawais'           =>  auth()->user()->id_pegawais,
             'tanggal'               =>  $tanggal,
             'demam'                 =>  $request->demam,
