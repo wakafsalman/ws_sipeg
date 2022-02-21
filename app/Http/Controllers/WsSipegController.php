@@ -59,7 +59,7 @@ class WsSipegController extends Controller
             $data->foto = $gambar;
             $data->save();
         }
-        return redirect()->route('user')->with('success', 'Data berhasil dirubah');
+        return redirect()->route('profil')->with('success', 'Data berhasil dirubah');
 
     }
 

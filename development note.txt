@@ -1,0 +1,21 @@
+SISTEM EMPLOYEE WAKAF SALMAN
+
+Done :
+
+- Data Karyawan
+- Absen
+
+To do List :
+
+- Proses Seleksi Rekruitmen
+- Record Training Karyawan (Offline/Online) ngelink ke E-Learning
+- Track Record Rotasi/Mutasi Jabatan/Penugasan (SK)
+- Target KPI per Individu
+- Penilaian
+- Gaji
+- Cuti
+- Penggunaan Inventaris Kantor
+
+Next Progress :
+
+- ceklist rencana kerja
