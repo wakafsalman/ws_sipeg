@@ -67,6 +67,7 @@
 
                 <div class="col-sm-10">
                   <input type="file" name="foto" class="form-control" id="exampleInputPhoto">
+                  <p class="help-block">Maksimal ukuran file foto yang bisa diupload 2MB. Format : jpeg, jpg, png</p>
                 </div>
               </div>
               <div class="form-group">
@@ -74,6 +75,7 @@
 
                 <div class="col-sm-10">
                   <input type="password" name="password" class="form-control" id="exampleInputPassword" value="{{ Auth::user()->password }}">
+                  <p class="help-block">Jika tidak ingin mengganti password tidak perlu diisi</p>
                 </div>
               </div>
               <div class="form-group">
