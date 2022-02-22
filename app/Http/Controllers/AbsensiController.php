@@ -9,6 +9,7 @@ use App\Exports\AbsensiExport;
 use Illuminate\Http\Request;
 use DateTime;
 use DateTimeZone;
+use Redirect;
 use Maatwebsite\Excel\Facades\Excel;
 
 
@@ -52,6 +53,15 @@ class AbsensiController extends Controller
 
     public function absen_masuk(Request $request){
 
+        $validator = \Validator::make($request->all(), [
+            'rencana_kerja'                 =>  'required',
+        ]);
+        
+        if ($validator->fails())
+        {
+            return Redirect::back()->with('absen_masuk_error', 'Mohon untuk mengisi rencana kerja');
+        }
+        
         $timezone   =   'Asia/Jakarta';
         $date       =   new DateTime('now', new DateTimeZone($timezone));
         $tanggal    =   $date->format('Y-m-d');
@@ -69,6 +79,30 @@ class AbsensiController extends Controller
 
     public function absen_keluar(Request $request){
 
+        $validator = \Validator::make($request->all(), [
+            'demam'                 =>  'required',
+            'batuk_dahak'           =>  'required',
+            'batuk_kering'          =>  'required',
+            'lelah'                 =>  'required',
+            'sesak_nafas'           =>  'required',
+            'nyeri_sendi'           =>  'required',
+            'sakit_kepala'          =>  'required',
+            'bersin'                =>  'required',
+            'pilek'                 =>  'required',
+            'hidung_mampet'         =>  'required',
+            'mata_berair'           =>  'required',
+            'sakit_tenggorokan'     =>  'required',
+            'diare'                 =>  'required',
+            'cium_aroma'            =>  'required',
+            'rasa_lidah'            =>  'required',
+            'lain_lain'             =>  'required',
+        ]);
+        
+        if ($validator->fails())
+        {
+            return Redirect::back()->with('error', 'Data gagal disimpan. Mohon untuk mengisi screening harian maupun mengupload hasil kerja');
+        }
+        
         
         $timezone   =   'Asia/Jakarta';
         $date       =   new DateTime('now', new DateTimeZone($timezone));

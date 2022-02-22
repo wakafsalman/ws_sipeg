@@ -256,9 +256,27 @@ $('.hapus-role-user').click(function(){
 });
 </script>
 <script>
-  @if(Session::has('success'))
-      toastr.success("{{ Session::get('success') }}")
-  @endif
+    @if(Session::has('success'))
+        toastr.success("{{ Session::get('success') }}")
+    @endif
 </script>
-</body>
+<script>
+    @if(Session::has('error'))
+        toastr.error("{{ Session::get('error') }}")
+
+        $(function() {
+            $('#modal-absen-keluar').modal('show');
+        });
+    @endif
+</script>
+<script>
+    @if(Session::has('absen_masuk_error'))
+        toastr.error("{{ Session::get('absen_masuk_error') }}")
+    
+        $(function() {
+            $('#modal-absen-masuk').modal('show');
+        });
+    @endif
+    </script>
+    </body>
 </html>
