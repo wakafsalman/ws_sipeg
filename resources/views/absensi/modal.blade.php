@@ -99,6 +99,7 @@
                     <div class="form-group">
                         <label for="exampleInputResultWork" class="form-label">Hasil Kerja</label>
                         <input type="file" name="hasil_kerja" class="form-control" id="exampleInputResultWork">
+                        <p class="help-block">Maksimal ukuran file foto yang bisa diupload 2MB. Format : jpeg, jpg, png</p>
                     </div>
                 </div>
                 <div class="modal-body">
