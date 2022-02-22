@@ -52,7 +52,12 @@ class WsSipegController extends Controller
     public function rubah_profil(Request $request, $id){
 
         $data = User::find($id);
-        $data->update($request->all());
+        $data_update=[
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ];
+        $data->update($data_update);
         if($request->hasFile('foto')){
             $gambar = $request->email.".".$request->file('foto')->getClientOriginalExtension();
             $request->file('foto')->move('img/profil/', $gambar);
