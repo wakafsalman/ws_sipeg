@@ -24,7 +24,7 @@ class ScreeningController extends Controller
             if($request->pegawai == "All"){
                 $data = Screening::all();
             }else{
-                $data = Screening::where('id_users','LIKE','%'.$request->pegawai.'%')->get();
+                $data = Absensi::where('id_users','=',$request->pegawai)->get();
             }
         }else{
             $data = Screening::all();

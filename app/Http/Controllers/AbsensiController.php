@@ -26,7 +26,7 @@ class AbsensiController extends Controller
             if($request->pegawai == "All"){
                 $data = Absensi::all();
             }else{
-                $data = Absensi::where('id_users','LIKE','%'.$request->pegawai.'%')->get();
+                $data = Absensi::where('id_users','=',$request->pegawai)->get();
             }
         }else{
             $data = Absensi::all();
