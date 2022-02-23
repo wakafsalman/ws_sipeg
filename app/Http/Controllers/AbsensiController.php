@@ -95,7 +95,6 @@ class AbsensiController extends Controller
             'diare'                 =>  'required',
             'cium_aroma'            =>  'required',
             'rasa_lidah'            =>  'required',
-            'lain_lain'             =>  'required',
         ]);
         
         if ($validator->fails())
