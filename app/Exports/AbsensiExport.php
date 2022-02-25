@@ -15,7 +15,13 @@ class AbsensiExport implements FromCollection, WithHeadings, WithMapping
     */
     public function collection()
     {
-        return Absensi::all();
+        return Absensi::select('id','id_users','tanggal','jam_masuk','jam_keluar','rencana_kerja')
+                        ->groupBy('id_users')
+                        ->groupBy('tanggal')
+                        ->groupBy('jam_masuk')
+                        ->groupBy('jam_keluar')
+                        ->selectRaw('GROUP_CONCAT(CONCAT(" https://employee.wakafsalman.or.id/img/hasil-kerja-wfh/", hasil_kerja)) as hasil_kerja')
+                        ->get();
     }
 
     public function map($absensi) : array {
@@ -27,7 +33,7 @@ class AbsensiExport implements FromCollection, WithHeadings, WithMapping
             $absensi->tanggal,
             $absensi->jam_masuk,
             $absensi->jam_keluar,
-            "https://employee.wakafsalman.or.id/img/hasil-kerja-wfh/".$absensi->hasil_kerja
+            $absensi->hasil_kerja
 
         ] ;
 
