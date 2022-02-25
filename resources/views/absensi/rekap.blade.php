@@ -56,7 +56,6 @@
             <th>Nama</th>
             <th>Keterangan</th>
             <th>Jam Absen Masuk</th>
-            <th>Rencana Kerja</th>
             <th>Jam Absen Keluar</th>
             <th>Hasil Kerja</th>
           </tr>
@@ -72,17 +71,7 @@
             <td>{{ $row->pegawais->nama }}</td>
             <td>WFH</td>
             <td>{{ $row->jam_masuk }}</td>
-            <td>
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-rencana-{{ $row->id }}">
-              <i class="glyphicon glyphicon-eye-open"></i> 
-                Lihat
-              </button>
-            </td>
-            @if( $row->jam_keluar != NULL)
             <td>{{ $row->jam_keluar }}</td>
-            @else
-            <td>00:00:00</td>
-            @endif
             <td>
               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-hasil-{{ $row->id }}">
               <i class="glyphicon glyphicon-eye-open"></i>   

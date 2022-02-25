@@ -64,9 +64,7 @@ Route::get('/hapus_role_user/{id}', [RoleController::class, 'hapus_role_user'])-
 //Absensi
 Route::get('/absensi', [AbsensiController::class, 'index'])->name('absensi');
 Route::get('/absen', [AbsensiController::class, 'absen'])->name('absen');
-Route::post('/absen_masuk', [AbsensiController::class, 'absen_masuk'])->name('absen_masuk');
-Route::post('/absen_keluar', [AbsensiController::class, 'absen_keluar'])->name('absen_keluar');
-Route::post('/rubah_rencana_kerja/{id}', [AbsensiController::class, 'rubah_rencana_kerja'])->name('rubah_rencana_kerja');
+Route::post('/presensi', [AbsensiController::class, 'presensi'])->name('presensi');
 
 //Screening
 Route::get('/screening', [ScreeningController::class, 'index'])->name('screening');

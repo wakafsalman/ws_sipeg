@@ -17,12 +17,8 @@
 
   <section class="content-header">  
     <div class="row">
-      <div class="col-md-1 pull-right">
-        @if($jam_masuk->count() == 0)
-          <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-absen-masuk"><i class="glyphicon glyphicon-log-in"></i> Absen Masuk</a>
-        @else
-          <a href="" class="btn btn-success" data-toggle="modal" data-target="#modal-absen-keluar"><i class="glyphicon glyphicon-log-out"></i> Absen Keluar</a>    
-        @endif
+      <div class="col-md-1">
+          <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-absen"><i class="glyphicon glyphicon-plus"></i> Isi Absensi</a>
       </div>
     </div>
   </section>
@@ -42,7 +38,6 @@
             <th>Nama</th>
             <th>Keterangan</th>
             <th>Jam Absen Masuk</th>
-            <th>Rencana Kerja</th>
             <th>Jam Absen Keluar</th>
             <th>Hasil Kerja</th>
           </tr>
@@ -58,28 +53,13 @@
             <td>{{ $row->pegawais->nama }}</td>
             <td>WFH</td>
             <td>{{ $row->jam_masuk }}</td>
-            <td>
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-rencana-{{ $row->id }}">
-              <i class="glyphicon glyphicon-eye-open"></i> 
-                Lihat
-              </button>
-              <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-rubah-rencana-kerja-{{ $row->id }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-            </td>
-            @if( $row->jam_keluar != NULL)
             <td>{{ $row->jam_keluar }}</td>
-            @else
-            <td>00:00:00</td>
-            @endif
-            @if( $row->hasil_kerja != NULL)
             <td>
               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-hasil-{{ $row->id }}">
               <i class="glyphicon glyphicon-eye-open"></i> 
                 Lihat
               </button>
             </td>            
-            @else
-            <td></td>
-            @endif
           </tr>
           @endforeach
           </tbody>

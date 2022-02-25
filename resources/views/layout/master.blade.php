@@ -261,22 +261,33 @@ $('.hapus-role-user').click(function(){
     @endif
 </script>
 <script>
-    @if(Session::has('error'))
-        toastr.error("{{ Session::get('error') }}")
+    $(function () {
+        $("#validasi_absensi").on('submit', function(e){
+            e.preventDefault();
 
-        $(function() {
-            $('#modal-absen-keluar').modal('show');
+            $.ajax({
+                url:$(this).attr('action'),
+                method:$(this).attr('method'),
+                data:new FormData(this),
+                processData:false,
+                dataType:'json',
+                contentType:false,
+                location: "/absen";
+                beforeSend:function(){
+                    $(document).find('span.error-text').text('');
+                },
+                success:function(data){
+                    if(data.status == 0){
+                        $.each(data.error, function(prefix, val){
+                            $('span.'+prefix+'_error').text(val[0]);
+                        });
+                    }else{
+                        location.reload();
+                    }
+                }
+            });
         });
-    @endif
+    });
 </script>
-<script>
-    @if(Session::has('absen_masuk_error'))
-        toastr.error("{{ Session::get('absen_masuk_error') }}")
-    
-        $(function() {
-            $('#modal-absen-masuk').modal('show');
-        });
-    @endif
-    </script>
-    </body>
+</body>
 </html>
