@@ -68,7 +68,7 @@
                     <div class="form-group">
                         <label for="exampleInputResultWork" class="form-label">Hasil Pekerjaan yang Dilakukan</label>
                         <input type="file" name="hasil_kerja[]" class="form-control" id="exampleInputResultWork" multiple="true" required>
-                        <p class="help-block">Maksimal ukuran file foto yang bisa diupload 2MB. Format : jpeg, jpg, png</p>
+                        <p class="help-block">Maksimal ukuran file foto yang bisa diupload 2MB. Format : Gambar (jpeg, jpg, png), Dokumen (PDF, Excel, Word)</p>
                         <p class="help-block">Bisa upload lebih dari 1 file</p>
                     </div>
                 </div>
