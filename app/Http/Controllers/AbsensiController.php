@@ -72,61 +72,6 @@ class AbsensiController extends Controller
 
     public function presensi(Request $request){
 
-        $validator = Validator::make($request->all(), [
-            'tanggal'               =>  'required',
-            'jam_masuk'             =>  'required',
-            'jam_keluar'            =>  'required',
-            'hasil_kerja'           =>  'required',
-            'demam'                 =>  'required',
-            'batuk_dahak'           =>  'required',
-            'batuk_kering'          =>  'required',
-            'lelah'                 =>  'required',
-            'sesak_nafas'           =>  'required',
-            'nyeri_sendi'           =>  'required',
-            'sakit_kepala'          =>  'required',
-            'bersin'                =>  'required',
-            'pilek'                 =>  'required',
-            'hidung_mampet'         =>  'required',
-            'mata_berair'           =>  'required',
-            'sakit_tenggorokan'     =>  'required',
-            'diare'                 =>  'required',
-            'cium_aroma'            =>  'required',
-            'rasa_lidah'            =>  'required',
-            'lain_lain'             =>  'required',
-        ],
-        [
-            'tanggal.required'               =>  'Tanggal WFH wajib diisi',
-            'jam_masuk.required'             =>  'Jam Masuk WFH wajib diisi',
-            'jam_keluar.required'            =>  'Jam Keluar WFH wajib diisi',
-            'hasil_kerja.required'           =>  'Hasil Kerja WFH wajib diupload',
-            'demam.required'                 =>  'Screening Harian wajib dipilih',
-            'batuk_dahak.required'           =>  'Screening Harian wajib dipilih',
-            'batuk_kering.required'          =>  'Screening Harian wajib dipilih',
-            'lelah.required'                 =>  'Screening Harian wajib dipilih',
-            'sesak_nafas.required'           =>  'Screening Harian wajib dipilih',
-            'nyeri_sendi.required'           =>  'Screening Harian wajib dipilih',
-            'sakit_kepala.required'          =>  'Screening Harian wajib dipilih',
-            'bersin.required'                =>  'Screening Harian wajib dipilih',
-            'pilek.required'                 =>  'Screening Harian wajib dipilih',
-            'hidung_mampet.required'         =>  'Screening Harian wajib dipilih',
-            'mata_berair.required'           =>  'Screening Harian wajib dipilih',
-            'sakit_tenggorokan.required'     =>  'Screening Harian wajib dipilih',
-            'diare.required'                 =>  'Screening Harian wajib dipilih',
-            'cium_aroma.required'            =>  'Screening Harian wajib dipilih',
-            'rasa_lidah.required'            =>  'Screening Harian wajib dipilih',
-            'lain_lain.required'             =>  'Screening Harian wajib diisi',
-
-        ]);
-
-        if(!$validator->passes()){
-
-            return response()->json([
-                'status'    => 0,
-                'error'     => $validator->errors()->toArray() 
-            ]);
-
-        }else{
-
             if($request->hasFile('hasil_kerja')){
 
                 $files = $request->file('hasil_kerja');
@@ -169,9 +114,6 @@ class AbsensiController extends Controller
     
             return redirect()->route('absen')->with('success', 'Jazakumulloh khoir sudah presensi hari ini, sehat-sehat yaa.. selamat beristirahat :)');
     
-        }
-
-
     }
 
     public function eksport_absensi(){
