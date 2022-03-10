@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pegawai;
+use App\Models\Absensi;
 use App\Models\Screening;
 use DateTime;
 use Illuminate\Http\Request;
@@ -20,6 +21,9 @@ class ScreeningController extends Controller
 
         $judul      =   'Rekap Screening Pegawai Wakaf Salman ITB';
         $pegawai    =   Pegawai::all();
+        $jam_masuk  =   Absensi::where('id_users', auth()->user()->id_pegawais)
+                                ->where('tanggal', $tanggal)
+                                ->get();                                         
         if($request->pegawai != NULL){
             if($request->pegawai == "All"){
                 $data = Screening::all();
@@ -29,7 +33,7 @@ class ScreeningController extends Controller
         }else{
             $data = Screening::all();
         }
-        return view('absensi/screening_rekap', compact('tanggal','judul','data','pegawai'));
+        return view('absensi/screening_rekap', compact('tanggal','judul','data','pegawai','jam_masuk'));
 
     }
 

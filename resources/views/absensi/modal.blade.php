@@ -27,21 +27,14 @@
 @endforeach
 
 <!-- Absen Masuk -->
-<div class="modal fade" id="modal-absen">
+<div class="modal fade" id="modal-absen-masuk">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Absensi WFH</h4>
+                <h4 class="modal-title">Absen Masuk WFH</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             </div>
-            <div class="modal-body">
-                <p style="text-align: justify">
-                Bismillahirahmannirahim<br/><br/>
-                Berikut adalah form untuk absensi masuk dan selesai kerja karyawan Wakaf Salman ITB yang melakukan pekerjaan dari rumah (baik karena jadwalnya WFH, sedang sakit, maupun isolasi mandiri COVID-19). Seluruh karyawan DIWAJIBKAN mengisi absensi ini dan bekerja sesuai dengan ketentuan waktu yang telah ditentukan (8 jam) dalam sehari<br/><br/>
-                Terima Kasih
-                </p>
-            </div>
-            <form role="form" action="/presensi" method="POST" enctype="multipart/form-data">
+            <form role="form" action="/absen_masuk" method="POST" enctype="multipart/form-data">
             @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -52,13 +45,49 @@
                         <input type="text" name="nama" class="form-control" id="exampleInputName" value="{{ Auth::user()->pegawais->nama }}" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputBirthdate" class="form-label">Tanggal</label>
-                        <input type="date" name="tanggal" class="form-control" id="exampleInputBirthdate" required>
+                        <label>Tanggal : {{ $tanggal }}</label>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputCheckIn" class="form-label">Jam Absen Masuk</label>
-                        <input type="time" name="jam_masuk" class="form-control" id="exampleInputCheckIn" required>
-                        <span class="text-danger error-text jam_masuk_error"></span>
+                        <label>Jam Sekarang : </label> <label id="clock-masuk"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPlanningWork" class="form-label">Rencana Kerja</label>
+                        <textarea class="form-control" name="rencana_kerja" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Kembali</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Absen Keluar -->
+@foreach($jam_masuk as $data_absen_masuk)
+<div class="modal fade" id="modal-absen-keluar-{{ $data_absen_masuk->id }}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Absen Keluar WFH</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            </div>
+            <form role="form" action="/absen_keluar/{{ $data_absen_masuk->id }}" method="POST" enctype="multipart/form-data">
+            @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputBirthdate" class="form-label"><u>ABSENSI KELUAR</u></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName" class="form-label">Nama</label>
+                        <input type="text" name="nama" class="form-control" id="exampleInputName" value="{{ Auth::user()->pegawais->nama }}" disabled>
+                        <input type="hidden" name="tanggal" class="form-control" value="{{ $data_absen_masuk->tanggal }}">
+                        <input type="hidden" name="jam_masuk" class="form-control" value="{{ $data_absen_masuk->jam_masuk }}">
+                        <input type="hidden" name="rencana_kerja" class="form-control" value="{{ $data_absen_masuk->rencana_kerja }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Jam Sekarang : </label> <label id="clock-keluar"></label>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -68,7 +97,7 @@
                     <div class="form-group">
                         <label for="exampleInputResultWork" class="form-label">Hasil Pekerjaan yang Dilakukan</label>
                         <input type="file" name="hasil_kerja[]" class="form-control" id="exampleInputResultWork" multiple="true" required>
-                        <p class="help-block">Maksimal ukuran file foto yang bisa diupload 2MB. Format : Gambar (jpeg, jpg, png), Dokumen (PDF, Excel, Word)</p>
+                        <p class="help-block">Maksimal ukuran file yang bisa diupload 2MB</p>
                         <p class="help-block">Bisa upload lebih dari 1 file</p>
                     </div>
                 </div>
@@ -208,14 +237,31 @@
                         <span class="text-danger error-text lain_lain_error"></span>
                     </div>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Kembali</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endforeach
+
+<!-- Rubah Rencana Kerja -->
+@foreach($data as $row)
+<div class="modal fade" id="modal-rubah-rencana-kerja-{{ $row->id }}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Rubah Rencana Kerja</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            </div>
+            <form role="form" action="/rubah_rencana_kerja/{{ $row->id }}" method="POST">
+            @csrf
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="exampleInputBirthdate" class="form-label"><u>ABSENSI KELUAR</u></label>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputCheckIn" class="form-label">Jam Absen Keluar</label>
-                        <input type="time" name="jam_keluar" class="form-control" id="exampleInputCheckIn" required>
-                        <span class="text-danger error-text jam_keluar_error"></span>
+                        <label for="exampleInputPlanningWork" class="form-label">Rencana Kerja</label>
+                        <textarea class="form-control" name="rencana_kerja" rows="3">{{ $row->rencana_kerja }}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -226,4 +272,4 @@
         </div>
     </div>
 </div>
-
+@endforeach
