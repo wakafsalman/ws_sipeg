@@ -32,6 +32,20 @@
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi') || request()->is('rekap_kpi') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kode_kpi"><i class="fa fa-circle-o"></i>Kode KPI</a></li>
+          <li><a href="/kpi"><i class="fa fa-circle-o"></i>Input KPI</a></li>
+          <li><a href="/rekap_kpi"><i class="fa fa-circle-o"></i>Rekap KPI</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-cog"></i>

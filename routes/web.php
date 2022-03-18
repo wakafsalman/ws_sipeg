@@ -9,6 +9,7 @@ use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ScreeningController;
+use App\Http\Controllers\KodeKpiController;
 
 
 /*
@@ -55,6 +56,12 @@ Route::post('/tambah_jabatan', [JabatanController::class, 'tambah_jabatan'])->na
 Route::post('/rubah_jabatan/{id}', [JabatanController::class, 'rubah_jabatan'])->name('rubah_jabatan');
 Route::get('/hapus_jabatan/{id}', [JabatanController::class, 'hapus_jabatan'])->name('hapus_jabatan');
 
+//Kode KPI
+Route::get('/kode_kpi', [KodeKpiController::class, 'index'])->name('kode_kpi');
+Route::post('/tambah_kode_kpi', [KodeKpiController::class, 'tambah_kode_kpi'])->name('tambah_kode_kpi');
+Route::post('/rubah_kode_kpi/{id}', [KodeKpiController::class, 'rubah_kode_kpi'])->name('rubah_kode_kpi');
+Route::get('/hapus_kode_kpi/{id}', [KodeKpiController::class, 'hapus_kode_kpi'])->name('hapus_kode_kpi');
+
 //Role User
 Route::get('/role_user', [RoleController::class, 'index'])->name('role_user');
 Route::post('/tambah_role_user', [RoleController::class, 'tambah_role_user'])->name('tambah_role_user');
@@ -89,6 +96,9 @@ Route::post('/import_divisi', [DivisiController::class, 'import_divisi'])->name(
 /*Jabatan*/
 Route::get('/eksport_jabatan', [JabatanController::class, 'eksport_jabatan'])->name('eksport_jabatan');
 Route::post('/import_jabatan', [JabatanController::class, 'import_jabatan'])->name('import_jabatan');
+/*Kode KPI*/
+Route::get('/eksport_kode_kpi', [KodeKpiController::class, 'eksport_kode_kpi'])->name('eksport_kode_kpi');
+Route::post('/import_kode_kpi', [KodeKpiController::class, 'import_kode_kpi'])->name('import_kode_kpi');
 /*Role User*/
 Route::get('/eksport_role_user', [RoleController::class, 'eksport_role_user'])->name('eksport_role_user');
 Route::post('/import_role_user', [RoleController::class, 'import_role_user'])->name('import_role_user');
