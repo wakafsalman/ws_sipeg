@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pegawai;
+use App\Models\KodeKpi;
+use App\Models\Jabatan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -21,9 +23,11 @@ class WsSipegController extends Controller
 
     public function beranda(){
 
-        $judul = 'Beranda';
-        $jumlah = Pegawai::count();
-        return view('main', compact('judul','jumlah'));
+        $judul          = 'Beranda';
+        $jumlah         = Pegawai::count();
+        $jabatan        = Jabatan::all();
+        $kode_kpi       = KodeKpi::all();
+        return view('main', compact('judul','jumlah','jabatan','kode_kpi'));
 
     }
 

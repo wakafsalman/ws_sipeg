@@ -17,12 +17,10 @@ class CreateKpisTable extends Migration
             $table->id();
             $table->integer('id_jabatans')->nullable();
             $table->integer('id_kode_kpis')->nullable();
-            $table->string('posisi')->nullable();
-            $table->string('kode_kpi')->nullable();
-            $table->string('kpi')->nullable();
-            $table->string('target')->nullable();
-            $table->string('progress')->nullable();
-            $table->string('kendala')->nullable();
+            $table->string('no_kpi')->nullable();
+            $table->longText('target')->nullable();
+            $table->longText('progress')->nullable();
+            $table->longText('kendala')->nullable();
             $table->timestamps();
         });
     }

@@ -9,7 +9,9 @@ use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ScreeningController;
+use App\Http\Controllers\KpiController;
 use App\Http\Controllers\KodeKpiController;
+use App\Http\Controllers\DonaturController;
 
 
 /*
@@ -62,6 +64,12 @@ Route::post('/tambah_kode_kpi', [KodeKpiController::class, 'tambah_kode_kpi'])->
 Route::post('/rubah_kode_kpi/{id}', [KodeKpiController::class, 'rubah_kode_kpi'])->name('rubah_kode_kpi');
 Route::get('/hapus_kode_kpi/{id}', [KodeKpiController::class, 'hapus_kode_kpi'])->name('hapus_kode_kpi');
 
+//KPI
+Route::get('/kpi', [KpiController::class, 'index'])->name('kpi');
+Route::post('/tambah_kpi', [KpiController::class, 'tambah_kpi'])->name('tambah_kpi');
+Route::post('/rubah_kpi/{id}', [KpiController::class, 'rubah_kpi'])->name('rubah_kpi');
+Route::get('/hapus_kpi/{id}', [KpiController::class, 'hapus_kpi'])->name('hapus_kpi');
+
 //Role User
 Route::get('/role_user', [RoleController::class, 'index'])->name('role_user');
 Route::post('/tambah_role_user', [RoleController::class, 'tambah_role_user'])->name('tambah_role_user');
@@ -78,6 +86,9 @@ Route::post('/rubah_rencana_kerja/{id}', [AbsensiController::class, 'rubah_renca
 
 //Screening
 Route::get('/screening', [ScreeningController::class, 'index'])->name('screening');
+
+//Donatur
+Route::get('/donatur', [DonaturController::class, 'index'])->name('donatur');
 
 //PDF
 Route::get('/eksport_pdf', [PegawaiController::class, 'eksport_pdf'])->name('eksport_pdf');
@@ -99,6 +110,9 @@ Route::post('/import_jabatan', [JabatanController::class, 'import_jabatan'])->na
 /*Kode KPI*/
 Route::get('/eksport_kode_kpi', [KodeKpiController::class, 'eksport_kode_kpi'])->name('eksport_kode_kpi');
 Route::post('/import_kode_kpi', [KodeKpiController::class, 'import_kode_kpi'])->name('import_kode_kpi');
+/*KPI*/
+Route::get('/eksport_kpi', [KpiController::class, 'eksport_kpi'])->name('eksport_kpi');
+Route::post('/import_kpi', [KpiController::class, 'import_kpi'])->name('import_kpi');
 /*Role User*/
 Route::get('/eksport_role_user', [RoleController::class, 'eksport_role_user'])->name('eksport_role_user');
 Route::post('/import_role_user', [RoleController::class, 'import_role_user'])->name('import_role_user');

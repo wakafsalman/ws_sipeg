@@ -32,7 +32,7 @@
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
         </ul>
       </li>
-      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi') || request()->is('rekap_kpi') ? 'active' : '' }}">
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-calendar"></i>
           <span>KPI</span>
@@ -42,8 +42,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/kode_kpi"><i class="fa fa-circle-o"></i>Kode KPI</a></li>
-          <li><a href="/kpi"><i class="fa fa-circle-o"></i>Input KPI</a></li>
-          <li><a href="/rekap_kpi"><i class="fa fa-circle-o"></i>Rekap KPI</a></li>
+          <li><a href="/kpi"><i class="fa fa-circle-o"></i>KPI</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
@@ -61,6 +60,7 @@
           <li><a href="/role_user"><i class="fa fa-circle-o"></i>Role User</a></li>
         </ul>
       </li>
+      <li class="{{ request()->is('donatur') ? 'active' : '' }}"><a href="/donatur"><i class="glyphicon glyphicon-user"></i><span>Donatur</span></a></li>
 
       <!-- Hak Akses Staff -->
       @elseif (auth()->user()->id_roles==7)
@@ -107,7 +107,29 @@
           <li><a href="/jabatan"><i class="fa fa-circle-o"></i>Jabatan</a></li>
         </ul>
       </li>
+      <li class="{{ request()->is('donatur') ? 'active' : '' }}"><a href="/donatur"><i class="glyphicon glyphicon-user"></i><span>Donatur</span></a></li>
       @endif
+
+      <!-- Hak Akses Manager -->
+      @elseif (auth()->user()->id_roles==4)
+      <li class="treeview {{ request()->is('absensi') || request()->is('absen')  || request()->is('screening') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-list-alt"></i>
+          <span>Absensi</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/screening"><i class="fa fa-circle-o"></i>Rekap Screening Harian</a></li>
+          <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
+          <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="{{ request()->is('donatur') ? 'active' : '' }}"><a href="/donatur"><i class="glyphicon glyphicon-user"></i><span>Donatur</span></a></li>
+      @endif
+
+
     </ul>
   </section>
   <!-- /.sidebar -->

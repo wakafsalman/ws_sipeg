@@ -141,119 +141,119 @@
   })
 </script>
 <script>
-$('.hapus').click(function(){
-    var id_pegawai = $(this).attr('data-id');
-    var nama_pegawai = $(this).attr('data-nama');
-    swal({
-        title: "Hapus data",
-        text: "Apakah kamu yakin akan menghapus data "+nama_pegawai+"? ",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-        })
-        .then((willDelete) => {
-        if (willDelete) {
-            window.location = "/hapus_pegawai/"+id_pegawai+""
-            swal("Data berhasil dihapus", {
-            icon: "success",
-            });
-        } else {
-            swal("Aksi dibatalkan!");
-        }
+    $('.hapus').click(function(){
+        var id_pegawai = $(this).attr('data-id');
+        var nama_pegawai = $(this).attr('data-nama');
+        swal({
+            title: "Hapus data",
+            text: "Apakah kamu yakin akan menghapus data "+nama_pegawai+"? ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/hapus_pegawai/"+id_pegawai+""
+                swal("Data berhasil dihapus", {
+                icon: "success",
+                });
+            } else {
+                swal("Aksi dibatalkan!");
+            }
+        });
     });
-});
 </script>
 <script>
-$('.hapus-user').click(function(){
-    var id_user = $(this).attr('data-id');
-    var nama_user = $(this).attr('data-nama');
-    swal({
-        title: "Hapus data",
-        text: "Apakah kamu yakin akan menghapus data "+nama_user+"? ",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-        })
-        .then((willDelete) => {
-        if (willDelete) {
-            window.location = "/hapus_user/"+id_user+""
-            swal("Data berhasil dihapus", {
-            icon: "success",
-            });
-        } else {
-            swal("Aksi dibatalkan!");
-        }
+    $('.hapus-user').click(function(){
+        var id_user = $(this).attr('data-id');
+        var nama_user = $(this).attr('data-nama');
+        swal({
+            title: "Hapus data",
+            text: "Apakah kamu yakin akan menghapus data "+nama_user+"? ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/hapus_user/"+id_user+""
+                swal("Data berhasil dihapus", {
+                icon: "success",
+                });
+            } else {
+                swal("Aksi dibatalkan!");
+            }
+        });
     });
-});
 </script>
 <script>
-$('.hapus-divisi').click(function(){
-    var id_divisi = $(this).attr('data-id');
-    var nama_divisi = $(this).attr('data-nama');
-    swal({
-        title: "Hapus data",
-        text: "Apakah kamu yakin akan menghapus data "+nama_divisi+"? ",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-        })
-        .then((willDelete) => {
-        if (willDelete) {
-            window.location = "/hapus_divisi/"+id_divisi+""
-            swal("Data berhasil dihapus", {
-            icon: "success",
-            });
-        } else {
-            swal("Aksi dibatalkan!");
-        }
+    $('.hapus-divisi').click(function(){
+        var id_divisi = $(this).attr('data-id');
+        var nama_divisi = $(this).attr('data-nama');
+        swal({
+            title: "Hapus data",
+            text: "Apakah kamu yakin akan menghapus data "+nama_divisi+"? ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/hapus_divisi/"+id_divisi+""
+                swal("Data berhasil dihapus", {
+                icon: "success",
+                });
+            } else {
+                swal("Aksi dibatalkan!");
+            }
+        });
     });
-});
 </script>
 <script>
-$('.hapus-jabatan').click(function(){
-    var id_jabatan = $(this).attr('data-id');
-    var nama_jabatan = $(this).attr('data-nama');
-    swal({
-        title: "Hapus data",
-        text: "Apakah kamu yakin akan menghapus data "+nama_jabatan+"? ",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-        })
-        .then((willDelete) => {
-        if (willDelete) {
-            window.location = "/hapus_jabatan/"+id_jabatan+""
-            swal("Data berhasil dihapus", {
-            icon: "success",
-            });
-        } else {
-            swal("Aksi dibatalkan!");
-        }
+    $('.hapus-jabatan').click(function(){
+        var id_jabatan = $(this).attr('data-id');
+        var nama_jabatan = $(this).attr('data-nama');
+        swal({
+            title: "Hapus data",
+            text: "Apakah kamu yakin akan menghapus data "+nama_jabatan+"? ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/hapus_jabatan/"+id_jabatan+""
+                swal("Data berhasil dihapus", {
+                icon: "success",
+                });
+            } else {
+                swal("Aksi dibatalkan!");
+            }
+        });
     });
-});
 </script>
 <script>
-$('.hapus-role-user').click(function(){
-    var id_role_user = $(this).attr('data-id');
-    var nama_role_user = $(this).attr('data-nama');
-    swal({
-        title: "Hapus data",
-        text: "Apakah kamu yakin akan menghapus data "+nama_role_user+"? ",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-        })
-        .then((willDelete) => {
-        if (willDelete) {
-            window.location = "/hapus_role_user/"+id_role_user+""
-            swal("Data berhasil dihapus", {
-            icon: "success",
-            });
-        } else {
-            swal("Aksi dibatalkan!");
-        }
+    $('.hapus-role-user').click(function(){
+        var id_role_user = $(this).attr('data-id');
+        var nama_role_user = $(this).attr('data-nama');
+        swal({
+            title: "Hapus data",
+            text: "Apakah kamu yakin akan menghapus data "+nama_role_user+"? ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/hapus_role_user/"+id_role_user+""
+                swal("Data berhasil dihapus", {
+                icon: "success",
+                });
+            } else {
+                swal("Aksi dibatalkan!");
+            }
+        });
     });
-});
 </script>
 <script>
     $('.hapus-kode-kpi').click(function(){
@@ -277,8 +277,8 @@ $('.hapus-role-user').click(function(){
             }
         });
     });
-    </script>
-    <script>
+</script>
+<script>
     @if(Session::has('success'))
         toastr.success("{{ Session::get('success') }}")
     @endif
