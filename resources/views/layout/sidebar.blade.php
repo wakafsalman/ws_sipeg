@@ -108,8 +108,7 @@
         </ul>
       </li>
       <li class="{{ request()->is('donatur') ? 'active' : '' }}"><a href="/donatur"><i class="glyphicon glyphicon-user"></i><span>Donatur</span></a></li>
-      @endif
-
+ 
       <!-- Hak Akses Manager -->
       @elseif (auth()->user()->id_roles==4)
       <li class="treeview {{ request()->is('absensi') || request()->is('absen')  || request()->is('screening') ? 'active' : '' }}">
