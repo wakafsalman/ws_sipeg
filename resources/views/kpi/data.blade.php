@@ -17,7 +17,7 @@
   <section class="content-header">  
     <div class="row">
       <div class="col-md-1">
-        <a href="" class="btn btn-success mb-4" data-toggle="modal" data-target="#modal-tambah-kpi"><i class="glyphicon glyphicon-plus"></i> Tambah KPI</a>
+        <a href="/input_kpi" class="btn btn-success mb-4"><i class="glyphicon glyphicon-plus"></i> Tambah KPI</a>
       </div>
     </div>
   </section>
@@ -61,7 +61,5 @@
   </section>
   <!-- /.content -->
 </div>
-
-@include('kpi.modal')
 
 @endsection

@@ -32,8 +32,9 @@
             <th>Nama</th>
             <th>Email</th>
             <th>No. Telepon</th>
-            <th>Alamat</th>
+            <th>Asal Kota</th>
             <th>Jenis Kelamin</th>
+            <th>Event</th>
           </tr>
           </thead>
           <tbody>
@@ -46,8 +47,9 @@
             <td>{{ $row->nama }}</td>
             <td>{{ $row->email }}</td>
             <td>{{ $row->no_telepon }}</td>
-            <td>{{ $row->alamat }}</td>
+            <td>{{ $row->asal_kota }}</td>
             <td>{{ $row->jenis_kelamin }}</td>
+            <td>{{ $row->event }}</td>
           </tr>
           @endforeach
           </tbody>

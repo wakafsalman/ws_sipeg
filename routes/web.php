@@ -66,6 +66,7 @@ Route::get('/hapus_kode_kpi/{id}', [KodeKpiController::class, 'hapus_kode_kpi'])
 
 //KPI
 Route::get('/kpi', [KpiController::class, 'index'])->name('kpi');
+Route::get('/input_kpi', [KpiController::class, 'input_kpi'])->name('input_kpi');
 Route::post('/tambah_kpi', [KpiController::class, 'tambah_kpi'])->name('tambah_kpi');
 Route::post('/rubah_kpi/{id}', [KpiController::class, 'rubah_kpi'])->name('rubah_kpi');
 Route::get('/hapus_kpi/{id}', [KpiController::class, 'hapus_kpi'])->name('hapus_kpi');

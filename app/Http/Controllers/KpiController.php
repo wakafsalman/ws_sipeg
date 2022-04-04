@@ -17,10 +17,17 @@ class KpiController extends Controller
     public function index(){
 
         $data       =   Kpi::all();
+        $judul      =   'Key Performance Indicator (KPI)';
+        return view('kpi/data', compact('data','judul'));
+
+    }
+
+    public function input_kpi(){
+
         $jabatan    =   Jabatan::all();
         $kode_kpi   =   KodeKpi::all();
-        $judul      =   'Key Performance Indicator (KPI)';
-        return view('kpi/data', compact('data','jabatan','kode_kpi','judul'));
+        $judul      =   'Tambah KPI';
+        return view('kpi/input', compact('jabatan','kode_kpi','judul'));
 
     }
 
