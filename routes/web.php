@@ -90,6 +90,9 @@ Route::get('/screening', [ScreeningController::class, 'index'])->name('screening
 
 //Donatur
 Route::get('/donatur', [DonaturController::class, 'index'])->name('donatur');
+Route::post('/tambah_donatur', [DonaturController::class, 'tambah_donatur'])->name('tambah_donatur');
+Route::post('/rubah_donatur/{id}', [DonaturController::class, 'rubah_donatur'])->name('rubah_donatur');
+Route::get('/hapus_donatur/{id}', [DonaturController::class, 'hapus_donatur'])->name('hapus_donatur');
 
 //PDF
 Route::get('/eksport_pdf', [PegawaiController::class, 'eksport_pdf'])->name('eksport_pdf');
@@ -121,3 +124,6 @@ Route::post('/import_role_user', [RoleController::class, 'import_role_user'])->n
 Route::get('/eksport_absensi', [AbsensiController::class, 'eksport_absensi'])->name('eksport_absensi');
 /*Rekap Screening Harian*/
 Route::get('/eksport_screening', [ScreeningController::class, 'eksport_screening'])->name('eksport_screening');
+/*Donatur*/
+Route::get('/eksport_donatur', [DonaturController::class, 'eksport_donatur'])->name('eksport_donatur');
+Route::post('/import_donatur', [DonaturController::class, 'import_donatur'])->name('import_donatur');

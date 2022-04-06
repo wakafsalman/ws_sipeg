@@ -52,6 +52,8 @@ class UserController extends Controller
             'nama' => $request->nama,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'id_roles' => $request->id_roles,
+            'id_pegawais' => $request->id_pegawais,
         ];
         $data->update($data_update);
         if($request->hasFile('foto')){
