@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Traits\RequestTrait;
+use App\Traits\MakeComponents;
 
 class TelegramController extends Controller
 {
     //
-    use App\Traits\RequestTrait;
-    use App\Traits\MakeComponents;
 
     public function webhook()
     {
