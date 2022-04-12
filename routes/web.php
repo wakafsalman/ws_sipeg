@@ -12,6 +12,7 @@ use App\Http\Controllers\ScreeningController;
 use App\Http\Controllers\KpiController;
 use App\Http\Controllers\KodeKpiController;
 use App\Http\Controllers\DonaturController;
+use App\Http\Controllers\CutiController;
 
 
 /*
@@ -93,6 +94,13 @@ Route::get('/donatur', [DonaturController::class, 'index'])->name('donatur');
 Route::post('/tambah_donatur', [DonaturController::class, 'tambah_donatur'])->name('tambah_donatur');
 Route::post('/rubah_donatur/{id}', [DonaturController::class, 'rubah_donatur'])->name('rubah_donatur');
 Route::get('/hapus_donatur/{id}', [DonaturController::class, 'hapus_donatur'])->name('hapus_donatur');
+
+//Perizinan
+
+//Cuti
+Route::get('/cuti', [CutiController::class, 'index'])->name('cuti');
+Route::post('/input_cuti', [CutiController::class, 'input_cuti'])->name('input_cuti');
+
 
 //PDF
 Route::get('/eksport_pdf', [PegawaiController::class, 'eksport_pdf'])->name('eksport_pdf');

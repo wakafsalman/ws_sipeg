@@ -283,6 +283,5 @@
         toastr.success("{{ Session::get('success') }}")
     @endif
 </script>
-@stack('kpi-script')
 </body>
 </html>

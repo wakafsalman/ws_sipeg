@@ -33,6 +33,18 @@
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-calendar"></i>

@@ -2,21 +2,37 @@ SISTEM EMPLOYEE WAKAF SALMAN
 
 Done :
 
-- Data Karyawan
-- Absen
+- Absensi WFH
+- Data Karyawan, Jabatan, dan Divisi
 
-To do List :
+Progress :
 
-- Proses Seleksi Rekruitmen
-- Record Training Karyawan (Offline/Online) ngelink ke E-Learning
-- Track Record Rotasi/Mutasi Jabatan/Penugasan (SK)
-- Target KPI per Individu
-- Penilaian
-- Gaji
-- Cuti
-- Penggunaan Inventaris Kantor
-
-Next Progress :
-
-- rekap export excel
+Absensi WFH
 - ceklist rencana kerja
+- tambah addon ckeditor untuk modul rencana kerja
+
+Data Karyawan :
+- peruser bisa edit sendiri data karyawan masing2 (admin sistem employee WS, pak hari, teh uci, dan novi bisa lihat semua karyawan)
+
+Target KPI per Individu
+- multi input
+
+Cuti
+- test fitur
+- rekap cuti
+- bikin form versi pdf
+- tambah addon ckeditor untuk modul detail tugas
+
+Proses Seleksi Rekruitmen
+- nunggu template dari novi
+
+Record Training Karyawan (Offline/Online) ngelink ke E-Learning
+- alurnya sudah ada tinggal eksekusi
+
+BELUM DIBAHAS
+
+Track Record Rotasi/Mutasi Jabatan/Penugasan (SK)
+Penilaian
+Gaji
+Penggunaan Inventaris Kantor
+

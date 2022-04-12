@@ -97,18 +97,3 @@
 </div>
 
 @endsection
-
-@push('kpi-script')
-<script>
-  $('tambah-kpi').on('click', function(){
-    tambah_kpi();
-  });
-  function tambah_kpi(){
-    var form_kpi_dinamis = '<div>Test</div>';
-    $('.form-kpi-dinamis').append(form_kpi_dinamis);
-  };
-  $('.hapus-kpi').live('click', function() {
-    $(this).parent().parent().parent().remove();
-  });
-</script>
-@endpush
