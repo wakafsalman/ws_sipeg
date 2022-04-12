@@ -13,6 +13,7 @@ use App\Http\Controllers\KpiController;
 use App\Http\Controllers\KodeKpiController;
 use App\Http\Controllers\DonaturController;
 use App\Http\Controllers\CutiController;
+use App\Http\Controllers\TelegramController;
 
 
 /*
@@ -135,3 +136,8 @@ Route::get('/eksport_screening', [ScreeningController::class, 'eksport_screening
 /*Donatur*/
 Route::get('/eksport_donatur', [DonaturController::class, 'eksport_donatur'])->name('eksport_donatur');
 Route::post('/import_donatur', [DonaturController::class, 'import_donatur'])->name('import_donatur');
+
+//Bot
+/*Telegram*/
+Route::get('/webhook', [TelegramController::class, 'webhook']);
+
