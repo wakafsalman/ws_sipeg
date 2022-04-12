@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 class TelegramController extends Controller
 {
     //
-    use RequestTrait;
-    use MakeComponents;
+    use App\Traits\RequestTrait;
+    use App\Traits\MakeComponents;
 
     public function webhook()
     {
