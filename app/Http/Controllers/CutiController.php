@@ -30,7 +30,23 @@ class CutiController extends Controller
 
     public function input_cuti(Request $request){
 
-        $data = Cuti::create($request->all());
+        $data = Cuti::create([
+            'id_users'              =>  $request->id_users,
+            'id_jabatans'           =>  $request->id_jabatans,
+            'id_divisis'            =>  $request->id_divisis,
+            'jenis_cuti'            =>  $request->jenis_cuti,
+            'tanggal_awal'          =>  $request->tanggal_awal,
+            'tanggal_awal_indo'     =>  $request->tanggal_awal,
+            'tanggal_akhir'         =>  $request->tanggal_akhir,
+            'tanggal_akhir_indo'    =>  $request->tanggal_akhir,
+            'alamat'                =>  $request->alamat,
+            'no_telepon'            =>  $request->no_telepon,
+            'nama_delegasi'         =>  $request->nama_delegasi,
+            'detail_delegasi'       =>  $request->detail_delegasi,
+            'nama_delegasi_setuju'  =>  $request->nama_delegasi_setuju,
+            'atasan_setuju'         =>  $request->atasan_setuju,
+            'manager'               =>  $request->manager,
+        ]);
         return redirect()->route('cuti')->with('success', 'Data berhasil ditambah');
 
     }
@@ -69,7 +85,14 @@ class CutiController extends Controller
 
         $data = Cuti::find($id);
 
-        $pdf = PDF::loadview('izin/form_cuti', compact('data'))->setPaper('a4', 'portrait');
+        $temp_tanggal_awal = $data->tanggal_awal;
+        $temp_tanggal_akhir = $data->tanggal_akhir;
+        $tanggal_awal = new DateTime($temp_tanggal_awal);
+        $tanggal_akhir = new DateTime($temp_tanggal_akhir);
+        $temp_jumlah_cuti = $tanggal_awal->diff($tanggal_akhir);
+        $jumlah_cuti = $temp_jumlah_cuti->format('%a');
+
+        $pdf = PDF::loadview('izin/form_cuti', compact('data','jumlah_cuti'))->setPaper('a4', 'portrait');
         return $pdf->stream();
 
     }
@@ -85,10 +108,7 @@ class CutiController extends Controller
         $temp_jumlah_cuti = $tanggal_awal->diff($tanggal_akhir);
         $jumlah_cuti = $temp_jumlah_cuti->format('%a');
 
-        $id_pegawai = User::where('id', $data->id_users)
-                            ->get();
-
-        $pegawai = Pegawai::where('id', $id_pegawai[0]->id_pegawais)
+        $pegawai = Pegawai::where('id', $data->id_users)
                             ->get();
 
         $nama_karyawan = strtoupper($pegawai[0]->nama);

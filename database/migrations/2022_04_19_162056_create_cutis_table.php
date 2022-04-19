@@ -21,6 +21,8 @@ class CreateCutisTable extends Migration
             $table->string('jenis_cuti')->nullable();
             $table->date('tanggal_awal')->nullable();
             $table->date('tanggal_akhir')->nullable();
+            $table->date('tanggal_awal_indo')->nullable();
+            $table->date('tanggal_akhir_indo')->nullable();
             $table->string('alamat')->nullable();
             $table->bigInteger('no_telepon')->nullable();
             $table->string('nama_delegasi')->nullable();

@@ -265,6 +265,7 @@
         width: 350px;
         float: left;
         margin-top: -1px;
+        height: 120px;
     }
     .kolom_ttd_karyawan{
         border:1px solid black;
@@ -272,6 +273,7 @@
         float: left;
         margin-top: -1px;
         margin-left: -1px;
+        height: 120px;
     }
     .delegasi{
         margin-left: 90px;
@@ -312,6 +314,7 @@
         width: 40px;
         float: left;
         margin-top: -2px;
+        height: 100px;
     }
     .data_nama_delegasi{
         border:1px solid black;
@@ -319,6 +322,7 @@
         float: left;
         margin-top: -2px;
         margin-left: -1px;
+        height: 100px;
     }
     .data_tugas_delegasi{
         border:1px solid black;
@@ -326,6 +330,7 @@
         float: left;
         margin-top: -2px;
         margin-left: -1px;
+        height: 100px;
     }
     .data_tanda_tangan{
         border:1px solid black;
@@ -333,6 +338,7 @@
         float: left;
         margin-top: -2px;
         margin-left: -1px;
+        height: 100px;
     }
     .keputusan{
         margin-left: 90px;
@@ -476,10 +482,10 @@
                 <div class="kolom_jumlah_hari"><b><span class="jarak">{{ $jumlah_cuti + 1 }}</span></b></div>
                 <div class="kolom_hari"><b><span class="jarak">Hari</span></b></div>
                 <div class="kolom_mulai_tanggal"><b><span class="jarak">Mulai Tanggal</span></b></div>
-                <div class="kolom_tanggal_awal"><b><span class="jarak">{{ $data->tanggal_awal }}</span></b></div>
+                <div class="kolom_tanggal_awal"><b><span class="jarak">{{ $data->tanggal_awal_indo }}</span></b></div>
                 <div class="kolom_sampai_dengan"><b><span><center>s.d</center></span></b></div>
                 @if($data->tanggal_awal != $data->tanggal_akhir)
-                    <div class="kolom_tanggal_akhir"><b><span class="jarak">{{ $data->tanggal_akhir }}</span></b></div>
+                    <div class="kolom_tanggal_akhir"><b><span class="jarak">{{ $data->tanggal_akhir_indo }}</span></b></div>
                 @else
                     <div class="kolom_tanggal_akhir"><b><span class="jarak">-</span></b></div>
                 @endif
@@ -491,7 +497,7 @@
                 </div>
                 <div class="kolom_alamat">
                     <b><span class="jarak">Bila ada hal yang bersifat penting dapat menghubungi alamat dan nomor HP : </span></b><br>
-                    <p class="jarak">{{ $data->alamat }} (HP : {{ $data->no_telepon }})</p>
+                    <p class="jarak">{{ $data->alamat }} (HP : 0{{ $data->no_telepon }})</p>
                 </div>
                 <div class="kolom_ttd_karyawan">
                     <div style="font-size: 20px;">
@@ -501,7 +507,7 @@
                     <br>
                     <br>
                     <br>
-                    <div style="margin-bottom: 8px;">
+                    <div style="margin-top: -20px;">
                         <b><span class="jarak">{{ $data->pegawais->nama }}</span></b>
                     </div>
                 </div>
@@ -518,8 +524,8 @@
                 <div class="clearfix"></div>
                 @if($data->nama_delegasi != NULL)
                     <div class="data_no"><center><b>1</b></center></div>
-                    <div class="data_nama_delegasi"><center><b>{{ $data->nama_delegasi }}</b></center></div>
-                    <div class="data_tugas_delegasi"><center><b>{{ $data->detail_delegasi }}</b></center></div>
+                    <div class="data_nama_delegasi"><b>{{ $data->nama_delegasi }}</b></div>
+                    <div class="data_tugas_delegasi"><b>{{ $data->detail_delegasi }}</b></div>
                     <div class="data_tanda_tangan"><center><b></b></center></div>
                 @else
                     <div class="data_no"><center><b>-</b></center></div>

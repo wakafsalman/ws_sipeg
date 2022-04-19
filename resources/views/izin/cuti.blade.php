@@ -48,8 +48,8 @@
           <tr>
             <th scope="row">{{ $no++ }}</th>
             <td>{{ $row->pegawais->nama }}</td>
-            <td>{{ $row->tanggal_awal }}</td>
-            <td>{{ $row->tanggal_akhir }}</td>
+            <td>{{ $row->tanggal_awal_indo }}</td>
+            <td>{{ $row->tanggal_akhir_indo }}</td>
             <td>{{ $row->jumlah_cuti + 1 }}</td>
           </tr>
           @endforeach

@@ -22,7 +22,7 @@
                     <div class="form-group">
                         <label for="exampleInputName" class="form-label">Nama Lengkap</label>
                         <input type="text" class="form-control" id="exampleInputName" value="{{ Auth::user()->pegawais->nama }}" disabled>
-                        <input type="hidden" name="id_users" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="id_users" value="{{ Auth::user()->id_pegawais }}">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputName" class="form-label">Jabatan</label>
