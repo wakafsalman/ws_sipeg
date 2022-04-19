@@ -43,6 +43,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+          <li><a href="/rekap_cuti"><i class="fa fa-circle-o"></i>Rekap Cuti Karyawan</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi') ? 'active' : '' }}">
@@ -93,6 +94,19 @@
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+          <li><a href="/rekap_cuti"><i class="fa fa-circle-o"></i>Rekap Cuti Karyawan</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-cog"></i>
@@ -126,6 +140,19 @@
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+          <li><a href="/rekap_cuti"><i class="fa fa-circle-o"></i>Rekap Cuti Karyawan</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-cog"></i>
@@ -155,6 +182,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Jr. Manager Program -->
       @elseif (auth()->user()->id_roles==14)
@@ -169,6 +208,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
 
@@ -187,6 +238,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Sr. Assistant Manager Program -->
       @elseif (auth()->user()->id_roles==16)
@@ -201,6 +264,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
 
@@ -219,6 +294,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Jr. Assistant Manager Marketing Communication -->
       @elseif (auth()->user()->id_roles==18)
@@ -233,6 +320,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
 
@@ -251,6 +350,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Supervisor Digital Marketing -->
       @elseif (auth()->user()->id_roles==20)
@@ -265,6 +376,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
 
@@ -283,6 +406,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Supervisor Marketing Ritel & CRM -->
       @elseif (auth()->user()->id_roles==22)
@@ -299,6 +434,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Graphic Designer -->
       @elseif (auth()->user()->id_roles==23)
@@ -313,6 +460,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
 
@@ -332,6 +491,19 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
           <li><a href="/screening"><i class="fa fa-circle-o"></i>Rekap Screening Harian</a></li>
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+          <li><a href="/rekap_cuti"><i class="fa fa-circle-o"></i>Rekap Cuti Karyawan</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
@@ -363,6 +535,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Staff Administration & Support -->
       @elseif (auth()->user()->id_roles==27)
@@ -377,6 +561,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
 
@@ -395,6 +591,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Staff Marketing Communication -->
       @elseif (auth()->user()->id_roles==29)
@@ -409,6 +617,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
 
@@ -427,6 +647,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Staff Marketing Ritel & CRM -->
       @elseif (auth()->user()->id_roles==31)
@@ -441,6 +673,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
 
@@ -459,6 +703,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Staff -->
       @elseif (auth()->user()->id_roles==26)
@@ -473,6 +729,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-book"></i>
+          <span>Perizinan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
       @endif

@@ -4,8 +4,12 @@ Done :
 
 - Absensi WFH
 - Data Karyawan, Jabatan, dan Divisi
+- Form Perizinan Cuti
 
 Progress :
+
+General
+- buat fitur reset password
 
 Absensi WFH
 - ceklist rencana kerja
@@ -18,10 +22,8 @@ Target KPI per Individu
 - multi input
 
 Cuti
-- test fitur
-- rekap cuti
-- bikin form versi pdf
 - tambah addon ckeditor untuk modul detail tugas
+
 
 Proses Seleksi Rekruitmen
 - nunggu template dari novi

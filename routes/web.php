@@ -101,6 +101,7 @@ Route::get('/hapus_donatur/{id}', [DonaturController::class, 'hapus_donatur'])->
 //Cuti
 Route::get('/cuti', [CutiController::class, 'index'])->name('cuti');
 Route::post('/input_cuti', [CutiController::class, 'input_cuti'])->name('input_cuti');
+Route::get('/rekap_cuti', [CutiController::class, 'rekap_cuti'])->name('rekap_cuti');
 
 
 //PDF
@@ -136,6 +137,10 @@ Route::get('/eksport_screening', [ScreeningController::class, 'eksport_screening
 /*Donatur*/
 Route::get('/eksport_donatur', [DonaturController::class, 'eksport_donatur'])->name('eksport_donatur');
 Route::post('/import_donatur', [DonaturController::class, 'import_donatur'])->name('import_donatur');
+/*Perizinan*/
+Route::get('/eksport_cuti', [CutiController::class, 'eksport_cuti'])->name('eksport_cuti');
+Route::get('/buka_form_cuti/{id}', [CutiController::class, 'buka_form_cuti'])->name('buka_form_cuti');
+Route::get('/simpan_form_cuti/{id}', [CutiController::class, 'simpan_form_cuti'])->name('simpan_form_cuti');
 
 //Bot
 /*Telegram*/

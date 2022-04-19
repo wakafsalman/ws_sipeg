@@ -18,7 +18,7 @@ trait RequestTrait
             return false;
         }
         curl_close($handle);
-        $response = json_decode($handle, true);
+        $response = json_encode($handle, true);
         if($response['ok'] == false){
             return false;
         }

@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Pegawai;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Cuti extends Model
 {
@@ -29,4 +30,14 @@ class Cuti extends Model
         return $this->belongsTo(Divisi::class,'id_divisis','id');
     }
 
+    public function getTanggalAwalAttribute(){
+        return Carbon::parse($this->attributes['tanggal_awal'])
+                    ->translatedFormat('d F Y');
+    }
+    
+    public function getTanggalAkhirAttribute(){
+        return Carbon::parse($this->attributes['tanggal_akhir'])
+                    ->translatedFormat('d F Y');
+    }
+    
 }

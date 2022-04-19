@@ -33,10 +33,11 @@ class WsSipegController extends Controller
 
     public function proses_login(Request $request){
         if(Auth::attempt($request->only('email','password'))){
-            return redirect('/beranda');
+            return redirect('/beranda')->with('success', 'Berhasil login');
+            
         }
 
-        return redirect('/');
+        return redirect('/')->with('error', 'Username dan password tidak sesuai. Silahkan coba lagi atau hubungi Admin Sistem apabila tidak bisa login');
 
     }
 

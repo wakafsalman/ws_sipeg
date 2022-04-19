@@ -22,21 +22,21 @@
                     <div class="form-group">
                         <label for="exampleInputName" class="form-label">Nama Lengkap</label>
                         <input type="text" class="form-control" id="exampleInputName" value="{{ Auth::user()->pegawais->nama }}" disabled>
-                        <input type="text" name="id_users" class="form-control" id="exampleInputName" value="{{ Auth::user()->id }}" disabled>
+                        <input type="hidden" name="id_users" value="{{ Auth::user()->id }}">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputName" class="form-label">Jabatan</label>
                         <input type="text" class="form-control" id="exampleInputName" value="{{ Auth::user()->pegawais->jabatans->nama }}" disabled>
-                        <input type="text" name="id_jabatans" class="form-control" id="exampleInputName" value="{{ Auth::user()->pegawais->jabatans->id }}" disabled>
+                        <input type="hidden" name="id_jabatans" value="{{ Auth::user()->pegawais->jabatans->id }}">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputName" class="form-label">Divisi</label>
                         <input type="text" class="form-control" id="exampleInputName" value="{{ Auth::user()->pegawais->divisis->nama }}" disabled>
-                        <input type="text" name="id_divisis" class="form-control" id="exampleInputName" value="{{ Auth::user()->pegawais->divisis->id }}" disabled>
+                        <input type="hidden" name="id_divisis" value="{{ Auth::user()->pegawais->divisis->id }}">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputName" class="form-label">Jenis Cuti yang Diambil <span style="color: red;">*</span></label><br>
-                        <input type="radio" name="jenis_cuti" id="jenis_cuti" value="Cuti tahunan" required> Cuti tahunan<br>
+                        <input type="radio" name="jenis_cuti" id="jenis_cuti" value="Cuti Tahunan" required> Cuti Tahunan<br>
                         <input type="radio" name="jenis_cuti" id="jenis_cuti" value="Cuti Menikah"> Cuti Menikah<br>
                         <input type="radio" name="jenis_cuti" id="jenis_cuti" value="Cuti Persalinan (Grafida)"> Cuti Persalinan (Grafida)<br>
                         <input type="radio" name="jenis_cuti" id="jenis_cuti" value="Cuti Melayat (Keluarga Inti)"> Cuti Melayat (Keluarga Inti)<br>

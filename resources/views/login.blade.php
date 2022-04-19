@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="{{asset('template')}}/dist/css/AdminLTE.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="{{asset('template')}}/plugins/iCheck/square/blue.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -67,6 +69,8 @@
 <script src="{{asset('template')}}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="{{asset('template')}}/plugins/iCheck/icheck.min.js"></script>
+<!-- Toastr -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
   $(function () {
     $('input').iCheck({
@@ -75,6 +79,16 @@
       increaseArea: '20%' /* optional */
     });
   });
+</script>
+<script>
+  @if(Session::has('success'))
+      toastr.success("{{ Session::get('success') }}")
+  @endif
+</script>
+<script>
+  @if(Session::has('error'))
+      toastr.error("{{ Session::get('error') }}")
+  @endif
 </script>
 </body>
 </html>

@@ -9,16 +9,34 @@
     <h1>
       {{$judul}}
     </h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> {{$judul}}</a></li>
-    </ol>
   </section>
-
 
   <section class="content-header">  
     <div class="row">
+        <div class="col-md-4">
+            Cari Rekap Cuti Berdasarkan Nama :
+        </div>
+    </div>
+  </section>
+
+  <section class="content-header">  
+    <div class="row">
+      <form method="GET" action="/rekap_cuti">
+        <div class="col-md-2">
+            <select name="pegawai" class="form-control" aria-label="Default select example">
+              <option selected>Pilih Pegawai</option>
+              <option value="All">Semua Pegawai</option>
+              @foreach($pegawai as $row)
+                <option value="{{$row->id}}">{{$row->nama}}</option>
+              @endforeach
+            </select>
+        </div>
+        <div class="col-md-1">
+          <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i> Cari</button>
+        </div>
+      </form>
       <div class="col-md-1">
-          <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-cuti"><i class="glyphicon glyphicon-plus"></i> Ajukan Cuti</a>
+        <a href="/eksport_cuti" class="btn btn-success"><i class="glyphicon glyphicon-save"></i> Eksport Rekap Cuti Karyawan</a>    
       </div>
     </div>
   </section>
@@ -30,7 +48,7 @@
     <div class="box">
       <!-- /.box-header -->
       <div class="box-body">
-        <table id="example1" class="table table-bordered table-striped">
+        <table class="table table-bordered">
           <thead>
           <tr>
             <th>No</th>
@@ -38,6 +56,7 @@
             <th>Tanggal Awal Cuti</th>
             <th>Tanggal Akhir Cuti</th>
             <th>Jumlah Hari Cuti</th>
+            <th>Aksi</th>
           </tr>
           </thead>
           <tbody>
@@ -51,6 +70,10 @@
             <td>{{ $row->tanggal_awal }}</td>
             <td>{{ $row->tanggal_akhir }}</td>
             <td>{{ $row->jumlah_cuti + 1 }}</td>
+            <td>
+                <a href="/buka_form_cuti/{{ $row->id }}" class="btn btn-info"><i class="glyphicon glyphicon-print"></i> Buka</a>
+                <a href="/simpan_form_cuti/{{ $row->id }}" class="btn btn-info"><i class="glyphicon glyphicon-download-alt"></i> Simpan</a>
+            </td>
           </tr>
           @endforeach
           </tbody>
@@ -62,7 +85,5 @@
   </section>
   <!-- /.content -->
 </div>
-
-@include('izin.modal')
 
 @endsection
