@@ -13,17 +13,12 @@ General
 
 Absensi WFH
 - ceklist rencana kerja
-- tambah addon ckeditor untuk modul rencana kerja
 
 Data Karyawan :
 - peruser bisa edit sendiri data karyawan masing2 (admin sistem employee WS, pak hari, teh uci, dan novi bisa lihat semua karyawan)
 
 Target KPI per Individu
 - multi input
-
-Cuti
-- tambah addon ckeditor untuk modul detail tugas
-
 
 Proses Seleksi Rekruitmen
 - nunggu template dari novi

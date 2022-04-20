@@ -126,6 +126,8 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- Toastr -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- CKEditor -->
+<script src="https://cdn.ckeditor.com/4.18.0/standard/ckeditor.js"></script>
 <!-- page script -->
 <script>
   $(function () {
@@ -284,9 +286,9 @@
     @endif
 </script>
 <script>
-    @if(Session::has('error'))
-        toastr.error("{{ Session::get('error') }}")
-    @endif
+    $('.ckeditor').each(function () {
+        CKEDITOR.replace($(this).prop('id'));
+    });
 </script>
 </body>
 </html>

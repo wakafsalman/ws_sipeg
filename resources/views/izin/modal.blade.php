@@ -75,7 +75,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputName" class="form-label">Tugas dan tanggung jawab yang didelegasikan</label>
-                        <input type="text" name="detail_delegasi" class="form-control" id="exampleInputName">
+                        <textarea class="ckeditor form-control" id="tambah-detail-delegasi" name="detail_delegasi" cols="30" rows="10" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputName" class="form-label">Apakah sudah mengabari orang yang didelegasikan <span style="color: red;">*</span></label><br>

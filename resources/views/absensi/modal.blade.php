@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPlanningWork" class="form-label">Rencana Kerja</label>
-                        <textarea class="form-control" name="rencana_kerja" rows="3" required></textarea>
+                        <textarea class="ckeditor form-control" id="tambah-rencana-kerja" name="rencana_kerja" cols="30" rows="10" required></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -261,7 +261,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="exampleInputPlanningWork" class="form-label">Rencana Kerja</label>
-                        <textarea class="form-control" name="rencana_kerja" rows="3">{{ $row->rencana_kerja }}</textarea>
+                        <textarea class="ckeditor form-control" id="rubah-rencana-kerja" name="rencana_kerja" cols="30" rows="10" required>{!! $row->rencana_kerja !!}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -269,6 +269,32 @@
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+@endforeach
+
+<!-- Lihat Rencana Kerja -->
+@foreach($data as $row)
+<div class="modal fade" id="modal-rencana-kerja-{{ $row->id }}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Lihat Rencana Kerja</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="exampleInputPlanningWork" class="form-label">Rencana Kerja</label>
+                </div>
+                <div class="form-group">
+                    {!! $row->rencana_kerja !!}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Kembali</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
         </div>
     </div>
 </div>

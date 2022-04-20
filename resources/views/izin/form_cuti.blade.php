@@ -524,8 +524,8 @@
                 <div class="clearfix"></div>
                 @if($data->nama_delegasi != NULL)
                     <div class="data_no"><center><b>1</b></center></div>
-                    <div class="data_nama_delegasi"><b>{{ $data->nama_delegasi }}</b></div>
-                    <div class="data_tugas_delegasi"><b>{{ $data->detail_delegasi }}</b></div>
+                    <div class="data_nama_delegasi"><b><span class="jarak">{{ $data->nama_delegasi }}</span></b></div>
+                    <div class="data_tugas_delegasi"><b><span class="jarak">{!! $data->detail_delegasi !!}</span></b></div>
                     <div class="data_tanda_tangan"><center><b></b></center></div>
                 @else
                     <div class="data_no"><center><b>-</b></center></div>

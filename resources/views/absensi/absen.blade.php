@@ -65,7 +65,7 @@
             <td>WFH</td>
             <td>{{ $row->jam_masuk }}</td>
             <td>
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-rencana-{{ $row->id }}">
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-rencana-kerja-{{ $row->id }}">
               <i class="glyphicon glyphicon-eye-open"></i> 
                 Lihat
               </button>
