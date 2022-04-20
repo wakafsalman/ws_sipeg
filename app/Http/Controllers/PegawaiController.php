@@ -16,8 +16,13 @@ class PegawaiController extends Controller
 
     public function index(){
 
-        $judul      =   'Data Pegawai';
-        $data       =   Pegawai::all();
+        if(in_array(auth()->user()->id, [1, 7, 16, 17])){
+            $judul      =   'Data Pegawai';
+            $data       =   Pegawai::all();
+        }else{
+            $judul      =   'Data Pribadi';
+            $data       =   Pegawai::where('id', auth()->user()->id_pegawais)->get();
+        }
         $jabatan    =   Jabatan::all();
         $divisi     =   Divisi::all();
         return view('pegawai/data', compact('judul','data','jabatan','divisi'));

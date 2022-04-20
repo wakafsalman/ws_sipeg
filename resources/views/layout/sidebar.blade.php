@@ -18,7 +18,7 @@
       <!-- Hak Akses Admin System Employee Wakaf Salman -->
       @if (auth()->user()->id_roles==33)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
-      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Pegawai</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Karyawan</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -79,7 +79,7 @@
       <!-- Hak Akses Direktur -->
       @elseif (auth()->user()->id_roles==11)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
-      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Pegawai</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Karyawan</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -125,7 +125,7 @@
       <!-- Hak Akses Jr. Manager Operational -->
       @elseif (auth()->user()->id_roles==12)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
-      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Pegawai</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Karyawan</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -170,6 +170,7 @@
       <!-- Hak Akses Jr. Manager Marketing -->
       @elseif (auth()->user()->id_roles==13)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -198,6 +199,7 @@
       <!-- Hak Akses Jr. Manager Program -->
       @elseif (auth()->user()->id_roles==14)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -226,6 +228,7 @@
       <!-- Hak Akses Sr. Assistant Manager Marketing Ritel & CRM -->
       @elseif (auth()->user()->id_roles==15)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -254,6 +257,7 @@
       <!-- Hak Akses Sr. Assistant Manager Program -->
       @elseif (auth()->user()->id_roles==16)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -282,6 +286,7 @@
       <!-- Hak Akses Jr. Assistant Manager System Analyst -->
       @elseif (auth()->user()->id_roles==17)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -310,6 +315,7 @@
       <!-- Hak Akses Jr. Assistant Manager Marketing Communication -->
       @elseif (auth()->user()->id_roles==18)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -338,6 +344,7 @@
       <!-- Hak Akses Jr. Assistant Manager Marketing Corporate -->
       @elseif (auth()->user()->id_roles==19)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -366,6 +373,7 @@
       <!-- Hak Akses Supervisor Digital Marketing -->
       @elseif (auth()->user()->id_roles==20)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -394,6 +402,7 @@
       <!-- Hak Akses Supervisor Finance -->
       @elseif (auth()->user()->id_roles==21)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -422,6 +431,7 @@
       <!-- Hak Akses Supervisor Marketing Ritel & CRM -->
       @elseif (auth()->user()->id_roles==22)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -450,6 +460,7 @@
       <!-- Hak Akses Graphic Designer -->
       @elseif (auth()->user()->id_roles==23)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -478,7 +489,7 @@
       <!-- Hak Akses HR Officer -->
       @elseif (auth()->user()->id_roles==24)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
-      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Pegawai</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Karyawan</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -523,6 +534,7 @@
       <!-- Hak Akses Public Relation -->
       @elseif (auth()->user()->id_roles==25)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -551,6 +563,7 @@
       <!-- Hak Akses Staff Administration & Support -->
       @elseif (auth()->user()->id_roles==27)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -579,6 +592,7 @@
       <!-- Hak Akses Staff Finance -->
       @elseif (auth()->user()->id_roles==28)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -607,6 +621,7 @@
       <!-- Hak Akses Staff Marketing Communication -->
       @elseif (auth()->user()->id_roles==29)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -635,6 +650,7 @@
       <!-- Hak Akses Staff Marketing Corporate -->
       @elseif (auth()->user()->id_roles==30)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -663,6 +679,7 @@
       <!-- Hak Akses Staff Marketing Ritel & CRM -->
       @elseif (auth()->user()->id_roles==31)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -691,6 +708,7 @@
       <!-- Hak Akses Staff Program -->
       @elseif (auth()->user()->id_roles==32)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -719,6 +737,7 @@
       <!-- Hak Akses Staff -->
       @elseif (auth()->user()->id_roles==26)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>

@@ -14,12 +14,12 @@
     </ol>
   </section>
 
+  @if(in_array(Auth::user()->id, [1, 7, 16, 17]))
   <section class="content-header">  
     <div class="row">
       <div class="col-md-1">
         <a href="" class="btn btn-success mb-4" data-toggle="modal" data-target="#modal-tambah-pegawai"><i class="glyphicon glyphicon-plus"></i> Tambah Pegawai</a>
 
-        @include('pegawai.modal')
       </div>
     </div>
   </section>
@@ -38,10 +38,11 @@
           Import Data
         </button>
 
-        @include('pegawai.modal')
       </div>
     </div>
   </section>
+  @endif
+
   <!-- Main content -->
   <section class="content">
     <!-- Default box -->
@@ -49,7 +50,11 @@
 
     <div class="box">
       <div class="box-header">
-        <h3 class="box-title">Daftar Pegawai Wakaf Salman ITB</h3>
+        @if(in_array(Auth::user()->id, [1, 7, 16, 17]))
+          <h3 class="box-title">Daftar Pegawai Wakaf Salman ITB</h3>
+        @else
+          <h3 class="box-title">Data Resmi {{ Auth::user()->pegawais->nama }}</h3>
+        @endif
       </div>
       <!-- /.box-header -->
       <div class="box-body">
@@ -95,7 +100,9 @@
             <td>{{ $row->divisis->nama }}</td>
             <td>
                 <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-rubah-pegawai-{{ $row->id }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                <a href="#" class="btn btn-danger hapus" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}"><i class="glyphicon glyphicon-trash"></i> Delete</a>
+                @if(in_array(Auth::user()->id, [1, 7, 16, 17]))
+                  <a href="#" class="btn btn-danger hapus" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}"><i class="glyphicon glyphicon-trash"></i> Delete</a>
+                @endif
             </td>
           </tr>
           @endforeach
@@ -108,4 +115,7 @@
   </section>
   <!-- /.content -->
 </div>
+
+@include('pegawai.modal')
+
 @endsection
