@@ -34,6 +34,7 @@
       <!-- /.box-body -->
     </div>
     <!-- /.box -->
+    @if(in_array(Auth::user()->id, [1, 7, 16, 17]))
     <div class="row">
       <div class="col-lg-3 col-xs-6">
         <!-- small box -->
@@ -49,6 +50,7 @@
         </div>
       </div>
     </div>
+    @endif
 
   </section>
 </div>

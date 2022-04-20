@@ -34,6 +34,8 @@ Route::post('/proses_login', [WsSipegController::class, 'proses_login'])->name('
 Route::get('/logout', [WsSipegController::class, 'logout']);
 Route::get('/profil', [WsSipegController::class, 'profil'])->name('profil');
 Route::post('/rubah_profil/{id}', [WsSipegController::class, 'rubah_profil'])->name('rubah_profil');
+Route::get('/reset', [WsSipegController::class, 'reset'])->name('reset');
+Route::post('/reset_password', [WsSipegController::class, 'reset_password'])->name('reset_password');
 
 //Karyawan
 Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai');

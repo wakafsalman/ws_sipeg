@@ -38,8 +38,10 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
+    <h2 style="text-align: center;"><b>Buat Password Baru</b></h2>
+    <p style="text-align: justify;">Apabila Anda lupa dengan email Anda silahkan hubungi HR Officer atau Admin Sistem Employee Wakaf Salman ITB</p>
 
-    <form action="/proses_login" method="post">
+    <form action="/reset_password" method="post">
     @csrf
       <div class="form-group has-feedback">
         <input type="text" class="form-control" name="email" placeholder="Email">
@@ -52,10 +54,10 @@
       <div class="row">
         <!-- /.col -->
         <div class="col-xs-8">
-          <a href="/reset">Buat password baru</a>
+          <a href="/">Kembali ke halaman Login</a>
         </div>
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Simpan</button>
         </div>
         <!-- /.col -->
       </div>
