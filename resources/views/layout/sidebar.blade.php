@@ -243,6 +243,18 @@
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Jr. Manager Program -->
       @elseif (auth()->user()->id_roles==14)
@@ -270,6 +282,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
         </ul>
       </li>
 
@@ -301,6 +325,18 @@
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Sr. Assistant Manager Program -->
       @elseif (auth()->user()->id_roles==16)
@@ -328,6 +364,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
         </ul>
       </li>
 
@@ -400,6 +448,18 @@
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Jr. Assistant Manager Marketing Corporate -->
       @elseif (auth()->user()->id_roles==19)
@@ -427,6 +487,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
         </ul>
       </li>
 
@@ -458,6 +530,18 @@
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Supervisor Finance -->
       @elseif (auth()->user()->id_roles==21)
@@ -485,6 +569,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
         </ul>
       </li>
 
@@ -516,6 +612,18 @@
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Graphic Designer -->
       @elseif (auth()->user()->id_roles==23)
@@ -543,6 +651,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
         </ul>
       </li>
 
@@ -635,6 +755,18 @@
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Staff Administration & Support -->
       @elseif (auth()->user()->id_roles==27)
@@ -662,6 +794,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
         </ul>
       </li>
 
@@ -693,6 +837,18 @@
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Staff Marketing Communication -->
       @elseif (auth()->user()->id_roles==29)
@@ -720,6 +876,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
         </ul>
       </li>
 
@@ -751,6 +919,18 @@
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Staff Marketing Ritel & CRM -->
       @elseif (auth()->user()->id_roles==31)
@@ -778,6 +958,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
         </ul>
       </li>
 
@@ -809,6 +1001,18 @@
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
+        </ul>
+      </li>
 
       <!-- Hak Akses Staff -->
       @elseif (auth()->user()->id_roles==26)
@@ -836,6 +1040,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
         </ul>
       </li>
       @endif
