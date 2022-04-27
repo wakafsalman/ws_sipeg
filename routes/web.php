@@ -13,6 +13,9 @@ use App\Http\Controllers\KpiController;
 use App\Http\Controllers\KodeKpiController;
 use App\Http\Controllers\DonaturController;
 use App\Http\Controllers\CutiController;
+use App\Http\Controllers\BenefitController;
+use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\TrainingTypeController;
 use App\Http\Controllers\TelegramController;
 
 
@@ -100,10 +103,34 @@ Route::get('/hapus_donatur/{id}', [DonaturController::class, 'hapus_donatur'])->
 
 //Perizinan
 
-//Cuti
+/*Cuti*/
 Route::get('/cuti', [CutiController::class, 'index'])->name('cuti');
 Route::post('/input_cuti', [CutiController::class, 'input_cuti'])->name('input_cuti');
 Route::get('/rekap_cuti', [CutiController::class, 'rekap_cuti'])->name('rekap_cuti');
+
+//Training
+
+/*Benefit*/
+Route::get('/benefit', [BenefitController::class, 'index'])->name('benefit');
+Route::post('/tambah_benefit', [BenefitController::class, 'tambah_benefit'])->name('tambah_benefit');
+Route::post('/rubah_benefit/{id}', [BenefitController::class, 'rubah_benefit'])->name('rubah_benefit');
+Route::get('/hapus_benefit/{id}', [BenefitController::class, 'hapus_benefit'])->name('hapus_benefit');
+
+/*Jenis Training*/
+Route::get('/jenis_training', [TrainingTypeController::class, 'index'])->name('jenis_training');
+Route::post('/tambah_jenis_training', [TrainingTypeController::class, 'tambah_jenis_training'])->name('tambah_jenis_training');
+Route::post('/rubah_jenis_training/{id}', [TrainingTypeController::class, 'rubah_jenis_training'])->name('rubah_jenis_training');
+Route::post('/rubah_bonus_point/{id}', [TrainingTypeController::class, 'rubah_bonus_point'])->name('rubah_bonus_point');
+Route::get('/hapus_jenis_training/{id}', [TrainingTypeController::class, 'hapus_jenis_training'])->name('hapus_jenis_training');
+
+/*Input & Rekap*/
+Route::get('/training', [TrainingController::class, 'index'])->name('training');
+Route::post('/input_training', [TrainingController::class, 'input_training'])->name('input_training');
+Route::post('/rubah_training/{id}', [TrainingController::class, 'rubah_training'])->name('rubah_training');
+Route::get('/hapus_training/{id}', [TrainingController::class, 'hapus_training'])->name('hapus_training');
+Route::get('/rekap_training', [TrainingController::class, 'rekap_training'])->name('rekap_training');
+Route::get('/rekap_point', [TrainingController::class, 'rekap_point'])->name('rekap_point');
+Route::get('/reset_point/{id}', [TrainingController::class, 'reset_point'])->name('reset_point');
 
 
 //PDF
@@ -143,6 +170,12 @@ Route::post('/import_donatur', [DonaturController::class, 'import_donatur'])->na
 Route::get('/eksport_cuti', [CutiController::class, 'eksport_cuti'])->name('eksport_cuti');
 Route::get('/buka_form_cuti/{id}', [CutiController::class, 'buka_form_cuti'])->name('buka_form_cuti');
 Route::get('/simpan_form_cuti/{id}', [CutiController::class, 'simpan_form_cuti'])->name('simpan_form_cuti');
+/*Benefit*/
+Route::get('/eksport_benefit', [BenefitController::class, 'eksport_benefit'])->name('eksport_benefit');
+Route::post('/import_benefit', [BenefitController::class, 'import_benefit'])->name('import_benefit');
+/*Jenis Training*/
+Route::get('/eksport_jenis_training', [TrainingTypeController::class, 'eksport_jenis_training'])->name('eksport_jenis_training');
+Route::post('/import_jenis_training', [TrainingTypeController::class, 'import_jenis_training'])->name('import_jenis_training');
 
 //Bot
 /*Telegram*/

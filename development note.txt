@@ -1,15 +1,12 @@
 SISTEM EMPLOYEE WAKAF SALMAN
 
-Done :
+Modul Done :
 
 - Absensi WFH
 - Data Karyawan, Jabatan, dan Divisi
 - Form Perizinan Cuti
 
 Progress :
-
-General
-- buat fitur reset password
 
 Absensi WFH
 - ceklist rencana kerja
@@ -21,7 +18,8 @@ Proses Seleksi Rekruitmen
 - nunggu template dari novi
 
 Record Training Karyawan (Offline/Online) ngelink ke E-Learning
-- alurnya sudah ada tinggal eksekusi
+- buat fitur reset point
+- notifikasi (nanti dibicarakan sama novi)
 
 BELUM DIBAHAS
 

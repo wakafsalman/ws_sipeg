@@ -91,7 +91,7 @@
               <td></td>
             @endif
             @if($row->tempat_lahir != NULL && $row->tgl_lahir != NULL)
-              <td>{{ $row->tempat_lahir }}, {{ date('j F Y', strtotime($row->tgl_lahir))}}</td>
+              <td>{{ $row->tempat_lahir }}, {{ $row->tgl_lahir }}</td>
             @else
               <td></td>
             @endif

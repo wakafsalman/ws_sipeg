@@ -33,7 +33,7 @@
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
         </ul>
       </li>
-      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+      <li class="treeview {{ request()->is('cuti') || request()->is('rekap_cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
           <span>Perizinan</span>
@@ -44,6 +44,22 @@
         <ul class="treeview-menu">
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
           <li><a href="/rekap_cuti"><i class="fa fa-circle-o"></i>Rekap Cuti Karyawan</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
+          <li><a href="/rekap_training"><i class="fa fa-circle-o"></i>Rekap Training Karyawan</a></li>
+          <li><a href="/rekap_point"><i class="fa fa-circle-o"></i>Rekap Poin Karyawan</a></li>
+          <li><a href="/jenis_training"><i class="fa fa-circle-o"></i>Jenis Training</a></li>
+          <li><a href="/benefit"><i class="fa fa-circle-o"></i>Benefit</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi') ? 'active' : '' }}">
@@ -94,7 +110,7 @@
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
         </ul>
       </li>
-      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+      <li class="treeview {{ request()->is('cuti') || request()->is('rekap_cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
           <span>Perizinan</span>
@@ -105,6 +121,22 @@
         <ul class="treeview-menu">
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
           <li><a href="/rekap_cuti"><i class="fa fa-circle-o"></i>Rekap Cuti Karyawan</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
+          <li><a href="/rekap_training"><i class="fa fa-circle-o"></i>Rekap Training Karyawan</a></li>
+          <li><a href="/rekap_point"><i class="fa fa-circle-o"></i>Rekap Poin Karyawan</a></li>
+          <li><a href="/jenis_training"><i class="fa fa-circle-o"></i>Jenis Training</a></li>
+          <li><a href="/benefit"><i class="fa fa-circle-o"></i>Benefit</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
@@ -140,7 +172,7 @@
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
         </ul>
       </li>
-      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+      <li class="treeview {{ request()->is('cuti') || request()->is('rekap_cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
           <span>Perizinan</span>
@@ -151,6 +183,22 @@
         <ul class="treeview-menu">
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
           <li><a href="/rekap_cuti"><i class="fa fa-circle-o"></i>Rekap Cuti Karyawan</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
+          <li><a href="/rekap_training"><i class="fa fa-circle-o"></i>Rekap Training Karyawan</a></li>
+          <li><a href="/rekap_point"><i class="fa fa-circle-o"></i>Rekap Poin Karyawan</a></li>
+          <li><a href="/jenis_training"><i class="fa fa-circle-o"></i>Jenis Training</a></li>
+          <li><a href="/benefit"><i class="fa fa-circle-o"></i>Benefit</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
@@ -309,6 +357,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
         </ul>
       </li>
 
@@ -504,7 +564,7 @@
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
         </ul>
       </li>
-      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
+      <li class="treeview {{ request()->is('cuti') || request()->is('rekap_cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
           <span>Perizinan</span>
@@ -515,6 +575,22 @@
         <ul class="treeview-menu">
           <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
           <li><a href="/rekap_cuti"><i class="fa fa-circle-o"></i>Rekap Cuti Karyawan</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          <span>Training</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
+          <li><a href="/rekap_training"><i class="fa fa-circle-o"></i>Rekap Training Karyawan</a></li>
+          <li><a href="/rekap_point"><i class="fa fa-circle-o"></i>Rekap Poin Karyawan</a></li>
+          <li><a href="/jenis_training"><i class="fa fa-circle-o"></i>Jenis Training</a></li>
+          <li><a href="/benefit"><i class="fa fa-circle-o"></i>Benefit</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">

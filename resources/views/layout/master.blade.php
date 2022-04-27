@@ -281,6 +281,99 @@
     });
 </script>
 <script>
+    $('.hapus-benefit').click(function(){
+        var id_benefit = $(this).attr('data-id');
+        var nama_benefit = $(this).attr('data-nama');
+        swal({
+            title: "Hapus data",
+            text: "Apakah kamu yakin akan menghapus data "+nama_benefit+"? ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/hapus_benefit/"+id_benefit+""
+                swal("Data berhasil dihapus", {
+                icon: "success",
+                });
+            } else {
+                swal("Aksi dibatalkan!");
+            }
+        });
+    });
+</script>
+<script>
+    $('.hapus-jenis-training').click(function(){
+        var id_jenis_training = $(this).attr('data-id');
+        var nama_jenis_training = $(this).attr('data-nama');
+        swal({
+            title: "Hapus data",
+            text: "Apakah kamu yakin akan menghapus data "+nama_jenis_training+"? ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/hapus_jenis_training/"+id_jenis_training+""
+                swal("Data berhasil dihapus", {
+                icon: "success",
+                });
+            } else {
+                swal("Aksi dibatalkan!");
+            }
+        });
+    });
+</script>
+<script>
+    $('.hapus-training').click(function(){
+        var id_training = $(this).attr('data-id');
+        var nama_karyawan = $(this).attr('data-nama');
+        var judul_training = $(this).attr('data-judul');
+        swal({
+            title: "Hapus data",
+            text: "Apakah kamu yakin akan menghapus data training karyawan "+nama_karyawan+" dengan judul "+judul_training+" ? ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/hapus_training/"+id_training+""
+                swal("Data berhasil dihapus", {
+                icon: "success",
+                });
+            } else {
+                swal("Aksi dibatalkan!");
+            }
+        });
+    });
+</script>
+<script>
+    $('.reset-point').click(function(){
+        var id_karyawan = $(this).attr('data-id');
+        var nama_karyawan = $(this).attr('data-nama');
+        swal({
+            title: "Reset Point",
+            text: "Apakah kamu yakin akan mereset point training karyawan "+nama_karyawan+" ? ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/reset_point/"+id_karyawan+""
+                swal("Data berhasil direset point", {
+                icon: "success",
+                });
+            } else {
+                swal("Aksi dibatalkan!");
+            }
+        });
+    });
+</script>
+<script>
     @if(Session::has('success'))
         toastr.success("{{ Session::get('success') }}")
     @endif
