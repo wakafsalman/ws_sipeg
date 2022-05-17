@@ -28,7 +28,7 @@
                 <h4 class="modal-title">Tambah Kode KPI</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             </div>
-            <form role="form" action="/tambah_kode_kpi" method="POST">
+            <form role="form" action="/tambah_kode_kpi" method="POST" enctype="multipart/form-data">
             @csrf
                 <div class="modal-body">
                     <div class="form-group">

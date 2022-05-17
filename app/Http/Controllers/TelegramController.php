@@ -2,37 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use Telegram\Bot\Api;
 use Illuminate\Http\Request;
-use App\Traits\MakeComponents;
 
 class TelegramController extends Controller
 {
     //
-    use MakeComponents;
-    
-    public function webhook()
+    public function __construct()
     {
-        return $this->apiRequest('setWebhook', [
-            'url' => url(route('webhook')),
-        ]) ? ['sukses'] : ['ada suatu kesalahan'];
+
+        $this->telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
+    
+    }  
+
+    public function kirim_pesan($id)
+    {
+
+        return $this->telegram->sendMessage([
+            'chat_id'   =>  $id,
+            'text'      =>  'Selamat datang di Wakaf Salman ChatBot, Apakah ada yang bisa kami bantu? 😊🙏'
+        ]);
+
     }
 
-    public function index()
+    public function pesan()
     {
-        $result = json_decode(file_get_contents('php://input'));
-        $action = $result->message->text;
-        $userId = $result->message->from->id;
-        if($action == '/start'){
-            $text = "Selamat datang di Wakaf Salman, silakan memilih menu yang dikehendaki.. 🙏😊";
-            $option = [
-                ['Ingin Berwakaf','Tentang Wakaf Salman','Identitas Diri']
-            ];
-            $this->apiRequest('sendMessage', [
-                'chat_id'       => $userId,
-                'text'          => $text,
-                'reply_markup'  => $this->keyboardBtn($option)
-            ]);
-        }
+
+        return $this->telegram->getUpdates();
+
     }
 
 }

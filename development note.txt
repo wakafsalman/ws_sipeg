@@ -5,6 +5,7 @@ Modul Done :
 - Absensi WFH
 - Data Karyawan, Jabatan, dan Divisi
 - Form Perizinan Cuti
+- Record Training Karyawan (Offline/Online) ngelink ke E-Learning
 
 Progress :
 
@@ -17,9 +18,11 @@ Target KPI per Individu
 Proses Seleksi Rekruitmen
 - nunggu template dari novi
 
-Record Training Karyawan (Offline/Online) ngelink ke E-Learning
-- buat fitur reset point
-- notifikasi (nanti dibicarakan sama novi)
+Telegram Bot
+- tampilkan button
+- kirim gambar
+- kirim pdf
+- integrasi di server
 
 BELUM DIBAHAS
 

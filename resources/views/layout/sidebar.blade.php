@@ -713,6 +713,19 @@
           <li><a href="/benefit"><i class="fa fa-circle-o"></i>Benefit</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kode_kpi"><i class="fa fa-circle-o"></i>Kode KPI</a></li>
+          <li><a href="/kpi"><i class="fa fa-circle-o"></i>KPI</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-cog"></i>
