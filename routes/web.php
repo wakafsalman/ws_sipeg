@@ -179,9 +179,11 @@ Route::post('/import_jenis_training', [TrainingTypeController::class, 'import_je
 
 //Bot
 /*Telegram*/
+Route::get('/telegram', [TelegramController::class, 'index'])->name('telegram');
+/*
 Route::group(['prefix' => 'telegram'], function() {
     Route::get('pesan', [TelegramController::class, 'pesan']);
     Route::get('pesan/{id}', [TelegramController::class, 'kirim_pesan']);
 });
-
+*/
  
