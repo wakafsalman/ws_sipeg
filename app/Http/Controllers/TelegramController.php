@@ -9,10 +9,6 @@ class TelegramController extends Controller
 {
     //
 
-    public function __construct(){
-        parent::_construct();
-    }
-
     public function index(){
         $token = env('TELEGRAM_BOT_TOKEN');
         $api_url = "https://api.telegram.org/bot".$token;
