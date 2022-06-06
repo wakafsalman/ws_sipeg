@@ -9,11 +9,16 @@ Modul Done :
 
 Progress :
 
-Absensi WFH
+Absensi WFH (Pengembangan)
 - ceklist rencana kerja
+
+Form Perizinan Cuti (Pengembangan)
+- dikoneksikan antar orang, alurnya dari pengaju cuti - ke atasan langsung utk acc - lalu ke SDM utk konfirmasi acc
 
 Target KPI per Individu
 - multi input
+- target dipindah ke kode KPI
+- tampilan seperti di monday
 
 Proses Seleksi Rekruitmen
 - nunggu template dari novi
@@ -24,10 +29,18 @@ Telegram Bot
 - kirim pdf
 - integrasi di server
 
+Penilaian
+- menunggu bahan dari novi
+
+Gaji
+- slip gaji (akan muncul di dashboard, dibuat monthly)
+
+Penggunaan Inventaris Kantor
+- nanti diobrolin lagi sama teh Uci
+
+Barang
+- bahan sudah ada tinggal eksekusi
+
 BELUM DIBAHAS
 
 Track Record Rotasi/Mutasi Jabatan/Penugasan (SK)
-Penilaian
-Gaji
-Penggunaan Inventaris Kantor
-

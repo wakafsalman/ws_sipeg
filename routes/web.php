@@ -177,11 +177,3 @@ Route::post('/import_benefit', [BenefitController::class, 'import_benefit'])->na
 Route::get('/eksport_jenis_training', [TrainingTypeController::class, 'eksport_jenis_training'])->name('eksport_jenis_training');
 Route::post('/import_jenis_training', [TrainingTypeController::class, 'import_jenis_training'])->name('import_jenis_training');
 
-//Bot
-/*Telegram*/
-Route::group(['prefix' => 'telegram'], function() {
-    Route::get('pesan', [TelegramController::class, 'pesan']);
-    Route::get('pesan/{id}', [TelegramController::class, 'kirim_pesan']);
-});
-
- 
