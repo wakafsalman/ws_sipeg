@@ -75,7 +75,7 @@
             <td>{{ $row->jabatans->nama }}</td>
             <td>{{ $row->kode_kpis->kode }}</td>
             <td>{{ $row->kode_kpis->nama }}</td>
-            <td>{{ $row->target }}</td>
+            <td>{{ $row->kode_kpis->target }}</td>
             <td>{{ $row->progress }}</td>
             <td>{{ $row->kendala }}</td>
             <td>

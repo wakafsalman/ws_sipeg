@@ -16,7 +16,6 @@ Form Perizinan Cuti (Pengembangan)
 - dikoneksikan antar orang, alurnya dari pengaju cuti - ke atasan langsung utk acc - lalu ke SDM utk konfirmasi acc
 
 Target KPI per Individu
-- multi input
 - target dipindah ke kode KPI
 - tampilan seperti di monday
 

@@ -42,6 +42,12 @@
                         <input type="text" name="nama" class="form-control" id="exampleInputName">
                     </div>
                 </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputName" class="form-label">Target</label>
+                        <input type="text" name="target" class="form-control" id="exampleInputName">
+                    </div>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Kembali</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
@@ -72,6 +78,12 @@
                     <div class="form-group">
                         <label for="exampleInputName" class="form-label">KPI</label>
                         <input type="text" name="nama" class="form-control" id="exampleInputName" value="{{ $row->nama }}">
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputName" class="form-label">Target</label>
+                        <input type="text" name="target" class="form-control" id="exampleInputName" value="{{ $row->target }}">
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -53,6 +53,7 @@
             <th>No</th>
             <th>Kode KPI</th>
             <th>KPI</th>
+            <th>Target</th>
             <th>Aksi</th>
           </tr>
           </thead>
@@ -65,6 +66,7 @@
             <th scope="row">{{ $no++ }}</th>
             <td>{{ $row->kode }}</td>
             <td>{{ $row->nama }}</td>
+            <td>{{ $row->target }}</td>
             <td>
                 <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-rubah-kode-kpi-{{ $row->id }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                 <a href="#" class="btn btn-danger hapus-kode-kpi" data-id="{{ $row->id }}" data-kode="{{ $row->kode }}"><i class="glyphicon glyphicon-trash"></i> Delete</a>

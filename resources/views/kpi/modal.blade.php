@@ -1,6 +1,6 @@
 <!-- Import Data -->
 <div class="modal fade" id="modal-import-kpi">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Import Kode KPI</h4>
@@ -45,13 +45,9 @@
                         <select name="id_kode_kpis" class="form-control" aria-label="Default select example">
                             <option selected>Pilih KPI</option>
                             @foreach($kode_kpi as $row)
-                            <option value="{{ $row->id }}">{{ $row->kode }} - {{ $row->nama }}</option>
+                            <option value="{{ $row->id }}">{{ $row->kode }} - {{ $row->nama }} (Target : {{ $row->target }})</option>
                             @endforeach
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Target</label>
-                        <input type="text" name="target" class="form-control">
                     </div>
                     <div class="form-group">
                         <label class="form-label">Progress</label>
@@ -95,15 +91,11 @@
                     <div class="form-group">
                         <label class="form-label">Key Performance Indicator</label>
                         <select name="id_kode_kpis" class="form-control" aria-label="Default select example">
-                            <option selected value="{{ $row->id_kode_kpis }}">{{ $row->kode_kpis->nama }}</option>
+                            <option selected value="{{ $row->id_kode_kpis }}">{{ $row->kode_kpis->kode }} - {{ $row->kode_kpis->nama }} (Target : {{ $row->kode_kpis->target }})</option>
                             @foreach($kode_kpi as $data)
-                            <option value="{{ $data->id }}">{{ $data->kode }} - {{ $data->nama }}</option>
+                            <option value="{{ $data->id }}">{{ $data->kode }} - {{ $data->nama }} (Target : {{ $data->target }})</option>
                             @endforeach
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Target</label>
-                        <input type="text" name="target" class="form-control" value="{{ $row->target }}">
                     </div>
                     <div class="form-group">
                         <label class="form-label">Progress</label>
