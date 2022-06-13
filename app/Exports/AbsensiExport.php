@@ -54,4 +54,5 @@ class AbsensiExport implements FromCollection, WithHeadings, WithMapping
 
         ] ;
 
-    }}
+    }
+}

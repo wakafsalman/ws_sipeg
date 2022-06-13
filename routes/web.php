@@ -16,7 +16,7 @@ use App\Http\Controllers\CutiController;
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\TrainingTypeController;
-use App\Http\Controllers\TelegramController;
+use App\Http\Controllers\AssetController;
 
 
 /*
@@ -132,9 +132,27 @@ Route::get('/rekap_training', [TrainingController::class, 'rekap_training'])->na
 Route::get('/rekap_point', [TrainingController::class, 'rekap_point'])->name('rekap_point');
 Route::get('/reset_point/{id}', [TrainingController::class, 'reset_point'])->name('reset_point');
 
+//Asset
+Route::get('/aset', [AssetController::class, 'index'])->name('aset');
+Route::post('/tambah_aset', [AssetController::class, 'tambah_aset'])->name('tambah_aset');
+Route::post('/rubah_aset/{id}', [AssetController::class, 'rubah_aset'])->name('rubah_aset');
+Route::get('/hapus_aset/{id}', [AssetController::class, 'hapus_aset'])->name('hapus_aset');
+Route::get('/satuan', [AssetController::class, 'satuan'])->name('satuan');
+Route::post('/tambah_satuan', [AssetController::class, 'tambah_satuan'])->name('tambah_satuan');
+Route::post('/rubah_satuan/{id}', [AssetController::class, 'rubah_satuan'])->name('rubah_satuan');
+Route::get('/hapus_satuan/{id}', [AssetController::class, 'hapus_satuan'])->name('hapus_satuan');
+Route::get('/pengajuan', [AssetController::class, 'pengajuan'])->name('pengajuan');
+Route::post('/proses_pengajuan', [AssetController::class, 'proses_pengajuan'])->name('proses_pengajuan');
+Route::get('/aset_masuk', [AssetController::class, 'aset_masuk'])->name('aset_masuk');
+Route::post('/tambah_aset_masuk', [AssetController::class, 'tambah_aset_masuk'])->name('tambah_aset_masuk');
+Route::get('/report_stock', [AssetController::class, 'report_stock'])->name('report_stock');
+Route::post('/tambah_report_stock', [AssetController::class, 'tambah_report_stock'])->name('tambah_report_stock');
 
 //PDF
 Route::get('/eksport_pdf', [PegawaiController::class, 'eksport_pdf'])->name('eksport_pdf');
+Route::get('/eksport_aset_pdf', [AssetController::class, 'eksport_aset_pdf'])->name('eksport_aset_pdf');
+Route::get('/eksport_aset_masuk_pdf', [AssetController::class, 'eksport_aset_masuk_pdf'])->name('eksport_aset_masuk_pdf');
+Route::get('/eksport_report_stock_pdf', [AssetController::class, 'eksport_report_stock_pdf'])->name('eksport_report_stock_pdf');
 
 //Excel
 
@@ -176,4 +194,11 @@ Route::post('/import_benefit', [BenefitController::class, 'import_benefit'])->na
 /*Jenis Training*/
 Route::get('/eksport_jenis_training', [TrainingTypeController::class, 'eksport_jenis_training'])->name('eksport_jenis_training');
 Route::post('/import_jenis_training', [TrainingTypeController::class, 'import_jenis_training'])->name('import_jenis_training');
+/*Aset*/
+Route::get('/eksport_aset', [AssetController::class, 'eksport_aset'])->name('eksport_aset');
+Route::post('/import_aset', [AssetController::class, 'import_aset'])->name('import_aset');
+Route::get('/eksport_satuan', [AssetController::class, 'eksport_satuan'])->name('eksport_satuan');
+Route::post('/import_satuan', [AssetController::class, 'import_satuan'])->name('import_satuan');
+Route::get('/eksport_aset_masuk', [AssetController::class, 'eksport_aset_masuk'])->name('eksport_aset_masuk');
+Route::get('/eksport_report_stock', [AssetController::class, 'eksport_report_stock'])->name('eksport_report_stock');
 

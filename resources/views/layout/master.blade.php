@@ -399,6 +399,52 @@
     });
 </script>
 <script>
+    $('.hapus-aset').click(function(){
+        var id_aset = $(this).attr('data-id');
+        var nama_aset = $(this).attr('data-nama');
+        swal({
+            title: "Hapus data",
+            text: "Apakah kamu yakin akan menghapus data "+nama_aset+" ? ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/hapus_aset/"+id_aset+""
+                swal("Data berhasil dihapus", {
+                icon: "success",
+                });
+            } else {
+                swal("Aksi dibatalkan!");
+            }
+        });
+    });
+</script>
+<script>
+    $('.hapus-satuan').click(function(){
+        var id_satuan = $(this).attr('data-id');
+        var nama_satuan = $(this).attr('data-nama');
+        swal({
+            title: "Hapus data",
+            text: "Apakah kamu yakin akan menghapus data "+nama_satuan+"? ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/hapus_satuan/"+id_satuan+""
+                swal("Data berhasil dihapus", {
+                icon: "success",
+                });
+            } else {
+                swal("Aksi dibatalkan!");
+            }
+        });
+    });
+</script>
+<script>
     @if(Session::has('success'))
         toastr.success("{{ Session::get('success') }}")
     @endif
