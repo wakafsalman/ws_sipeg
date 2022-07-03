@@ -31,9 +31,11 @@
   <link rel="stylesheet" href="{{asset('template')}}/bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{asset('template')}}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{asset('template')}}/bower_components/select2/dist/css/select2.min.css">
   <!-- Toastr -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -92,6 +94,8 @@
 </script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('template')}}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="{{asset('template')}}/bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- DataTables -->
 <script src="{{asset('template')}}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="{{asset('template')}}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -128,6 +132,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- CKEditor -->
 <script src="{{asset('template')}}/bower_components/ckeditor/ckeditor.js"></script>
+<!-- Typehead -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" integrity="sha512-HWlJyU4ut5HkEj0QsK/IxBCY55n5ZpskyjVlAoV9Z7XQwwkqXoYdCIC93/htL3Gu5H3R4an/S0h2NXfbZk3g7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- page script -->
 <script>
   $(function () {
@@ -283,12 +289,12 @@
 <script>
     $('.hapus-kpi').click(function(){
         var id_kpi = $(this).attr('data-id');
-        var jabatan_kpi = $(this).attr('data-jabatan');
+        var divisi_kpi = $(this).attr('data-divisi');
         var kode_kpi = $(this).attr('data-kode');
         var nama_kpi = $(this).attr('data-nama');
         swal({
             title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data "+jabatan_kpi+" - "+kode_kpi+" - "+nama_kpi+"? ",
+            text: "Apakah kamu yakin akan menghapus data "+divisi_kpi+" - "+kode_kpi+" - "+nama_kpi+"? ",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -296,6 +302,32 @@
             .then((willDelete) => {
             if (willDelete) {
                 window.location = "/hapus_kpi/"+id_kpi+""
+                swal("Data berhasil dihapus", {
+                icon: "success",
+                });
+            } else {
+                swal("Aksi dibatalkan!");
+            }
+        });
+    });
+</script>
+<script>
+    $('.hapus-report-kpi').click(function(){
+        var id_report_kpi = $(this).attr('data-id');
+        var divisi_report_kpi = $(this).attr('data-divisi');
+        var kode_report_kpi = $(this).attr('data-kode');
+        var nama_report_kpi = $(this).attr('data-nama');
+        var deskripsi_report_kpi = $(this).attr('data-deskripsi');
+        swal({
+            title: "Hapus data",
+            text: "Apakah kamu yakin akan menghapus data "+divisi_report_kpi+" - "+kode_report_kpi+" - "+nama_report_kpi+" : "+deskripsi_report_kpi+"? ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/hapus_report_kpi/"+id_report_kpi+""
                 swal("Data berhasil dihapus", {
                 icon: "success",
                 });
@@ -445,6 +477,75 @@
     });
 </script>
 <script>
+    $('.hapus-pic').click(function(){
+        var id_pic = $(this).attr('data-id');
+        var nama_pic = $(this).attr('data-nama');
+        swal({
+            title: "Hapus data",
+            text: "Apakah kamu yakin akan menghapus data "+nama_pic+"? ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/hapus_pic/"+id_pic+""
+                swal("Data berhasil dihapus", {
+                icon: "success",
+                });
+            } else {
+                swal("Aksi dibatalkan!");
+            }
+        });
+    });
+</script>
+<script>
+    $('.hapus-pengajuan').click(function(){
+        var id_pengajuan = $(this).attr('data-id');
+        var nama_pengajuan = $(this).attr('data-nama');
+        var aset_pengajuan = $(this).attr('data-aset');
+        swal({
+            title: "Hapus data",
+            text: "Apakah kamu yakin akan menghapus data "+nama_pengajuan+" yang mengajukan merchandise "+aset_pengajuan+" ? ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/hapus_pengajuan/"+id_pengajuan+""
+                swal("Data berhasil dihapus", {
+                icon: "success",
+                });
+            } else {
+                swal("Aksi dibatalkan!");
+            }
+        });
+    });
+</script>
+<script>
+    var path = "{{ route('autocomplete_pic_data_aset') }}";
+
+    $('input.typeahead').typeahead({
+        source: function(query, process){
+            return $.get(path, {term: query}, function(data){
+                return process(data);
+            });
+        }
+    });
+</script>
+<script>
+    var path = "{{ route('autocomplete_aset_pengajuan') }}";
+
+    $('input.typeahead-aset').typeahead({
+        source: function(query, process){
+            return $.get(path, {term: query}, function(data){
+                return process(data);
+            });
+        }
+    });
+</script>
+<script>
     @if(Session::has('success'))
         toastr.success("{{ Session::get('success') }}")
     @endif
@@ -454,5 +555,12 @@
         CKEDITOR.replace($(this).prop('id'));
     });
 </script>
+<script>
+    $(function () {
+        $('.select2').select2()
+    })
+</script>
+  
+@stack('multi-input-aset')
 </body>
 </html>

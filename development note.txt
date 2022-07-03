@@ -16,17 +16,15 @@ Form Perizinan Cuti (Pengembangan)
 - dikoneksikan antar orang, alurnya dari pengaju cuti - ke atasan langsung utk acc - lalu ke SDM utk konfirmasi acc
 
 Target KPI per Individu
-- target dipindah ke kode KPI
-- tampilan seperti di monday
+- buat tampilan report KPI seperti KPI (expandable) meh user teu lieur
+- buat tabel progress di KPI, isinya adalah akumulasi progres dari KPI Report
+- buat score
 
 Proses Seleksi Rekruitmen
-- nunggu template dari novi
 
-Telegram Bot
-- tampilkan button
-- kirim gambar
-- kirim pdf
-- integrasi di server
+- tinggal pilih templatenya ( ngerjainnya ntar2 aja =)) )
+* http://preview.themeforest.net/item/jobhit-job-portal-html-template/full_screen_preview/29922683?_ga=2.27457916.1951404285.1654495558-1055339708.1654495558
+* https://preview.themeforest.net/item/jobya-job-listing-html5-template/full_screen_preview/24772106?_ga=2.39919074.1951404285.1654495558-1055339708.1654495558
 
 Penilaian
 - menunggu bahan dari novi
@@ -37,9 +35,12 @@ Gaji
 Penggunaan Inventaris Kantor
 - nanti diobrolin lagi sama teh Uci
 
-Barang
-- bahan sudah ada tinggal eksekusi
+Aset
+- ada beberapa revisi dari kang rifky
+
 
 BELUM DIBAHAS
 
 Track Record Rotasi/Mutasi Jabatan/Penugasan (SK)
+
+ganti template pake voler

@@ -18,7 +18,7 @@
   <section class="content-header">  
     <div class="row">
       <div class="col-md-1">
-          <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-pengajuan-aset"><i class="glyphicon glyphicon-plus"></i> Ajukan Aset</a>
+          <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-pengajuan-aset"><i class="glyphicon glyphicon-plus"></i> Pengajuan Barang</a>
       </div>
     </div>
   </section>
@@ -40,7 +40,9 @@
             <th>Nama Aset</th>
             <th>Jumlah</th>
             <th>Satuan</th>
-            <th>Untuk diberikan kepada</th>
+            <th>Keterangan</th>
+            <th>Status</th>
+            <th>Aksi</th>
           </tr>
           </thead>
           <tbody>
@@ -53,10 +55,26 @@
             <td>{{ $row->pegawais->nama }}</td>
             <td>{{ $row->jabatans->nama }}</td>
             <td>{{ $row->tanggal }}</td>
-            <td>{{ $row->assets->nama }}</td>
+            <td>{{ $row->assets }}</td>
             <td>{{ $row->jumlah }}</td>
             <td>{{ $row->satuan }}</td>
             <td>{{ $row->keterangan }}</td>
+            @if($row->status=="")
+            <td>Waiting approval from GA/Operation Manager</td>
+            @else
+              @if($row->status=="Accepted")
+                <td><div class="label label-success" style="font-size: 14px;">{{ $row->status }}</div></td>
+              @elseif($row->status=="Rejected")
+                <td><div class="label label-danger" style="font-size: 14px;">{{ $row->status }}</div></td>
+              @endif
+            @endif
+            <td style="padding: 5px;">
+              <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-rubah-pengajuan-{{ $row->id }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+              <a href="#" class="btn btn-danger hapus-pengajuan" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}" data-aset="{{ $row->assets }}"><i class="glyphicon glyphicon-trash"></i> Delete</a>
+              <br>
+              <a href="/setujui_pengajuan/{{ $row->id }}" class="btn btn-success" style="margin-top: 5px;"><i class="glyphicon glyphicon-ok"></i> Approve</a>
+              <a href="/batalkan_pengajuan/{{ $row->id }}" class="btn btn-danger" style="margin-top: 5px;"><i class="glyphicon glyphicon-remove"></i> Reject</a>
+            </td>
           </tr>
           @endforeach
           </tbody>

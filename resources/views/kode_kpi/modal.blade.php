@@ -9,7 +9,10 @@
             <form action="/import_kode_kpi" method="POST" enctype="multipart/form-data">
             @csrf
                 <div class="modal-body">
-                    <input type="file" name="file" class="form-control">
+                    <div class="form-group">
+                        <label for="exampleInputName" class="form-label">Pilih file <a href="{{ asset('import_template/template_kpi.xlsx')  }}">* Download Template</a></label>
+                        <input type="file" name="file" class="form-control">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Kembali</button>
@@ -40,6 +43,12 @@
                     <div class="form-group">
                         <label for="exampleInputName" class="form-label">KPI</label>
                         <input type="text" name="nama" class="form-control" id="exampleInputName">
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputName" class="form-label">Definisi</label>
+                        <input type="text" name="definisi" class="form-control" id="exampleInputName">
                     </div>
                 </div>
                 <div class="modal-body">
@@ -78,6 +87,12 @@
                     <div class="form-group">
                         <label for="exampleInputName" class="form-label">KPI</label>
                         <input type="text" name="nama" class="form-control" id="exampleInputName" value="{{ $row->nama }}">
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputName" class="form-label">Definisi</label>
+                        <input type="text" name="target" class="form-control" id="exampleInputName" value="{{ $row->definisi }}">
                     </div>
                 </div>
                 <div class="modal-body">

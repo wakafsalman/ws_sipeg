@@ -77,6 +77,12 @@ Route::get('/input_kpi', [KpiController::class, 'input_kpi'])->name('input_kpi')
 Route::post('/tambah_kpi', [KpiController::class, 'tambah_kpi'])->name('tambah_kpi');
 Route::post('/rubah_kpi/{id}', [KpiController::class, 'rubah_kpi'])->name('rubah_kpi');
 Route::get('/hapus_kpi/{id}', [KpiController::class, 'hapus_kpi'])->name('hapus_kpi');
+Route::get('/report_kpi/{id_divisi}/{id_kode_kpi}', [KpiController::class, 'report_kpi'])->name('report_kpi');
+Route::post('/tambah_report_kpi', [KpiController::class, 'tambah_report_kpi'])->name('tambah_report_kpi');
+Route::post('/rubah_report_kpi/{id}', [KpiController::class, 'rubah_report_kpi'])->name('rubah_report_kpi');
+Route::get('/hapus_report_kpi/{id}', [KpiController::class, 'hapus_report_kpi'])->name('hapus_report_kpi');
+Route::get('/kpi_report', [KpiController::class, 'kpi_report'])->name('kpi_report');
+Route::post('/rubah_report_user_kpi/{id}', [KpiController::class, 'rubah_report_user_kpi'])->name('rubah_report_user_kpi');
 
 //Role User
 Route::get('/role_user', [RoleController::class, 'index'])->name('role_user');
@@ -137,12 +143,22 @@ Route::get('/aset', [AssetController::class, 'index'])->name('aset');
 Route::post('/tambah_aset', [AssetController::class, 'tambah_aset'])->name('tambah_aset');
 Route::post('/rubah_aset/{id}', [AssetController::class, 'rubah_aset'])->name('rubah_aset');
 Route::get('/hapus_aset/{id}', [AssetController::class, 'hapus_aset'])->name('hapus_aset');
+Route::get('/autocomplete_pic_data_aset', [AssetController::class, 'autocomplete_pic_data_aset'])->name('autocomplete_pic_data_aset');
 Route::get('/satuan', [AssetController::class, 'satuan'])->name('satuan');
 Route::post('/tambah_satuan', [AssetController::class, 'tambah_satuan'])->name('tambah_satuan');
 Route::post('/rubah_satuan/{id}', [AssetController::class, 'rubah_satuan'])->name('rubah_satuan');
 Route::get('/hapus_satuan/{id}', [AssetController::class, 'hapus_satuan'])->name('hapus_satuan');
+Route::get('/pic', [AssetController::class, 'pic'])->name('pic');
+Route::post('/tambah_pic', [AssetController::class, 'tambah_pic'])->name('tambah_pic');
+Route::post('/rubah_pic/{id}', [AssetController::class, 'rubah_pic'])->name('rubah_pic');
+Route::get('/hapus_pic/{id}', [AssetController::class, 'hapus_pic'])->name('hapus_pic');
 Route::get('/pengajuan', [AssetController::class, 'pengajuan'])->name('pengajuan');
 Route::post('/proses_pengajuan', [AssetController::class, 'proses_pengajuan'])->name('proses_pengajuan');
+Route::post('/rubah_pengajuan/{id}', [AssetController::class, 'rubah_pengajuan'])->name('rubah_pengajuan');
+Route::get('/hapus_pengajuan/{id}', [AssetController::class, 'hapus_pengajuan'])->name('hapus_pengajuan');
+Route::get('/setujui_pengajuan/{id}', [AssetController::class, 'setujui_pengajuan'])->name('setujui_pengajuan');
+Route::get('/batalkan_pengajuan/{id}', [AssetController::class, 'batalkan_pengajuan'])->name('batalkan_pengajuan');
+Route::get('/autocomplete_aset_pengajuan', [AssetController::class, 'autocomplete_aset_pengajuan'])->name('autocomplete_aset_pengajuan');
 Route::get('/aset_masuk', [AssetController::class, 'aset_masuk'])->name('aset_masuk');
 Route::post('/tambah_aset_masuk', [AssetController::class, 'tambah_aset_masuk'])->name('tambah_aset_masuk');
 Route::get('/report_stock', [AssetController::class, 'report_stock'])->name('report_stock');
@@ -199,6 +215,8 @@ Route::get('/eksport_aset', [AssetController::class, 'eksport_aset'])->name('eks
 Route::post('/import_aset', [AssetController::class, 'import_aset'])->name('import_aset');
 Route::get('/eksport_satuan', [AssetController::class, 'eksport_satuan'])->name('eksport_satuan');
 Route::post('/import_satuan', [AssetController::class, 'import_satuan'])->name('import_satuan');
+Route::get('/eksport_pic', [AssetController::class, 'eksport_pic'])->name('eksport_pic');
+Route::post('/import_pic', [AssetController::class, 'import_pic'])->name('import_pic');
 Route::get('/eksport_aset_masuk', [AssetController::class, 'eksport_aset_masuk'])->name('eksport_aset_masuk');
 Route::get('/eksport_report_stock', [AssetController::class, 'eksport_report_stock'])->name('eksport_report_stock');
 

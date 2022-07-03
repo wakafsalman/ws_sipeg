@@ -8,7 +8,9 @@ use App\Imports\AssetImport;
 use App\Models\Satuan;
 use App\Exports\SatuanExport;
 use App\Imports\SatuanImport;
-use App\Models\Pegawai;
+use App\Models\Pic;
+use App\Exports\PicExport;
+use App\Imports\PicImport;
 use App\Models\Pengajuan;
 use App\Models\ReportAsset;
 use App\Exports\ReportAssetExport;
@@ -28,9 +30,9 @@ class AssetController extends Controller
 
         $judul      =   'Data Aset';
         $data       =   Asset::all();
-        $pegawai    =   Pegawai::orderBy('nama','asc')->get();
+        $pic        =   Pic::orderBy('nama','asc')->get();
         $satuan     =   Satuan::all();
-        return view('aset/data', compact('judul','data','pegawai','satuan'));
+        return view('aset/data', compact('judul','data','pic','satuan'));
 
     }
 
@@ -96,6 +98,14 @@ class AssetController extends Controller
 
     }
 
+    public function autocomplete_pic_data_aset(Request $request){
+
+       return Pic::select("nama")
+                ->where("nama","LIKE","%{$request->term}%")
+                ->pluck("nama");
+        
+    }
+
     //data satuan
     public function satuan(){
 
@@ -146,18 +156,67 @@ class AssetController extends Controller
 
     }
 
+    //data pic
+    public function pic(){
+
+        $data   =   Pic::all();
+        $judul  =   'Data PIC/Tempat';
+        return view('aset/pic/data', compact('data','judul'));
+
+    }
+
+    public function tambah_pic(Request $request){
+
+        $data = Pic::create($request->all());
+        return redirect()->route('pic')->with('success', 'Data berhasil ditambah');
+
+    }
+
+    public function rubah_pic(Request $request, $id){
+
+        $data = Pic::find($id);
+        $data->update($request->all());
+        return redirect()->route('pic')->with('success', 'Data berhasil dirubah');
+
+    }
+
+    public function hapus_pic($id){
+
+        $data = Pic::find($id);
+        $data->delete();
+        return redirect()->route('pic')->with('success', 'Data berhasil dihapus');
+
+    }
+
+    public function eksport_pic(){
+
+        return Excel::download(new PicExport, 'Daftar PIC atau Tempat Wakaf Salman ITB.xlsx');
+
+    }
+
+    public function import_pic(Request $request) {
+
+        $data = $request->file('file');
+
+        $nama_file = $data->getClientOriginalName();
+        $data->move('DataPic', $nama_file);
+
+        Excel::import(new PicImport, \public_path('/DataPic/'.$nama_file));
+        return \redirect()->back();
+
+    }
+
     //pengajuan
     public function pengajuan(){
 
         $date = new DateTime('now');
 
-        $aset       =   Asset::all();
         $data       =   Pengajuan::where('id_users', auth()->user()->id_pegawais)
                             ->get();
-        $judul      =   'Pengajuan Aset';
+        $judul      =   'Pengajuan Merchandise';
         $satuan     =   Satuan::all();
         $tanggal    =   $date->format('d-m-Y');
-        return view('aset/pengajuan/data', compact('aset','data','judul','satuan','tanggal'));        
+        return view('aset/pengajuan/data', compact('data','judul','satuan','tanggal'));        
 
     }
 
@@ -171,7 +230,7 @@ class AssetController extends Controller
             'id_users'          =>  $request->id_users,
             'id_jabatans'       =>  $request->id_jabatans,
             'tanggal'           =>  $tanggal,
-            'id_assets'         =>  $request->id_assets,
+            'assets'            =>  $request->assets,
             'jumlah'            =>  $request->jumlah,
             'satuan'            =>  $request->satuan,
             'keterangan'        =>  $request->keterangan,
@@ -182,7 +241,53 @@ class AssetController extends Controller
 
     }
 
-    //data laporan aset masuk
+    public function rubah_pengajuan(Request $request, $id){
+
+        $data = Pengajuan::find($id);
+        $data->update($request->all());
+        return redirect()->route('pengajuan')->with('success', 'Data berhasil dirubah');
+
+    }
+
+    public function hapus_pengajuan($id){
+
+        $data = Pengajuan::find($id);
+        $data->delete();
+        return redirect()->route('pengajuan')->with('success', 'Data berhasil dihapus');
+
+    }
+
+    public function setujui_pengajuan($id){
+
+        $data = Pengajuan::find($id);
+        $update_status=[
+            'status' => 'Accepted'
+        ];
+        $data->update($update_status);
+        return redirect()->route('pengajuan')->with('success', 'Data berhasil dirubah');
+
+    }
+
+    public function batalkan_pengajuan($id){
+
+        $data = Pengajuan::find($id);
+        $update_status=[
+            'status' => 'Rejected'
+        ];
+        $data->update($update_status);
+        return redirect()->route('pengajuan')->with('success', 'Data berhasil dirubah');
+
+    }
+
+    public function autocomplete_aset_pengajuan(Request $request){
+
+        return Asset::select("nama")
+                 ->where("nama","LIKE","%{$request->term}%")
+                 ->pluck("nama");
+         
+    }
+ 
+     //data laporan aset masuk
     public function aset_masuk(){
 
         $aset       =   Asset::all();

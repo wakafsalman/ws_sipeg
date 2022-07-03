@@ -2,10 +2,10 @@
 
 namespace App\Imports;
 
-use App\Models\Kpi;
+use App\Models\Pic;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class KpiImport implements ToModel
+class PicImport implements ToModel
 {
     /**
     * @param array $row
@@ -14,12 +14,8 @@ class KpiImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Kpi([
-            /*
-            TO BE DESTRUCTION
-            'kode' => $row[1],
-            'nama' => $row[2]
-            */
+        return new Pic([
+            'nama' => $row[1]
         ]);
     }
 }

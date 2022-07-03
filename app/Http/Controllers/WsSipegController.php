@@ -56,17 +56,32 @@ class WsSipegController extends Controller
     public function rubah_profil(Request $request, $id){
 
         $data = User::find($id);
-        $data_update=[
-            'nama' => $request->nama,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-        ];
-        $data->update($data_update);
-        if($request->hasFile('foto')){
-            $gambar = $request->email.".".$request->file('foto')->getClientOriginalExtension();
-            $request->file('foto')->move('img/profil/', $gambar);
-            $data->foto = $gambar;
-            $data->save();
+        if($request->password != ""){
+            $data_update=[
+                'nama' => $request->nama,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+            ];
+            $data->update($data_update);
+            if($request->hasFile('foto')){
+                $gambar = $request->email.".".$request->file('foto')->getClientOriginalExtension();
+                $request->file('foto')->move('img/profil/', $gambar);
+                $data->foto = $gambar;
+                $data->save();
+            }    
+        }else{
+            $data_update=[
+                'nama' => $request->nama,
+                'email' => $request->email,
+            ];
+            $data->update($data_update);
+            if($request->hasFile('foto')){
+                $gambar = $request->email.".".$request->file('foto')->getClientOriginalExtension();
+                $request->file('foto')->move('img/profil/', $gambar);
+                $data->foto = $gambar;
+                $data->save();
+            }    
+
         }
         return redirect()->route('profil')->with('success', 'Data berhasil dirubah');
 

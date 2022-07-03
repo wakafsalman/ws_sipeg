@@ -33,6 +33,20 @@
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kode_kpi"><i class="fa fa-circle-o"></i>Kode KPI</a></li>
+          <li><a href="/kpi"><i class="fa fa-circle-o"></i>KPI</a></li>
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('cuti') || request()->is('rekap_cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
@@ -62,19 +76,7 @@
           <li><a href="/benefit"><i class="fa fa-circle-o"></i>Benefit</a></li>
         </ul>
       </li>
-      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi') ? 'active' : '' }}">
-        <a href="#">
-          <i class="glyphicon glyphicon-calendar"></i>
-          <span>KPI</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="/kode_kpi"><i class="fa fa-circle-o"></i>Kode KPI</a></li>
-          <li><a href="/kpi"><i class="fa fa-circle-o"></i>KPI</a></li>
-        </ul>
-      </li>
+      <!--
       <li class="treeview {{ request()->is('satuan') || request()->is('aset') || request()->is('pengajuan') || request()->is('aset_masuk') || request()->is('report_stock') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-folder-close"></i>
@@ -85,12 +87,14 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/satuan"><i class="fa fa-circle-o"></i>Kode Satuan</a></li>
+          <li><a href="/pic"><i class="fa fa-circle-o"></i>PIC/Tempat</a></li>
           <li><a href="/aset"><i class="fa fa-circle-o"></i>Data Aset</a></li>
-          <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Barang</a></li>
+          <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Merchandise</a></li>
           <li><a href="/aset_masuk"><i class="fa fa-circle-o"></i>Aset Masuk</a></li>
           <li><a href="/report_stock"><i class="fa fa-circle-o"></i>Laporan Stok Aset</a></li>
         </ul>
       </li>
+      -->
       <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-cog"></i>
@@ -125,6 +129,19 @@
           <li><a href="/screening"><i class="fa fa-circle-o"></i>Rekap Screening Harian</a></li>
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
         </ul>
+      </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kode_kpi"><i class="fa fa-circle-o"></i>Kode KPI</a></li>
+          <li><a href="/kpi"><i class="fa fa-circle-o"></i>KPI</a></li>
+\        </ul>
       </li>
       <li class="treeview {{ request()->is('cuti') || request()->is('rekap_cuti') ? 'active' : '' }}">
         <a href="#">
@@ -188,6 +205,32 @@
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kode_kpi"><i class="fa fa-circle-o"></i>Kode KPI</a></li>
+          <li><a href="/kpi"><i class="fa fa-circle-o"></i>KPI</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-cog"></i>
+          <span>Pengaturan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/divisi"><i class="fa fa-circle-o"></i>Divisi</a></li>
+          <li><a href="/jabatan"><i class="fa fa-circle-o"></i>Jabatan</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('cuti') || request()->is('rekap_cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
@@ -217,6 +260,7 @@
           <li><a href="/benefit"><i class="fa fa-circle-o"></i>Benefit</a></li>
         </ul>
       </li>
+      <!--
       <li class="treeview {{ request()->is('satuan') || request()->is('aset') || request()->is('pengajuan') || request()->is('aset_masuk') || request()->is('report_stock') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-folder-close"></i>
@@ -227,25 +271,14 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/satuan"><i class="fa fa-circle-o"></i>Kode Satuan</a></li>
+          <li><a href="/pic"><i class="fa fa-circle-o"></i>PIC/Tempat</a></li>
           <li><a href="/aset"><i class="fa fa-circle-o"></i>Data Aset</a></li>
-          <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Barang</a></li>
+          <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Merchandise</a></li>
           <li><a href="/aset_masuk"><i class="fa fa-circle-o"></i>Aset Masuk</a></li>
           <li><a href="/report_stock"><i class="fa fa-circle-o"></i>Laporan Stok Aset</a></li>
         </ul>
       </li>
-      <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
-        <a href="#">
-          <i class="glyphicon glyphicon-cog"></i>
-          <span>Pengaturan</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="/divisi"><i class="fa fa-circle-o"></i>Divisi</a></li>
-          <li><a href="/jabatan"><i class="fa fa-circle-o"></i>Jabatan</a></li>
-        </ul>
-      </li>
+      -->
 
       <!-- Hak Akses Jr. Manager Operational -->
       @elseif (auth()->user()->id_roles==12)
@@ -265,6 +298,32 @@
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kode_kpi"><i class="fa fa-circle-o"></i>Kode KPI</a></li>
+          <li><a href="/kpi"><i class="fa fa-circle-o"></i>KPI</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-cog"></i>
+          <span>Pengaturan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/divisi"><i class="fa fa-circle-o"></i>Divisi</a></li>
+          <li><a href="/jabatan"><i class="fa fa-circle-o"></i>Jabatan</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('cuti') || request()->is('rekap_cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
@@ -294,6 +353,7 @@
           <li><a href="/benefit"><i class="fa fa-circle-o"></i>Benefit</a></li>
         </ul>
       </li>
+      <!--
       <li class="treeview {{ request()->is('satuan') || request()->is('aset') || request()->is('pengajuan') || request()->is('aset_masuk') || request()->is('report_stock') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-folder-close"></i>
@@ -304,25 +364,14 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/satuan"><i class="fa fa-circle-o"></i>Kode Satuan</a></li>
+          <li><a href="/pic"><i class="fa fa-circle-o"></i>PIC/Tempat</a></li>
           <li><a href="/aset"><i class="fa fa-circle-o"></i>Data Aset</a></li>
-          <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Barang</a></li>
+          <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Merchandise</a></li>
           <li><a href="/aset_masuk"><i class="fa fa-circle-o"></i>Aset Masuk</a></li>
           <li><a href="/report_stock"><i class="fa fa-circle-o"></i>Laporan Stok Aset</a></li>
         </ul>
       </li>
-      <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
-        <a href="#">
-          <i class="glyphicon glyphicon-cog"></i>
-          <span>Pengaturan</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="/divisi"><i class="fa fa-circle-o"></i>Divisi</a></li>
-          <li><a href="/jabatan"><i class="fa fa-circle-o"></i>Jabatan</a></li>
-        </ul>
-      </li>
+      -->
 
       <!-- Hak Akses Jr. Manager Marketing -->
       @elseif (auth()->user()->id_roles==13)
@@ -338,6 +387,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi"><i class="fa fa-circle-o"></i>KPI</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
@@ -381,6 +442,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi"><i class="fa fa-circle-o"></i>KPI</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
@@ -420,6 +493,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
@@ -463,6 +548,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
@@ -504,6 +601,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
@@ -528,6 +637,7 @@
           <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
         </ul>
       </li>
+      <!--
       <li class="treeview {{ request()->is('satuan') || request()->is('aset') || request()->is('pengajuan') || request()->is('aset_masuk') || request()->is('report_stock') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-folder-close"></i>
@@ -537,9 +647,10 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Barang</a></li>
+          <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Merchandise</a></li>
         </ul>
       </li>
+      -->
 
       <!-- Hak Akses Jr. Assistant Manager Marketing Communication -->
       @elseif (auth()->user()->id_roles==18)
@@ -555,6 +666,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
@@ -598,6 +721,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
@@ -637,6 +772,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
@@ -680,6 +827,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
@@ -721,6 +880,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
@@ -760,6 +931,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
@@ -805,6 +988,33 @@
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kode_kpi"><i class="fa fa-circle-o"></i>Kode KPI</a></li>
+          <li><a href="/kpi"><i class="fa fa-circle-o"></i>KPI</a></li>
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-cog"></i>
+          <span>Pengaturan</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/divisi"><i class="fa fa-circle-o"></i>Divisi</a></li>
+          <li><a href="/jabatan"><i class="fa fa-circle-o"></i>Jabatan</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('cuti') || request()->is('rekap_cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
@@ -834,32 +1044,6 @@
           <li><a href="/benefit"><i class="fa fa-circle-o"></i>Benefit</a></li>
         </ul>
       </li>
-      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi') ? 'active' : '' }}">
-        <a href="#">
-          <i class="glyphicon glyphicon-calendar"></i>
-          <span>KPI</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="/kode_kpi"><i class="fa fa-circle-o"></i>Kode KPI</a></li>
-          <li><a href="/kpi"><i class="fa fa-circle-o"></i>KPI</a></li>
-        </ul>
-      </li>
-      <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
-        <a href="#">
-          <i class="glyphicon glyphicon-cog"></i>
-          <span>Pengaturan</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="/divisi"><i class="fa fa-circle-o"></i>Divisi</a></li>
-          <li><a href="/jabatan"><i class="fa fa-circle-o"></i>Jabatan</a></li>
-        </ul>
-      </li>
 
       <!-- Hak Akses Public Relation -->
       @elseif (auth()->user()->id_roles==25)
@@ -875,6 +1059,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
@@ -918,6 +1114,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
@@ -957,6 +1165,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
@@ -1000,6 +1220,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
@@ -1039,6 +1271,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
@@ -1082,6 +1326,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
@@ -1121,6 +1377,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
+        </ul>
+      </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
         </ul>
       </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
@@ -1164,6 +1432,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <span>KPI</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/kpi_report"><i class="fa fa-circle-o"></i>KPI Report</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-book"></i>
@@ -1189,10 +1469,9 @@
         </ul>
       </li>
 
-      <!-- Hak Akses Internship GA -->
+      <!-- Hak Akses Internship -->
       @elseif (auth()->user()->id_roles==34)
       <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="/beranda"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
-      <li class="{{ request()->is('pegawai') ? 'active' : '' }}"><a href="/pegawai"><i class="glyphicon glyphicon-user"></i><span>Data Pribadi</span></a></li>
       <li class="treeview {{ request()->is('absensi') || request()->is('absen') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-list-alt"></i>
@@ -1205,30 +1484,7 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
-      <li class="treeview {{ request()->is('cuti') ? 'active' : '' }}">
-        <a href="#">
-          <i class="glyphicon glyphicon-book"></i>
-          <span>Perizinan</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="/cuti"><i class="fa fa-circle-o"></i>Pengajuan Cuti</a></li>
-        </ul>
-      </li>
-      <li class="treeview {{ request()->is('training') || request()->is('rekap_training') || request()->is('rekap_point') || request()->is('jenis_training') || request()->is('benefit') ? 'active' : '' }}">
-        <a href="#">
-          <i class="glyphicon glyphicon-briefcase"></i>
-          <span>Training</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
-        </ul>
-      </li>
+      <!--
       <li class="treeview {{ request()->is('satuan') || request()->is('aset') || request()->is('pengajuan') || request()->is('aset_masuk') || request()->is('report_stock') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-folder-close"></i>
@@ -1239,12 +1495,14 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="/satuan"><i class="fa fa-circle-o"></i>Kode Satuan</a></li>
+          <li><a href="/pic"><i class="fa fa-circle-o"></i>PIC/Tempat</a></li>
           <li><a href="/aset"><i class="fa fa-circle-o"></i>Data Aset</a></li>
-          <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Barang</a></li>
+          <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Merchandise</a></li>
           <li><a href="/aset_masuk"><i class="fa fa-circle-o"></i>Aset Masuk</a></li>
           <li><a href="/report_stock"><i class="fa fa-circle-o"></i>Laporan Stok Aset</a></li>
         </ul>
       </li>
+      -->
       @endif
 
 

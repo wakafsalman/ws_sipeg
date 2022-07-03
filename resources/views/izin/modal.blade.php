@@ -88,7 +88,7 @@
                     <div class="form-group">
                         <label for="exampleInputName" class="form-label">Nama Manager Divisi <span style="color: red;">*</span></label>
                         <select name="manager" class="form-control" aria-label="Default select example" required>
-                            <option selected>Pilih Manager Anda</option>
+                            <option selected>Pilih Manager/Asisten Manager Anda</option>
                             @foreach($manager as $data)
                             <option value="{{ $data->nama }}">{{ $data->nama }}</option>
                             @endforeach

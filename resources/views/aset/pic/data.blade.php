@@ -17,7 +17,7 @@
   <section class="content-header">  
     <div class="row">
       <div class="col-md-1">
-        <a href="" class="btn btn-success mb-4" data-toggle="modal" data-target="#modal-tambah-kode-kpi"><i class="glyphicon glyphicon-plus"></i> Tambah Kode KPI</a>
+        <a href="" class="btn btn-success mb-4" data-toggle="modal" data-target="#modal-tambah-pic"><i class="glyphicon glyphicon-plus"></i> Tambah PIC/Tempat</a>
 
       </div>
     </div>
@@ -26,10 +26,10 @@
   <section class="content-header">  
     <div class="row">
       <div class="col-md-1">
-        <a href="/eksport_kode_kpi" class="btn btn-success"><i class="glyphicon glyphicon-save"></i> Eksport Excel</a>    
+        <a href="/eksport_pic" class="btn btn-success"><i class="glyphicon glyphicon-save"></i> Eksport Excel</a>    
       </div>
       <div class="col-md-1">
-        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-import-kode-kpi">
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-import-pic">
         <i class="glyphicon glyphicon-open"></i>
           Import Data
         </button>
@@ -43,7 +43,7 @@
 
     <div class="box">
       <div class="box-header">
-        <h3 class="box-title">Kode KPI</h3>
+        <h3 class="box-title">Daftar PIC/Tempat Wakaf Salman ITB</h3>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
@@ -51,10 +51,7 @@
           <thead>
           <tr>
             <th>No</th>
-            <th>Kode KPI</th>
-            <th>KPI</th>
-            <th>Definisi</th>
-            <th>Target</th>
+            <th>PIC/Tempat</th>
             <th>Aksi</th>
           </tr>
           </thead>
@@ -65,13 +62,10 @@
           @foreach($data as $row)
           <tr>
             <th scope="row">{{ $no++ }}</th>
-            <td>{{ $row->kode }}</td>
             <td>{{ $row->nama }}</td>
-            <td>{{ $row->definisi }}</td>
-            <td>{{ $row->target }}</td>
             <td>
-                <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-rubah-kode-kpi-{{ $row->id }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                <a href="#" class="btn btn-danger hapus-kode-kpi" data-id="{{ $row->id }}" data-kode="{{ $row->kode }}"><i class="glyphicon glyphicon-trash"></i> Delete</a>
+                <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-rubah-pic-{{ $row->id }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                <a href="#" class="btn btn-danger hapus-pic" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}"><i class="glyphicon glyphicon-trash"></i> Delete</a>
             </td>
           </tr>
           @endforeach
@@ -85,6 +79,6 @@
   <!-- /.content -->
 </div>
 
-@include('kode_kpi.modal')
+@include('aset.pic.modal')
 
 @endsection

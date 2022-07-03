@@ -57,12 +57,14 @@
           <tr>
             <th>No</th>
             <th>Kode Aset</th>
+            <th>Jenis Aset</th>
             <th>Nama Aset</th>
-            <th>Merk</th>
-            <th>PIC/Tempat</th>
+            <th>Tanggal Pembelian</th>
             <th>Jumlah</th>
             <th>Satuan</th>
-            <th>Gambar</th>
+            <th>PIC/Tempat</th>
+            <th>Harga</th>
+            <th>Total</th>
             <th>Aksi</th>
           </tr>
           </thead>
@@ -74,18 +76,14 @@
           <tr>
             <th scope="row">{{ $no++ }}</th>
             <td>{{ $row->kode }}</td>
+            <td>{{ $row->jenis_aset }}</td>
             <td>{{ $row->nama }}</td>
-            <td>{{ $row->merk }}</td>
-            <td>{{ $row->pic }}</td>
+            <td>{{ date('d/m/Y', strtotime($row->tanggal)) }} </td>
             <td>{{ $row->jumlah }}</td>
             <td>{{ $row->satuan }}</td>
-            @if($row->gambar != "")
-              <td>
-                  <img src="{{ asset('img/aset/'.$row->gambar)  }}" style="width: 180px; height: 200px;">
-              </td>
-            @else
-              <td></td>
-            @endif
+            <td>{{ $row->pic }}</td>
+            <td>{{ $row->harga }}</td>
+            <td>{{ $row->jumlah*$row->harga }}</td>
             <td>
                 <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-rubah-aset-{{ $row->id }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                 <a href="#" class="btn btn-danger hapus-aset" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}"><i class="glyphicon glyphicon-trash"></i> Delete</a>

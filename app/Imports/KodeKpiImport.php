@@ -17,7 +17,8 @@ class KodeKpiImport implements ToModel
         return new KodeKpi([
             'kode' => $row[1],
             'nama' => $row[2],
-            'target' => $row[3]
+            'definisi' => $row[3],
+            'target' => $row[4]
         ]);
     }
 }

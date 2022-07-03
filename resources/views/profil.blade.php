@@ -74,7 +74,7 @@
                 <label for="inputPassword" class="col-sm-2 control-label">Password</label>
 
                 <div class="col-sm-10">
-                  <input type="password" name="password" class="form-control" id="exampleInputPassword" value="{{ Auth::user()->password }}">
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword">
                   <p class="help-block">Jika tidak ingin mengganti password tidak perlu diisi</p>
                 </div>
               </div>

@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Kpi;
 use App\Models\KodeKpi;
+use App\Models\ReportKpi;
+use App\Models\Pegawai;
+use App\Models\Divisi;
 use App\Models\Jabatan;
-use App\Exports\KpiExport;
-use App\Imports\KpiImport;
 use Illuminate\Http\Request;
 use PDF;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
+use Session;
 
 class KpiController extends Controller
 {
@@ -18,10 +20,10 @@ class KpiController extends Controller
     public function index(){
 
         $data       =   Kpi::all();
-        $jabatan    =   Jabatan::all();
+        $divisi     =   Divisi::all();
         $judul      =   'Key Performance Indicator (KPI)';
         $kode_kpi   =   KodeKpi::all();
-        return view('kpi/data', compact('data','jabatan','judul','kode_kpi'));
+        return view('kpi/data', compact('data','divisi','judul','kode_kpi'));
 
     }
 
@@ -31,54 +33,6 @@ class KpiController extends Controller
         return redirect()->route('kpi')->with('success', 'Data berhasil ditambah');
 
     }
-
-    /*
-    public function input_kpi(){
-
-        $jabatan    =   Jabatan::all();
-        $kode_kpi   =   KodeKpi::all();
-        $judul      =   'Tambah KPI';
-        return view('kpi/input', compact('jabatan','kode_kpi','judul'));
-
-    }
-
-    public function tambah_kpi(Request $request){
-
-        $data = $request->all();
-
-        $tahun = Carbon::now()->format('Y');
-
-        $cek_data = Kpi::where('no_kpi','like','%KPI'.$tahun.'%')->get();
-
-        $cek = count($cek_data);
-
-        if($cek == 0){
-            $angka = sprintf("%04s", 1);
-            $no_kpi = "KPI".$tahun."-".$angka;          
-        }else{
-            $angka = sprintf("%04s", $cek + 1);
-            $no_kpi = "KPI".$tahun."-".$angka;
-        }
-        
-
-        if(count($data['target']) > 0){
-            foreach($data['target'] as $item => $value){
-                $data_kpi = array(
-                    'id_jabatans'       =>  $request->id_jabatans,
-                    'id_kode_kpis'      =>  $data['id_kode_kpis'][$item],
-                    'no_kpi'            =>  $no_kpi,
-                    'target'            =>  $data['target'][$item],
-                    'progress'          =>  $data['progress'][$item],
-                    'kendala'           =>  $data['kendala'][$item],
-                );
-                Kpi::create($data_kpi);
-            }
-        }
-
-        return redirect()->route('kpi')->with('success', 'Data berhasil ditambah');
-
-    }
-    */
 
     public function rubah_kpi(Request $request, $id){
 
@@ -96,22 +50,126 @@ class KpiController extends Controller
 
     }
 
-    public function eksport_kpi(){
+    public function report_kpi($id_divisi, $id_kode_kpi){
 
-        return Excel::download(new KpiExport, 'KPI.xlsx');
+        $data           =   ReportKpi::where('id_divisis', $id_divisi)
+                                ->where('id_kode_kpis', $id_kode_kpi)
+                                ->get();
+        $jabatan        =   Jabatan::all();
+        $judul          =   'Report KPI';
+        $judul_data     =   Kpi::where('id_divisis', $id_divisi)
+                                ->where('id_kode_kpis', $id_kode_kpi)
+                                ->get();
+        $kode_kpi       =   KodeKpi::all();
+        $pegawai        =   Pegawai::all();
+
+
+        return view('kpi/report/management/data', compact('data','jabatan','judul','judul_data','kode_kpi','pegawai'));
+        
 
     }
 
-    public function import_kpi(Request $request) {
+    public function tambah_report_kpi(Request $request){
 
-        $data = $request->file('file');
+        
+        $jumlah_pic = count($request->id_pegawais);
 
-        $nama_file = $data->getClientOriginalName();
-        $data->move('DataKpi', $nama_file);
+        for($i=0;$i<$jumlah_pic;$i++){
+            if($request->tanggal != NULL){
+                ReportKpi::create([
+                    'id_divisis'        =>  $request->id_divisis,
+                    'id_kode_kpis'      =>  $request->id_kode_kpis,
+                    'deskripsi'         =>  $request->deskripsi,
+                    'id_pegawais'       =>  $request->id_pegawais[$i],
+                    'progress'          =>  $request->progress,
+                    'kendala'           =>  $request->kendala,
+                    'tanggal'           =>  $request->tanggal,
+                ]);    
+            }else{
+                ReportKpi::create([
+                    'id_divisis'        =>  $request->id_divisis,
+                    'id_kode_kpis'      =>  $request->id_kode_kpis,
+                    'deskripsi'         =>  $request->deskripsi,
+                    'id_pegawais'       =>  $request->id_pegawais[$i],
+                    'progress'          =>  $request->progress,
+                    'kendala'           =>  $request->kendala,
+                    'keterangan'        =>  $request->keterangan,
+                ]);    
+            }
+        }
 
-        Excel::import(new KpiImport, \public_path('/DataKpi/'.$nama_file));
-        return \redirect()->back();
+        return redirect()->route('report_kpi', ['id_divisi' => $request->id_divisis, 'id_kode_kpi' => $request->id_kode_kpis])->with('success', 'Data berhasil ditambah');
 
     }
+
+    public function rubah_report_kpi(Request $request, $id){
+
+        $id_pegawai = Pegawai::select("id")
+                            ->where("nama", "LIKE", "%{$request->pic}%")
+                            ->get();
+
+        $data = ReportKpi::find($id);
+        $update_report=[
+            'id_divisis'        =>  $request->id_divisis,
+            'id_kode_kpis'      =>  $request->id_kode_kpis,
+            'deskripsi'         =>  $request->deskripsi,
+            'id_pegawais'       =>  $id_pegawai[0]->id,
+            'progress'          =>  $request->progress,
+            'keterangan'        =>  $request->keterangan,
+            'kendala'           =>  $request->kendala,
+        ];
+        $data->update($update_report);
+        return redirect()->route('report_kpi', ['id_divisi' => $request->id_divisis, 'id_kode_kpi' => $request->id_kode_kpis])->with('success', 'Data berhasil dirubah');
+
+    }
+
+    public function hapus_report_kpi($id){
+
+        $data = ReportKpi::find($id);
+
+        session(['id_divisi' => $data->id_divisis]);
+        session(['id_kode_kpi' => $data->id_kode_kpis]);
+
+        $id_divisi = session('id_divisi');
+        $id_kode_kpi = session('id_kode_kpi');
+
+        $data->delete();
+        return redirect()->route('report_kpi', ['id_divisi' => $id_divisi, 'id_kode_kpi' => $id_kode_kpi])->with('success', 'Data berhasil dihapus');
+
+    }
+
+    public function kpi_report(){
+
+        if(auth()->user()->id == 1){
+            $judul      =   'KPI Report Wakaf Salman ITB';
+            $data       =   ReportKpi::orderBy('id_kode_kpis','asc')
+                                    ->get();
+        }else{
+            $judul      =   'KPI Report';
+            $data       =   ReportKpi::where('id_pegawais', auth()->user()->id_pegawais)
+                                    ->orderBy('id_kode_kpis','asc')
+                                    ->get();
+        }
+
+        $jabatan        =   Jabatan::all();
+        $kode_kpi       =   KodeKpi::all();
+        $pegawai        =   Pegawai::all();
+
+
+        return view('kpi/report/staff/data', compact('data','jabatan','judul','kode_kpi','pegawai'));
+        
+
+    }
+
+    public function rubah_report_user_kpi(Request $request, $id){
+
+        $data = ReportKpi::find($id);
+        $data->update($request->all());
+        return redirect()->route('kpi_report')->with('success', 'Data berhasil dirubah');
+
+    }
+
+ 
+
 
 }

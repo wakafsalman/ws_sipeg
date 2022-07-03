@@ -22,7 +22,8 @@ class CutiController extends Controller
                             ->selectRaw('DATEDIFF(tanggal_akhir, tanggal_awal) as jumlah_cuti')
                             ->get();
         $judul      =   'Pengajuan Cuti';
-        $manager    =   Pegawai::whereIn('id_jabatans', [9, 10, 11, 12])
+        $manager    =   Pegawai::whereIn('id', [2, 39, 3, 12, 22, 6, 7])
+                                ->orderBy('nama','asc')
                                 ->get();
         return view('izin/cuti', compact('data','judul','manager'));
 

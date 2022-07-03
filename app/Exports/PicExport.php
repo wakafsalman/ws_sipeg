@@ -2,16 +2,16 @@
 
 namespace App\Exports;
 
-use App\Models\Kpi;
+use App\Models\Pic;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-class KpiExport implements FromCollection
+class PicExport implements FromCollection
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return Kpi::all();
+        return Pic::all();
     }
 }
