@@ -59,4 +59,32 @@
   <!-- /.content -->
 </div>
 
+@push('reset_point')
+
+<script>
+  $('.reset-point').click(function(){
+      var id_karyawan = $(this).attr('data-id');
+      var nama_karyawan = $(this).attr('data-nama');
+      swal({
+          title: "Reset Point",
+          text: "Apakah kamu yakin akan mereset point training karyawan "+nama_karyawan+" ? ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          })
+          .then((willDelete) => {
+          if (willDelete) {
+              window.location = "/reset_point/"+id_karyawan+""
+              swal("Data berhasil direset point", {
+              icon: "success",
+              });
+          } else {
+              swal("Aksi dibatalkan!");
+          }
+      });
+  });
+</script>
+
+@endpush
+
 @endsection

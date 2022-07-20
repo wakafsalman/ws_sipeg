@@ -81,4 +81,32 @@
 
 @include('aset.pic.modal')
 
+@push('pic')
+
+<script>
+  $('.hapus-pic').click(function(){
+      var id_pic = $(this).attr('data-id');
+      var nama_pic = $(this).attr('data-nama');
+      swal({
+          title: "Hapus data",
+          text: "Apakah kamu yakin akan menghapus data "+nama_pic+"? ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          })
+          .then((willDelete) => {
+          if (willDelete) {
+              window.location = "/hapus_pic/"+id_pic+""
+              swal("Data berhasil dihapus", {
+              icon: "success",
+              });
+          } else {
+              swal("Aksi dibatalkan!");
+          }
+      });
+  });
+</script>
+
+@endpush
+
 @endsection

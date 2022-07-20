@@ -17,11 +17,14 @@ class AssetImport implements ToModel
         return new Asset([
             
             'kode' => $row[1],
-            'nama' => $row[2],
-            'merk' => $row[3],
-            'pic' => $row[4],
+            'jenis_aset' => $row[2],
+            'nama' => $row[3],
+            'tanggal' => $row[4],
             'jumlah' => $row[5],
-            'satuan' => $row[6]
+            'satuan' => $row[6],
+            'harga' => $row[7],
+            'total' => $row[8],
+            'pic' => $row[9]
         ]);
 
     }

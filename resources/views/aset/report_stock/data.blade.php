@@ -17,19 +17,8 @@
   <section class="content-header">  
     <div class="row">
       <div class="col-md-1">
-        <a href="" class="btn btn-success mb-4" data-toggle="modal" data-target="#modal-tambah-report-stock"><i class="glyphicon glyphicon-plus"></i> Tambah Data Stock Aset</a>
+        <a href="" class="btn btn-success mb-4" data-toggle="modal" data-target="#modal-tambah-report-stock"><i class="glyphicon glyphicon-plus"></i> Tambah Laporan</a>
 
-      </div>
-    </div>
-  </section>
-
-  <section class="content-header">  
-    <div class="row">
-      <div class="col-md-1">
-        <a href="/eksport_report_stock_pdf" class="btn btn-danger"><i class="glyphicon glyphicon-save"></i> Eksport PDF</a>
-      </div>
-      <div class="col-md-1">
-        <a href="/eksport_report_stock" class="btn btn-success"><i class="glyphicon glyphicon-save"></i> Eksport Excel</a>    
       </div>
     </div>
   </section>
@@ -41,33 +30,31 @@
 
     <div class="box">
       <div class="box-header">
-          <h3 class="box-title">Laporan Stok Aset Wakaf Salman ITB</h3>
+          <h3 class="box-title">Laporan Stok Opname Wakaf Salman ITB</h3>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
         <table id="example1" class="table table-bordered table-striped">
           <thead>
             <tr>
-              <th rowspan="2" style="text-align: center;">Nama Aset (Merk)</th>
-              <th rowspan="2" style="text-align: center;">Stock Awal</th>
-              <th rowspan="2" style="text-align: center;">Satuan</th>
-              <th colspan="2" style="text-align: center;">Mutasi</th>
-              <th rowspan="2" style="text-align: center;">Stock Akhir</th>
-            </tr>
-            <tr>
-              <th style="text-align: center;">In</th>
-              <th style="text-align: center;">Out</th>  
+              <th>Keterangan</th>
+              <th>Tanggal</th>
+              <th>Status</th>
+              <th>File</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
           @foreach($data as $row)
           <tr>
-            <td>{{ $row->assets->nama }} ({{ $row->assets->merk }})</td>
-            <td>{{ $row->jumlah }}</td>
-            <td>{{ $row->satuan }}</td>
-            <td>{{ $row->jumlah_in }}</td>
-            <td>{{ $row->jumlah_out }}</td>
-            <td>{{ ($row->jumlah+$row->jumlah_in)-$row->jumlah_out }}</td>
+            <td>{{ $row->keterangan }}</td>
+            <td>{{ $row->tanggal_indo }}</td>
+            <td>{{ $row->status }}</td>
+            <td><a href="{{asset('pdf/stock-opname')}}/{{ $row->file }}">{{ $row->file }}</a></td>
+            <td>
+              <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-rubah-stock-opname-{{ $row->id }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+              <a href="#" class="btn btn-danger hapus-stock-opname" data-id="{{ $row->id }}" data-nama="{{ $row->keterangan }}"><i class="glyphicon glyphicon-trash"></i> Delete</a>
+            </td>
           </tr>
           @endforeach
           </tbody>
@@ -81,5 +68,33 @@
 </div>
 
 @include('aset.report_stock.modal')
+
+@push('report_stock')
+
+<script>
+  $('.hapus-stock-opname').click(function(){
+      var id_stock_opname = $(this).attr('data-id');
+      var nama_stock_opname = $(this).attr('data-nama');
+      swal({
+          title: "Hapus data",
+          text: "Apakah kamu yakin akan menghapus data "+nama_stock_opname+" ? ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          })
+          .then((willDelete) => {
+          if (willDelete) {
+              window.location = "/hapus_report_stock/"+id_stock_opname+""
+              swal("Data berhasil dihapus", {
+              icon: "success",
+              });
+          } else {
+              swal("Aksi dibatalkan!");
+          }
+      });
+  });
+</script>
+
+@endpush
 
 @endsection

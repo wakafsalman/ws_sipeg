@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 use DateTime;
 use DateTimeZone;
 use PDF;
+use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 
 class AssetController extends Controller
@@ -225,17 +226,23 @@ class AssetController extends Controller
         $timezone   =   'Asia/Jakarta';
         $date       =   new DateTime('now', new DateTimeZone($timezone));
         $tanggal    =   $date->format('Y-m-d');
+        $data       =   $request->all();
 
-        Pengajuan::create([
-            'id_users'          =>  $request->id_users,
-            'id_jabatans'       =>  $request->id_jabatans,
-            'tanggal'           =>  $tanggal,
-            'assets'            =>  $request->assets,
-            'jumlah'            =>  $request->jumlah,
-            'satuan'            =>  $request->satuan,
-            'keterangan'        =>  $request->keterangan,
-        ]);
-
+        if(count($data['assets']) > 0){
+            foreach ($data['assets'] as $item => $value){
+                $data2 = array(
+                    'id_users'          =>  $request->id_users,
+                    'id_jabatans'       =>  $request->id_jabatans,
+                    'tanggal'           =>  $tanggal,
+                    'assets'            =>  $data['assets'][$item],
+                    'jumlah'            =>  $data['jumlah'][$item],
+                    'satuan'            =>  $data['satuan'][$item],
+                    'keterangan'        =>  $request->keterangan,        
+                );
+                Pengajuan::create($data2);    
+            }
+        }
+ 
         return redirect()->route('pengajuan')->with('success', 'Anda berhasil melakukan pengajuan barang, silahkan hubungi GA agar segera diproses');
 
 
@@ -281,9 +288,17 @@ class AssetController extends Controller
 
     public function autocomplete_aset_pengajuan(Request $request){
 
-        return Asset::select("nama")
-                 ->where("nama","LIKE","%{$request->term}%")
-                 ->pluck("nama");
+        $aset = Asset::select("nama")
+                    ->where("nama","LIKE","%{$request->term}%")
+                    ->get();
+
+        $data = array();
+        foreach ($aset as $list_aset) {
+                    $data[] = array('nama' => $list_aset->nama);
+        }
+        if(count($data)){
+            return $data;
+        }
          
     }
  
@@ -300,32 +315,64 @@ class AssetController extends Controller
 
     public function tambah_aset_masuk(Request $request){
 
-        $data = ReportAsset::create($request->all());
+        $data = $request->all();
+        if(count($data['aset']) > 0){
+            foreach ($data['aset'] as $item => $value){
+                $data2 = array(
+                    'tanggal'           =>  $request->tanggal,
+                    'jenis_aset'        =>  $request->jenis_aset,
+                    'aset'              =>  $data['aset'][$item],
+                    'jumlah'            =>  $data['jumlah'][$item],
+                    'satuan'            =>  $data['satuan'][$item],
+                    'harga'             =>  $data['harga'][$item],
+                    'tanggal_beli'      =>  $request->tanggal_beli,        
+                );
+                ReportAsset::create($data2);    
+            }
+        }
+ 
         return redirect()->route('aset_masuk')->with('success', 'Data berhasil ditambah');
 
     }
 
-    public function eksport_aset_masuk_pdf(){
+    public function rubah_aset_masuk(Request $request, $id){
 
-        $data = ReportAsset::all();
-        view()->share('data', $data);
-        $pdf = PDF::loadview('aset/aset_masuk/data_pdf');
-        return $pdf->download('Laporan Aset Masuk Wakaf Salman.pdf');
-
-    }
-
-    public function eksport_aset_masuk(){
-
-        return Excel::download(new ReportAssetExport, 'Laporan Aset Masuk Wakaf Salman ITB.xlsx');
+        $data = ReportAsset::find($id);
+        $data->update($request->all());
+        return redirect()->route('aset_masuk')->with('success', 'Data berhasil dirubah');
 
     }
 
-    //data laporan stok aset
+    public function hapus_aset_masuk($id){
+
+        $data = ReportAsset::find($id);
+        $data->delete();
+        return redirect()->route('aset_masuk')->with('success', 'Data berhasil dihapus');
+
+    }
+
+    public function autocomplete_aset_masuk(Request $request){
+
+        $aset = Asset::select("nama")
+                    ->where("nama","LIKE","%{$request->term}%")
+                    ->get();
+
+        $data = array();
+        foreach ($aset as $list_aset) {
+                    $data[] = array('nama' => $list_aset->nama);
+        }
+        if(count($data)){
+            return $data;
+        }
+         
+    }
+ 
+    //data Laporan Stock Opname 
     public function report_stock(){
 
         $aset       =   Asset::all();
         $data       =   ReportStock::all();
-        $judul      =   'Laporan Stok Aset';
+        $judul      =   'Laporan Stock Opname';
         $satuan     =   Satuan::all();
         return view('aset/report_stock/data', compact('aset','data','judul','satuan'));
 
@@ -333,23 +380,69 @@ class AssetController extends Controller
 
     public function tambah_report_stock(Request $request){
 
-        $data = ReportStock::create($request->all());
+
+        $data = $request->all();
+        $data['tanggal'] = Carbon::parse($request->tanggal)->locale('id');
+        $data['tanggal']->settings(['formatFunction' => 'translatedFormat']);
+
+        $tanggal_indo = $data['tanggal']->format('d F Y');
+        if($request->hasFile('laporan')){
+            $laporan = "StockOpname_".$tanggal_indo.".".$request->file('laporan')->getClientOriginalExtension();
+            $request->file('laporan')->move('pdf/stock-opname/', $laporan);
+        }
+        ReportStock::create([
+            'keterangan'            =>  $request->keterangan,
+            'tanggal_indo'          =>  $request->tanggal,
+            'tanggal'               =>  $request->tanggal,
+            'status'                =>  $request->status,
+            'file'                  =>  $laporan,
+        ]);
+
         return redirect()->route('report_stock')->with('success', 'Data berhasil ditambah');
 
     }
 
-    public function eksport_report_stock_pdf(){
+    public function rubah_report_stock(Request $request, $id){
 
-        $data = ReportStock::all();
-        view()->share('data', $data);
-        $pdf = PDF::loadview('aset/report_stock/data_pdf');
-        return $pdf->download('Laporan Stok Aset Wakaf Salman.pdf');
+        $ambil_data_tanggal = $request->all();
+        $ambil_data_tanggal['tanggal'] = Carbon::parse($request->tanggal)->locale('id');
+        $ambil_data_tanggal['tanggal']->settings(['formatFunction' => 'translatedFormat']);
 
+        $tanggal_indo = $ambil_data_tanggal['tanggal']->format('d F Y');
+        if($request->hasFile('laporan')){
+            $laporan = "StockOpname_".$tanggal_indo.".".$request->file('laporan')->getClientOriginalExtension();
+            $request->file('laporan')->move('pdf/stock-opname/', $laporan);
+
+            $data = ReportStock::find($id);
+            $stock_opname_update=[
+                'keterangan'            =>  $request->keterangan,
+                'tanggal_indo'          =>  $request->tanggal,
+                'tanggal'               =>  $request->tanggal,
+                'status'                =>  $request->status,
+                'file'                  =>  $laporan,
+            ];
+            $data->update($stock_opname_update);
+        }else{
+            $data = ReportStock::find($id);
+            $stock_opname_update=[
+                'keterangan'            =>  $request->keterangan,
+                'tanggal_indo'          =>  $request->tanggal,
+                'tanggal'               =>  $request->tanggal,
+                'status'                =>  $request->status,
+            ];
+            $data->update($stock_opname_update);
+
+        }
+
+
+        return redirect()->route('report_stock')->with('success', 'Data berhasil dirubah');
     }
 
-    public function eksport_report_stock(){
+    public function hapus_report_stock($id){
 
-        return Excel::download(new ReportStockExport, 'Laporan Stok Aset Wakaf Salman ITB.xlsx');
+        $data = ReportStock::find($id);
+        $data->delete();
+        return redirect()->route('report_stock')->with('success', 'Data berhasil dihapus');
 
     }
 

@@ -80,4 +80,33 @@
 
 @include('divisi.modal')
 
+@push('divisi')
+
+<script>
+  $('.hapus-divisi').click(function(){
+      var id_divisi = $(this).attr('data-id');
+      var nama_divisi = $(this).attr('data-nama');
+      swal({
+          title: "Hapus data",
+          text: "Apakah kamu yakin akan menghapus data "+nama_divisi+"? ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          })
+          .then((willDelete) => {
+          if (willDelete) {
+              window.location = "/hapus_divisi/"+id_divisi+""
+              swal("Data berhasil dihapus", {
+              icon: "success",
+              });
+          } else {
+              swal("Aksi dibatalkan!");
+          }
+      });
+  });
+</script>
+
+
+@endpush
+
 @endsection

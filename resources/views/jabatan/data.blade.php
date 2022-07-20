@@ -81,4 +81,32 @@
 
 @include('jabatan.modal')
 
+@push('jabatan')
+
+<script>
+  $('.hapus-jabatan').click(function(){
+      var id_jabatan = $(this).attr('data-id');
+      var nama_jabatan = $(this).attr('data-nama');
+      swal({
+          title: "Hapus data",
+          text: "Apakah kamu yakin akan menghapus data "+nama_jabatan+"? ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          })
+          .then((willDelete) => {
+          if (willDelete) {
+              window.location = "/hapus_jabatan/"+id_jabatan+""
+              swal("Data berhasil dihapus", {
+              icon: "success",
+              });
+          } else {
+              swal("Aksi dibatalkan!");
+          }
+      });
+  });
+</script>
+
+@endpush
+
 @endsection

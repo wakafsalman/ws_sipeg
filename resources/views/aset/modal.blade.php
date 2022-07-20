@@ -8,7 +8,13 @@
             </div>
             <form action="/import_aset" method="POST" enctype="multipart/form-data">
             @csrf
-                <div class="modal-footer">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="exampleInputName" class="form-label">Pilih file</label>
+                    <input type="file" name="file" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Kembali</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
@@ -36,6 +42,7 @@
                         <label for="exampleInputCode" class="form-label">Jenis Aset</label>
                         <select name="jenis_aset" class="form-control" aria-label="Default select example">
                             <option selected>Pilih Jenis Aset</option>
+                            <option value="ATK">ATK</option>
                             <option value="Peralatan Wakaf">Peralatan Wakaf</option>
                             <option value="Merchandise">Merchandise</option>
                         </select>

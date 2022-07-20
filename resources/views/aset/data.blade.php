@@ -102,4 +102,43 @@
 
 @include('aset.modal')
 
+@push('aset')
+
+<script>
+  $('.hapus-aset').click(function(){
+      var id_aset = $(this).attr('data-id');
+      var nama_aset = $(this).attr('data-nama');
+      swal({
+          title: "Hapus data",
+          text: "Apakah kamu yakin akan menghapus data "+nama_aset+" ? ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          })
+          .then((willDelete) => {
+          if (willDelete) {
+              window.location = "/hapus_aset/"+id_aset+""
+              swal("Data berhasil dihapus", {
+              icon: "success",
+              });
+          } else {
+              swal("Aksi dibatalkan!");
+          }
+      });
+  });
+</script>
+<script>
+  var path = "{{ route('autocomplete_pic_data_aset') }}";
+
+  $('input.typeahead-pic').typeahead({
+      source: function(query, process){
+          return $.get(path, {term: query}, function(data){
+              return process(data);
+          });
+      }
+  });
+</script>
+
+@endpush
+
 @endsection

@@ -83,4 +83,32 @@
 
 @include('benefit.modal')
 
+@push('benefit')
+
+<script>
+  $('.hapus-benefit').click(function(){
+      var id_benefit = $(this).attr('data-id');
+      var nama_benefit = $(this).attr('data-nama');
+      swal({
+          title: "Hapus data",
+          text: "Apakah kamu yakin akan menghapus data "+nama_benefit+"? ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          })
+          .then((willDelete) => {
+          if (willDelete) {
+              window.location = "/hapus_benefit/"+id_benefit+""
+              swal("Data berhasil dihapus", {
+              icon: "success",
+              });
+          } else {
+              swal("Aksi dibatalkan!");
+          }
+      });
+  });
+</script>
+
+@endpush
+
 @endsection

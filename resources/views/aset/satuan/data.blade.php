@@ -81,4 +81,32 @@
 
 @include('aset.satuan.modal')
 
+@push('satuan')
+
+<script>
+  $('.hapus-satuan').click(function(){
+      var id_satuan = $(this).attr('data-id');
+      var nama_satuan = $(this).attr('data-nama');
+      swal({
+          title: "Hapus data",
+          text: "Apakah kamu yakin akan menghapus data "+nama_satuan+"? ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          })
+          .then((willDelete) => {
+          if (willDelete) {
+              window.location = "/hapus_satuan/"+id_satuan+""
+              swal("Data berhasil dihapus", {
+              icon: "success",
+              });
+          } else {
+              swal("Aksi dibatalkan!");
+          }
+      });
+  });
+</script>
+
+@endpush
+
 @endsection

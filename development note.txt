@@ -6,25 +6,24 @@ Modul Done :
 - Data Karyawan, Jabatan, dan Divisi
 - Form Perizinan Cuti
 - Record Training Karyawan (Offline/Online) ngelink ke E-Learning
+- Target KPI per Individu
 
 Progress :
 
-Absensi WFH (Pengembangan)
-- ceklist rencana kerja
+Aset
+- stock merchandise
+- BAST
+- BAPB
 
 Form Perizinan Cuti (Pengembangan)
 - dikoneksikan antar orang, alurnya dari pengaju cuti - ke atasan langsung utk acc - lalu ke SDM utk konfirmasi acc
+- buat migrasi untuk :
+    * ganti column manager menjadi id_manager (supaya bisa connect ke para manager/asmen)
+    * tambah column notes, status_approval_manager, status_approval_sdm
+- connect ke email untuk notifikasi
 
-Target KPI per Individu
-- buat tampilan report KPI seperti KPI (expandable) meh user teu lieur
-- buat tabel progress di KPI, isinya adalah akumulasi progres dari KPI Report
-- buat score
-
-Proses Seleksi Rekruitmen
-
-- tinggal pilih templatenya ( ngerjainnya ntar2 aja =)) )
-* http://preview.themeforest.net/item/jobhit-job-portal-html-template/full_screen_preview/29922683?_ga=2.27457916.1951404285.1654495558-1055339708.1654495558
-* https://preview.themeforest.net/item/jobya-job-listing-html5-template/full_screen_preview/24772106?_ga=2.39919074.1951404285.1654495558-1055339708.1654495558
+Data Karyawan
+- tambah kolom NIK
 
 Penilaian
 - menunggu bahan dari novi
@@ -32,15 +31,32 @@ Penilaian
 Gaji
 - slip gaji (akan muncul di dashboard, dibuat monthly)
 
+Absensi WFH (Pengembangan)
+- ceklist rencana kerja
+
+Target KPI per Individu (Pengembangan)
+- buat tampilan report KPI seperti KPI (expandable) meh user teu lieur
+- buat tabel progress di KPI, isinya adalah akumulasi progres dari KPI Report
+- buat score
+- tambahan fitur dari teh uci atau novi
+
 Penggunaan Inventaris Kantor
 - nanti diobrolin lagi sama teh Uci
 
-Aset
-- ada beberapa revisi dari kang rifky
+Aspiration Box 
 
+untuk employee bisa ada:
+- keterangan sisa cuti kita tinggal berapa 
+- kapan kontrak kita berakhir
+- SLIP GAJII
+- persentase ketercapaian KPI individu
+
+Proses Seleksi Rekruitmen
+
+- tinggal pilih templatenya ( ngerjainnya ntar2 aja =)) )
+* http://preview.themeforest.net/item/jobhit-job-portal-html-template/full_screen_preview/29922683?_ga=2.27457916.1951404285.1654495558-1055339708.1654495558
+* https://preview.themeforest.net/item/jobya-job-listing-html5-template/full_screen_preview/24772106?_ga=2.39919074.1951404285.1654495558-1055339708.1654495558
 
 BELUM DIBAHAS
 
 Track Record Rotasi/Mutasi Jabatan/Penugasan (SK)
-
-ganti template pake voler

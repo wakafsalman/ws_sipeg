@@ -33,6 +33,23 @@
           <li><a href="/absensi"><i class="fa fa-circle-o"></i>Rekap Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('satuan') || request()->is('aset') || request()->is('pengajuan') || request()->is('aset_masuk') || request()->is('report_stock') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-folder-close"></i>
+          <span>Aset</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/satuan"><i class="fa fa-circle-o"></i>Kode Satuan</a></li>
+          <li><a href="/pic"><i class="fa fa-circle-o"></i>PIC/Tempat</a></li>
+          <li><a href="/aset"><i class="fa fa-circle-o"></i>Data Aset</a></li>
+          <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Merchandise</a></li>
+          <li><a href="/aset_masuk"><i class="fa fa-circle-o"></i>Aset Masuk</a></li>
+          <li><a href="/report_stock"><i class="fa fa-circle-o"></i>Laporan Stock Opname</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-calendar"></i>
@@ -76,25 +93,6 @@
           <li><a href="/benefit"><i class="fa fa-circle-o"></i>Benefit</a></li>
         </ul>
       </li>
-      <!--
-      <li class="treeview {{ request()->is('satuan') || request()->is('aset') || request()->is('pengajuan') || request()->is('aset_masuk') || request()->is('report_stock') ? 'active' : '' }}">
-        <a href="#">
-          <i class="glyphicon glyphicon-folder-close"></i>
-          <span>Aset</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="/satuan"><i class="fa fa-circle-o"></i>Kode Satuan</a></li>
-          <li><a href="/pic"><i class="fa fa-circle-o"></i>PIC/Tempat</a></li>
-          <li><a href="/aset"><i class="fa fa-circle-o"></i>Data Aset</a></li>
-          <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Merchandise</a></li>
-          <li><a href="/aset_masuk"><i class="fa fa-circle-o"></i>Aset Masuk</a></li>
-          <li><a href="/report_stock"><i class="fa fa-circle-o"></i>Laporan Stok Aset</a></li>
-        </ul>
-      </li>
-      -->
       <li class="treeview {{ request()->is('user') || request()->is('divisi') || request()->is('jabatan') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-cog"></i>
@@ -275,7 +273,7 @@
           <li><a href="/aset"><i class="fa fa-circle-o"></i>Data Aset</a></li>
           <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Merchandise</a></li>
           <li><a href="/aset_masuk"><i class="fa fa-circle-o"></i>Aset Masuk</a></li>
-          <li><a href="/report_stock"><i class="fa fa-circle-o"></i>Laporan Stok Aset</a></li>
+          <li><a href="/report_stock"><i class="fa fa-circle-o"></i>Laporan Stock Opname </a></li>
         </ul>
       </li>
       -->
@@ -368,7 +366,7 @@
           <li><a href="/aset"><i class="fa fa-circle-o"></i>Data Aset</a></li>
           <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Merchandise</a></li>
           <li><a href="/aset_masuk"><i class="fa fa-circle-o"></i>Aset Masuk</a></li>
-          <li><a href="/report_stock"><i class="fa fa-circle-o"></i>Laporan Stok Aset</a></li>
+          <li><a href="/report_stock"><i class="fa fa-circle-o"></i>Laporan Stock Opname </a></li>
         </ul>
       </li>
       -->
@@ -601,6 +599,18 @@
           <li><a href="/absen"><i class="fa fa-circle-o"></i>Absensi WFH</a></li>
         </ul>
       </li>
+      <li class="treeview {{ request()->is('satuan') || request()->is('aset') || request()->is('pengajuan') || request()->is('aset_masuk') || request()->is('report_stock') ? 'active' : '' }}">
+        <a href="#">
+          <i class="glyphicon glyphicon-folder-close"></i>
+          <span>Aset</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Merchandise</a></li>
+        </ul>
+      </li>
       <li class="treeview {{ request()->is('kode_kpi') || request()->is('kpi')  || request()->is('kpi_report') ? 'active' : '' }}">
         <a href="#">
           <i class="glyphicon glyphicon-calendar"></i>
@@ -637,20 +647,6 @@
           <li><a href="/training"><i class="fa fa-circle-o"></i>Input Training</a></li>
         </ul>
       </li>
-      <!--
-      <li class="treeview {{ request()->is('satuan') || request()->is('aset') || request()->is('pengajuan') || request()->is('aset_masuk') || request()->is('report_stock') ? 'active' : '' }}">
-        <a href="#">
-          <i class="glyphicon glyphicon-folder-close"></i>
-          <span>Aset</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Merchandise</a></li>
-        </ul>
-      </li>
-      -->
 
       <!-- Hak Akses Jr. Assistant Manager Marketing Communication -->
       @elseif (auth()->user()->id_roles==18)
@@ -1499,7 +1495,7 @@
           <li><a href="/aset"><i class="fa fa-circle-o"></i>Data Aset</a></li>
           <li><a href="/pengajuan"><i class="fa fa-circle-o"></i>Pengajuan Merchandise</a></li>
           <li><a href="/aset_masuk"><i class="fa fa-circle-o"></i>Aset Masuk</a></li>
-          <li><a href="/report_stock"><i class="fa fa-circle-o"></i>Laporan Stok Aset</a></li>
+          <li><a href="/report_stock"><i class="fa fa-circle-o"></i>Laporan Stock Opname </a></li>
         </ul>
       </li>
       -->

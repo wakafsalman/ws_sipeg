@@ -87,4 +87,33 @@
 
 @include('kode_kpi.modal')
 
+@push('kode_kpi')
+
+<script>
+  $('.hapus-kode-kpi').click(function(){
+      var id_kode_kpi = $(this).attr('data-id');
+      var kode_kpi = $(this).attr('data-kode');
+      swal({
+          title: "Hapus data",
+          text: "Apakah kamu yakin akan menghapus data "+kode_kpi+"? ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          })
+          .then((willDelete) => {
+          if (willDelete) {
+              window.location = "/hapus_kode_kpi/"+id_kode_kpi+""
+              swal("Data berhasil dihapus", {
+              icon: "success",
+              });
+          } else {
+              swal("Aksi dibatalkan!");
+          }
+      });
+  });
+</script>
+
+@endpush
+
+
 @endsection

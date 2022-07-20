@@ -72,7 +72,7 @@
     }
     .jenis_cuti{
         margin-left: 90px;
-        margin-top: 30px;
+        margin-top: 10px;
     }
     .bagian_jenis_cuti{
         margin-left: 32px;
@@ -207,7 +207,7 @@
     }
     .lama_cuti{
         margin-left: 90px;
-        margin-top: 30px;
+        margin-top: 10px;
     }
     .bagian_lama_cuti{
         margin-left: 27px;
@@ -255,7 +255,7 @@
     }
     .alamat{
         margin-left: 90px;
-        margin-top: 30px;
+        margin-top: 10px;
     }
     .bagian_alamat{
         margin-left: 27px;
@@ -265,7 +265,7 @@
         width: 350px;
         float: left;
         margin-top: -1px;
-        height: 120px;
+        height: 100px;
     }
     .kolom_ttd_karyawan{
         border:1px solid black;
@@ -273,11 +273,11 @@
         float: left;
         margin-top: -1px;
         margin-left: -1px;
-        height: 120px;
+        height: 100px;
     }
     .delegasi{
         margin-left: 90px;
-        margin-top: 30px;
+        margin-top: 10px;
     }
     .bagian_delegasi{
         margin-left: 32px;
@@ -342,7 +342,7 @@
     }
     .keputusan{
         margin-left: 90px;
-        margin-top: 30px;
+        margin-top: 10px;
     }
     .bagian_keputusan{
         margin-left: 27px;
@@ -382,14 +382,14 @@
     .ttd_manajer_divisi{
         border:1px solid black;
         width: 290px;
-        height: 100px;
+        height: 80px;
         float: left;
         margin-top: -2px;
     }
     .ttd_sdm{
         border:1px solid black;
         width: 309px;
-        height: 100px;
+        height: 80px;
         float: left;
         margin-top: -2px;
         margin-left: -1px;
@@ -510,7 +510,6 @@
                     <div style="font-size: 20px;">
                         <b><span class="jarak">Hormat Saya, </span></b>
                     </div>
-                    <br>
                     <br>
                     <br>
                     <br>

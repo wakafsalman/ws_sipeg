@@ -288,4 +288,34 @@
 
 @include('kpi.modal')
 
+@push('kpi')
+
+<script>
+  $('.hapus-kpi').click(function(){
+      var id_kpi = $(this).attr('data-id');
+      var divisi_kpi = $(this).attr('data-divisi');
+      var kode_kpi = $(this).attr('data-kode');
+      var nama_kpi = $(this).attr('data-nama');
+      swal({
+          title: "Hapus data",
+          text: "Apakah kamu yakin akan menghapus data "+divisi_kpi+" - "+kode_kpi+" - "+nama_kpi+"? ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          })
+          .then((willDelete) => {
+          if (willDelete) {
+              window.location = "/hapus_kpi/"+id_kpi+""
+              swal("Data berhasil dihapus", {
+              icon: "success",
+              });
+          } else {
+              swal("Aksi dibatalkan!");
+          }
+      });
+  });
+</script>
+
+@endpush
+
 @endsection

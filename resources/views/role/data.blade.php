@@ -80,4 +80,32 @@
 
 @include('role.modal')
 
+@push
+
+<script>
+  $('.hapus-role-user').click(function(){
+      var id_role_user = $(this).attr('data-id');
+      var nama_role_user = $(this).attr('data-nama');
+      swal({
+          title: "Hapus data",
+          text: "Apakah kamu yakin akan menghapus data "+nama_role_user+"? ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          })
+          .then((willDelete) => {
+          if (willDelete) {
+              window.location = "/hapus_role_user/"+id_role_user+""
+              swal("Data berhasil dihapus", {
+              icon: "success",
+              });
+          } else {
+              swal("Aksi dibatalkan!");
+          }
+      });
+  });
+</script>
+
+@endpush
+
 @endsection

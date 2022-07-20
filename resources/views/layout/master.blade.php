@@ -35,7 +35,8 @@
   <link rel="stylesheet" href="{{asset('template')}}/bower_components/select2/dist/css/select2.min.css">
   <!-- Toastr -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+  <!-- JQuery UI 1.11.4 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css" integrity="sha512-lvdq1fIyCp6HMWx1SVzXvGC4jqlX3e7Xm7aCBrhj5F1WdWoLe0dBzU0Sy10sheZYSkJpJcboMNO/4Qz1nJNxfA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -66,6 +67,9 @@
                          4px 4px 20px rgba(210, 45, 26, 0.4),
                          4px 4px 30px rgba(210, 25, 16, 0.4),
                          4px 4px 40px rgba(210, 15, 06, 0.4);
+        }
+        .ui-autocomplete {
+            z-index: 5000;
         }
   </style>
 </head>
@@ -148,403 +152,23 @@
     })
   })
 </script>
-<script>
-    $('.hapus').click(function(){
-        var id_pegawai = $(this).attr('data-id');
-        var nama_pegawai = $(this).attr('data-nama');
-        swal({
-            title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data "+nama_pegawai+"? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/hapus_pegawai/"+id_pegawai+""
-                swal("Data berhasil dihapus", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-</script>
-<script>
-    $('.hapus-user').click(function(){
-        var id_user = $(this).attr('data-id');
-        var nama_user = $(this).attr('data-nama');
-        swal({
-            title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data "+nama_user+"? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/hapus_user/"+id_user+""
-                swal("Data berhasil dihapus", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-</script>
-<script>
-    $('.hapus-divisi').click(function(){
-        var id_divisi = $(this).attr('data-id');
-        var nama_divisi = $(this).attr('data-nama');
-        swal({
-            title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data "+nama_divisi+"? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/hapus_divisi/"+id_divisi+""
-                swal("Data berhasil dihapus", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-</script>
-<script>
-    $('.hapus-jabatan').click(function(){
-        var id_jabatan = $(this).attr('data-id');
-        var nama_jabatan = $(this).attr('data-nama');
-        swal({
-            title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data "+nama_jabatan+"? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/hapus_jabatan/"+id_jabatan+""
-                swal("Data berhasil dihapus", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-</script>
-<script>
-    $('.hapus-role-user').click(function(){
-        var id_role_user = $(this).attr('data-id');
-        var nama_role_user = $(this).attr('data-nama');
-        swal({
-            title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data "+nama_role_user+"? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/hapus_role_user/"+id_role_user+""
-                swal("Data berhasil dihapus", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-</script>
-<script>
-    $('.hapus-kode-kpi').click(function(){
-        var id_kode_kpi = $(this).attr('data-id');
-        var kode_kpi = $(this).attr('data-kode');
-        swal({
-            title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data "+kode_kpi+"? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/hapus_kode_kpi/"+id_kode_kpi+""
-                swal("Data berhasil dihapus", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-</script>
-<script>
-    $('.hapus-kpi').click(function(){
-        var id_kpi = $(this).attr('data-id');
-        var divisi_kpi = $(this).attr('data-divisi');
-        var kode_kpi = $(this).attr('data-kode');
-        var nama_kpi = $(this).attr('data-nama');
-        swal({
-            title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data "+divisi_kpi+" - "+kode_kpi+" - "+nama_kpi+"? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/hapus_kpi/"+id_kpi+""
-                swal("Data berhasil dihapus", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-</script>
-<script>
-    $('.hapus-report-kpi').click(function(){
-        var id_report_kpi = $(this).attr('data-id');
-        var divisi_report_kpi = $(this).attr('data-divisi');
-        var kode_report_kpi = $(this).attr('data-kode');
-        var nama_report_kpi = $(this).attr('data-nama');
-        var deskripsi_report_kpi = $(this).attr('data-deskripsi');
-        swal({
-            title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data "+divisi_report_kpi+" - "+kode_report_kpi+" - "+nama_report_kpi+" : "+deskripsi_report_kpi+"? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/hapus_report_kpi/"+id_report_kpi+""
-                swal("Data berhasil dihapus", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-</script>
-<script>
-    $('.hapus-benefit').click(function(){
-        var id_benefit = $(this).attr('data-id');
-        var nama_benefit = $(this).attr('data-nama');
-        swal({
-            title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data "+nama_benefit+"? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/hapus_benefit/"+id_benefit+""
-                swal("Data berhasil dihapus", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-</script>
-<script>
-    $('.hapus-jenis-training').click(function(){
-        var id_jenis_training = $(this).attr('data-id');
-        var nama_jenis_training = $(this).attr('data-nama');
-        swal({
-            title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data "+nama_jenis_training+"? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/hapus_jenis_training/"+id_jenis_training+""
-                swal("Data berhasil dihapus", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-</script>
-<script>
-    $('.hapus-training').click(function(){
-        var id_training = $(this).attr('data-id');
-        var nama_karyawan = $(this).attr('data-nama');
-        var judul_training = $(this).attr('data-judul');
-        swal({
-            title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data training karyawan "+nama_karyawan+" dengan judul "+judul_training+" ? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/hapus_training/"+id_training+""
-                swal("Data berhasil dihapus", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-</script>
-<script>
-    $('.reset-point').click(function(){
-        var id_karyawan = $(this).attr('data-id');
-        var nama_karyawan = $(this).attr('data-nama');
-        swal({
-            title: "Reset Point",
-            text: "Apakah kamu yakin akan mereset point training karyawan "+nama_karyawan+" ? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/reset_point/"+id_karyawan+""
-                swal("Data berhasil direset point", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-</script>
-<script>
-    $('.hapus-aset').click(function(){
-        var id_aset = $(this).attr('data-id');
-        var nama_aset = $(this).attr('data-nama');
-        swal({
-            title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data "+nama_aset+" ? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/hapus_aset/"+id_aset+""
-                swal("Data berhasil dihapus", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-</script>
-<script>
-    $('.hapus-satuan').click(function(){
-        var id_satuan = $(this).attr('data-id');
-        var nama_satuan = $(this).attr('data-nama');
-        swal({
-            title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data "+nama_satuan+"? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/hapus_satuan/"+id_satuan+""
-                swal("Data berhasil dihapus", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-</script>
-<script>
-    $('.hapus-pic').click(function(){
-        var id_pic = $(this).attr('data-id');
-        var nama_pic = $(this).attr('data-nama');
-        swal({
-            title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data "+nama_pic+"? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/hapus_pic/"+id_pic+""
-                swal("Data berhasil dihapus", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-</script>
-<script>
-    $('.hapus-pengajuan').click(function(){
-        var id_pengajuan = $(this).attr('data-id');
-        var nama_pengajuan = $(this).attr('data-nama');
-        var aset_pengajuan = $(this).attr('data-aset');
-        swal({
-            title: "Hapus data",
-            text: "Apakah kamu yakin akan menghapus data "+nama_pengajuan+" yang mengajukan merchandise "+aset_pengajuan+" ? ",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                window.location = "/hapus_pengajuan/"+id_pengajuan+""
-                swal("Data berhasil dihapus", {
-                icon: "success",
-                });
-            } else {
-                swal("Aksi dibatalkan!");
-            }
-        });
-    });
-</script>
-<script>
-    var path = "{{ route('autocomplete_pic_data_aset') }}";
-
-    $('input.typeahead').typeahead({
-        source: function(query, process){
-            return $.get(path, {term: query}, function(data){
-                return process(data);
-            });
-        }
-    });
-</script>
-<script>
-    var path = "{{ route('autocomplete_aset_pengajuan') }}";
-
-    $('input.typeahead-aset').typeahead({
-        source: function(query, process){
-            return $.get(path, {term: query}, function(data){
-                return process(data);
-            });
-        }
-    });
-</script>
+@stack('pegawai')
+@stack('user')
+@stack('divisi')
+@stack('jabatan')
+@stack('role_user')
+@stack('kode_kpi')
+@stack('kpi')
+@stack('report_kpi')
+@stack('benefit')
+@stack('jenis_training')
+@stack('training')
+@stack('reset_point')
+@stack('aset')
+@stack('pic')
+@stack('aset_pengajuan')
+@stack('aset_masuk')
+@stack('report_stock')
 <script>
     @if(Session::has('success'))
         toastr.success("{{ Session::get('success') }}")
@@ -561,6 +185,5 @@
     })
 </script>
   
-@stack('multi-input-aset')
 </body>
 </html>

@@ -72,4 +72,33 @@
 
 @include('training.modal')
 
+@push('training')
+
+<script>
+  $('.hapus-training').click(function(){
+      var id_training = $(this).attr('data-id');
+      var nama_karyawan = $(this).attr('data-nama');
+      var judul_training = $(this).attr('data-judul');
+      swal({
+          title: "Hapus data",
+          text: "Apakah kamu yakin akan menghapus data training karyawan "+nama_karyawan+" dengan judul "+judul_training+" ? ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          })
+          .then((willDelete) => {
+          if (willDelete) {
+              window.location = "/hapus_training/"+id_training+""
+              swal("Data berhasil dihapus", {
+              icon: "success",
+              });
+          } else {
+              swal("Aksi dibatalkan!");
+          }
+      });
+  });
+</script>
+
+@endpush
+
 @endsection

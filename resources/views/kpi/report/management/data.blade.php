@@ -112,4 +112,35 @@
 
 @include('kpi.report.management.modal')
 
+@push('report_kpi')
+
+<script>
+  $('.hapus-report-kpi').click(function(){
+      var id_report_kpi = $(this).attr('data-id');
+      var divisi_report_kpi = $(this).attr('data-divisi');
+      var kode_report_kpi = $(this).attr('data-kode');
+      var nama_report_kpi = $(this).attr('data-nama');
+      var deskripsi_report_kpi = $(this).attr('data-deskripsi');
+      swal({
+          title: "Hapus data",
+          text: "Apakah kamu yakin akan menghapus data "+divisi_report_kpi+" - "+kode_report_kpi+" - "+nama_report_kpi+" : "+deskripsi_report_kpi+"? ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          })
+          .then((willDelete) => {
+          if (willDelete) {
+              window.location = "/hapus_report_kpi/"+id_report_kpi+""
+              swal("Data berhasil dihapus", {
+              icon: "success",
+              });
+          } else {
+              swal("Aksi dibatalkan!");
+          }
+      });
+  });
+</script>
+
+@endpush
+
 @endsection

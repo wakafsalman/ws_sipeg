@@ -50,7 +50,7 @@
 
     <div class="box">
       <div class="box-header">
-        @if(in_array(Auth::user()->id, [1, 7, 16, 17]))
+        @if(in_array(Auth::user()->id, [1, 7, 16, 17, 47]))
           <h3 class="box-title">Daftar Pegawai Wakaf Salman ITB</h3>
         @else
           <h3 class="box-title">Data Resmi {{ Auth::user()->pegawais->nama }}</h3>
@@ -100,7 +100,7 @@
             <td>{{ $row->divisis->nama }}</td>
             <td>
                 <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-rubah-pegawai-{{ $row->id }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                @if(in_array(Auth::user()->id, [1, 7, 16, 17]))
+                @if(in_array(Auth::user()->id, [1, 7, 16, 17, 47]))
                   <a href="#" class="btn btn-danger hapus" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}"><i class="glyphicon glyphicon-trash"></i> Delete</a>
                 @endif
             </td>
@@ -117,5 +117,33 @@
 </div>
 
 @include('pegawai.modal')
+
+@push('pegawai')
+
+<script>
+  $('.hapus').click(function(){
+      var id_pegawai = $(this).attr('data-id');
+      var nama_pegawai = $(this).attr('data-nama');
+      swal({
+          title: "Hapus data",
+          text: "Apakah kamu yakin akan menghapus data "+nama_pegawai+"? ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          })
+          .then((willDelete) => {
+          if (willDelete) {
+              window.location = "/hapus_pegawai/"+id_pegawai+""
+              swal("Data berhasil dihapus", {
+              icon: "success",
+              });
+          } else {
+              swal("Aksi dibatalkan!");
+          }
+      });
+  });
+</script>
+
+@endpush
 
 @endsection

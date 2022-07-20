@@ -3,41 +3,31 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Tambah Data Stok Aset</h4>
+                <h4 class="modal-title">Tambah Laporan Stock Opname</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             </div>
             <form role="form" action="/tambah_report_stock" method="POST" enctype="multipart/form-data">
             @csrf
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="exampleInputName" class="form-label">Nama Aset</label>
-                        <select name="id_assets" class="form-control" aria-label="Default select example">
-                            <option selected>Pilih Aset</option>
-                            @foreach($aset as $row)
-                            <option value="{{ $row->id }}">{{ $row->nama }} ({{ $row->merk }})</option>
-                            @endforeach
+                        <label for="exampleInputName" class="form-label">Keterangan</label>
+                        <input type="text" name="keterangan" class="form-control" id="exampleInputQty">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputDate" class="form-label">Tanggal</label>
+                        <input type="date" name="tanggal" class="form-control" id="exampleInputDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputCode" class="form-label">Status</label>
+                        <select name="status" class="form-control" aria-label="Default select example">
+                            <option selected>Pilih Status</option>
+                            <option value="Selesai">Selesai</option>
+                            <option value="Belum Selesai">Belum Selesai</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputQty" class="form-label">Stock Awal</label>
-                        <input type="text" name="jumlah" class="form-control" id="exampleInputQty">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputTitle" class="form-label">Satuan</label>
-                        <select name="satuan" class="form-control" aria-label="Default select example">
-                            <option selected>Pilih Satuan</option>
-                            @foreach($satuan as $row)
-                            <option value="{{ $row->nama }}">{{ $row->nama }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputQty" class="form-label">Stock Masuk</label>
-                        <input type="text" name="jumlah_in" class="form-control" id="exampleInputQty">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputQty" class="form-label">Stock Keluar</label>
-                        <input type="text" name="jumlah_out" class="form-control" id="exampleInputQty">
+                        <label for="exampleInputPhoto" class="form-label">File</label>
+                        <input type="file" name="laporan" class="form-control" id="exampleInputPhoto">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -48,3 +38,47 @@
         </div>
     </div>
 </div>
+
+<!-- Rubah Data -->
+@foreach($data as $row)
+<div class="modal fade" id="modal-rubah-stock-opname-{{ $row->id }}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Rubah Laporan Stock Opname</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            </div>
+            <form role="form" action="/rubah_report_stock/{{ $row->id }}" method="POST" enctype="multipart/form-data">
+            @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputName" class="form-label">Keterangan</label>
+                        <input type="text" name="keterangan" class="form-control" id="exampleInputQty" value="{{ $row->keterangan }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputDate" class="form-label">Tanggal</label>
+                        <input type="date" name="tanggal" class="form-control" id="exampleInputDate" value="{{ $row->tanggal }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputCode" class="form-label">Status</label>
+                        <select name="status" class="form-control" aria-label="Default select example">
+                            <option selected>{{ $row->status }}</option>
+                            <option value="Selesai">Selesai</option>
+                            <option value="Belum Selesai">Belum Selesai</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPhoto" class="form-label">File</label>
+                        <input type="file" name="laporan" class="form-control" id="exampleInputPhoto">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Kembali</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endforeach
+

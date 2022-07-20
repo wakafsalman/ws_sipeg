@@ -161,8 +161,13 @@ Route::get('/batalkan_pengajuan/{id}', [AssetController::class, 'batalkan_pengaj
 Route::get('/autocomplete_aset_pengajuan', [AssetController::class, 'autocomplete_aset_pengajuan'])->name('autocomplete_aset_pengajuan');
 Route::get('/aset_masuk', [AssetController::class, 'aset_masuk'])->name('aset_masuk');
 Route::post('/tambah_aset_masuk', [AssetController::class, 'tambah_aset_masuk'])->name('tambah_aset_masuk');
+Route::post('/rubah_aset_masuk/{id}', [AssetController::class, 'rubah_aset_masuk'])->name('rubah_aset_masuk');
+Route::get('/hapus_aset_masuk/{id}', [AssetController::class, 'hapus_aset_masuk'])->name('hapus_aset_masuk');
+Route::get('/autocomplete_aset_masuk', [AssetController::class, 'autocomplete_aset_masuk'])->name('autocomplete_aset_masuk');
 Route::get('/report_stock', [AssetController::class, 'report_stock'])->name('report_stock');
 Route::post('/tambah_report_stock', [AssetController::class, 'tambah_report_stock'])->name('tambah_report_stock');
+Route::post('/rubah_report_stock/{id}', [AssetController::class, 'rubah_report_stock'])->name('rubah_report_stock');
+Route::get('/hapus_report_stock/{id}', [AssetController::class, 'hapus_report_stock'])->name('hapus_report_stock');
 
 //PDF
 Route::get('/eksport_pdf', [PegawaiController::class, 'eksport_pdf'])->name('eksport_pdf');

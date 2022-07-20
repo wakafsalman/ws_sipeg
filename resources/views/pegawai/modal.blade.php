@@ -33,13 +33,13 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="exampleInputName" class="form-label">Nama Lengkap</label>
-                        <input type="text" name="nama" class="form-control" id="exampleInputName">
+                        <input type="text" name="nama" class="form-control" id="exampleInputName" required>
                     </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-xs-6">
                                 <label for="exampleInputGender" class="form-label">Jenis Kelamin</label>
-                                <select name="jenis_kelamin" class="form-control" aria-label="Default select example">
+                                <select name="jenis_kelamin" class="form-control" aria-label="Default select example" required>
                                     <option selected>Pilih Jenis Kelamin</option>
                                     <option value="Laki-Laki">Laki-Laki</option>
                                     <option value="Perempuan">Perempuan</option>
@@ -47,7 +47,7 @@
                             </div>
                             <div class="col-xs-6">
                                 <label for="exampleInputPhone" class="form-label">Nomor Telepon</label>
-                                <input type="number" name="no_telepon" class="form-control" id="exampleInputPhone">
+                                <input type="number" name="no_telepon" class="form-control" id="exampleInputPhone" required>
                             </div>
                         </div>
                     </div>
@@ -55,20 +55,20 @@
                         <label for="exampleInputBirthdate" class="form-label">Tempat / Tanggal Lahir</label>
                         <div class="row">
                             <div class="col-xs-6">
-                                <input type="text" name="tempat_lahir" class="form-control" id="exampleInputBirthdate" class="col-4">
+                                <input type="text" name="tempat_lahir" class="form-control" id="exampleInputBirthdate" class="col-4" required>
                             </div>
                             <div class="col-xs-6">
-                                <input type="date" name="tgl_lahir" class="form-control" id="exampleInputBirthdate">
+                                <input type="date" name="tgl_lahir" class="form-control" id="exampleInputBirthdate" required>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputAddress" class="form-label">Alamat</label>
-                        <input type="textarea" name="alamat" class="form-control" id="exampleInputAddress">
+                        <input type="textarea" name="alamat" class="form-control" id="exampleInputAddress" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputTitle" class="form-label">Jabatan</label>
-                        <select name="id_jabatans" class="form-control" aria-label="Default select example">
+                        <select name="id_jabatans" class="form-control" aria-label="Default select example" required>
                             <option selected>Pilih Jabatan</option>
                             @foreach($jabatan as $row)
                             <option value="{{ $row->id }}">{{ $row->nama }}</option>
@@ -77,7 +77,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputDivision" class="form-label">Divisi</label>
-                        <select name="id_divisis" class="form-control" aria-label="Default select example">
+                        <select name="id_divisis" class="form-control" aria-label="Default select example" required>
                             <option selected>Pilih Divisi</option>
                             @foreach($divisi as $row)
                             <option value="{{ $row->id }}">{{ $row->nama }}</option>
