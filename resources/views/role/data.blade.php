@@ -80,7 +80,7 @@
 
 @include('role.modal')
 
-@push
+@push('role_user')
 
 <script>
   $('.hapus-role-user').click(function(){
