@@ -14,6 +14,8 @@ Aset
 - stock merchandise
 - BAST
 - BAPB
+- pengajuan merchandise : aksi hanya bisa dilihat oleh user tertentu
+- stock merchandise : aksi hanya bisa dilihat oleh user tertentu
 
 Form Perizinan Cuti (Pengembangan)
 - dikoneksikan antar orang, alurnya dari pengaju cuti - ke atasan langsung utk acc - lalu ke SDM utk konfirmasi acc

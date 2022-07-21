@@ -169,6 +169,9 @@
 @stack('aset_pengajuan')
 @stack('aset_masuk')
 @stack('report_stock')
+@stack('stock')
+@stack('bast')
+@stack('bapb')
 <script>
     @if(Session::has('success'))
         toastr.success("{{ Session::get('success') }}")

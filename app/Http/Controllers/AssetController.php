@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Asset;
 use App\Exports\AssetExport;
 use App\Imports\AssetImport;
+use App\Models\AssetStock;
 use App\Models\Satuan;
 use App\Exports\SatuanExport;
 use App\Imports\SatuanImport;
@@ -16,6 +17,9 @@ use App\Models\ReportAsset;
 use App\Exports\ReportAssetExport;
 use App\Models\ReportStock;
 use App\Exports\ReportStockExport;
+use App\Models\Pegawai;
+use App\Models\Bast;
+use App\Models\Bapb;
 use Illuminate\Http\Request;
 use DateTime;
 use DateTimeZone;
@@ -445,6 +449,162 @@ class AssetController extends Controller
         return redirect()->route('report_stock')->with('success', 'Data berhasil dihapus');
 
     }
+
+    //stock merchandise
+    public function stock_merchandise(){
+
+        $judul          = 'Stock Merchandise';
+        $data           = Asset::where('jenis_aset','=','Merchandise')
+                                ->get();
+        $last_update    = Asset::select('updated_at')
+                                ->orderBy('updated_at','desc')
+                                ->first();
+
+        $ambil_data_tanggal = Carbon::parse($last_update->updated_at)->locale('id');
+        $ambil_data_tanggal->settings(['formatFunction' => 'translatedFormat']);
+
+        $tanggal_indo = $ambil_data_tanggal->format('d F Y');
+        return view('aset/stock/data', compact('judul','data','tanggal_indo'));
+    }
+
+    public function kelola_limit(Request $request, $id){
+
+        $data = Asset::find($id);
+        $data->update($request->all());
+        return redirect()->route('stock_merchandise')->with('success', 'Limit berhasil diset');
+
+    }
+
+    public function hapus_stock_merchandise($id){
+
+        $data = Asset::find($id);
+        $data->delete();
+        return redirect()->route('stock_merchandise')->with('success', 'Data berhasil dihapus');
+
+    }
+
+    //bast
+    public function bast(){
+
+        $judul      =   'Berita Acara Serah Terima Barang';
+        $data       =   Bast::all();
+        $pegawai    =   Pegawai::all();
+
+        return view('aset/bast/data', compact('judul','data','pegawai'));
+
+    }
+
+    public function upload_bast(Request $request){
+
+        $data = Bast::create($request->all());
+        if($request->hasFile('file_surat')){
+
+            $pisah_no_surat = explode('/', $request->no_surat);
+
+            $bagian1 = $pisah_no_surat[0];
+            $bagian2 = $pisah_no_surat[1];
+            $bagian3 = $pisah_no_surat[2];
+            $bagian4 = $pisah_no_surat[3];
+
+            $bast = $bagian1."-".$bagian2."-".$bagian3."-".$bagian4.".".$request->file('file_surat')->getClientOriginalExtension();
+            $request->file('file_surat')->move('pdf/bast/', $bast);
+            $data->file_surat = $bast;
+            $data->save();
+        }
+        return redirect()->route('bast')->with('success', 'Data berhasil ditambah');
+
+    }
+
+    public function rubah_bast(Request $request, $id){
+
+        $data = Bast::find($id);
+        $data->update($request->all());
+        if($request->hasFile('file_surat')){
+            $pisah_no_surat = explode('/', $request->no_surat);
+
+            $bagian1 = $pisah_no_surat[0];
+            $bagian2 = $pisah_no_surat[1];
+            $bagian3 = $pisah_no_surat[2];
+            $bagian4 = $pisah_no_surat[3];
+
+            $bast = $bagian1."-".$bagian2."-".$bagian3."-".$bagian4.".".$request->file('file_surat')->getClientOriginalExtension();
+            $request->file('file_surat')->move('pdf/bast/', $bast);
+            $data->file_surat = $bast;
+            $data->save();
+        }
+        return redirect()->route('bast')->with('success', 'Data berhasil dirubah');
+
+    }
+
+    public function hapus_bast($id){
+
+        $data = Bast::find($id);
+        $data->delete();
+        return redirect()->route('bast')->with('success', 'Data berhasil dihapus');
+
+    }
+
+    //bapb
+    public function bapb(){
+
+        $judul      =   'Berita Acara Serah Terima Barang';
+        $data       =   Bapb::all();
+        $pegawai    =   Pegawai::all();
+
+        return view('aset/bapb/data', compact('judul','data','pegawai'));
+
+    }
+
+    public function upload_bapb(Request $request){
+
+        $data = Bapb::create($request->all());
+        if($request->hasFile('file_surat')){
+
+            $pisah_no_surat = explode('/', $request->no_surat);
+
+            $bagian1 = $pisah_no_surat[0];
+            $bagian2 = $pisah_no_surat[1];
+            $bagian3 = $pisah_no_surat[2];
+            $bagian4 = $pisah_no_surat[3];
+
+            $bapb = $bagian1."-".$bagian2."-".$bagian3."-".$bagian4.".".$request->file('file_surat')->getClientOriginalExtension();
+            $request->file('file_surat')->move('pdf/bapb/', $bapb);
+            $data->file_surat = $bapb;
+            $data->save();
+        }
+        return redirect()->route('bapb')->with('success', 'Data berhasil ditambah');
+
+    }
+
+    public function rubah_bapb(Request $request, $id){
+
+        $data = Bapb::find($id);
+        $data->update($request->all());
+        if($request->hasFile('file_surat')){
+            $pisah_no_surat = explode('/', $request->no_surat);
+
+            $bagian1 = $pisah_no_surat[0];
+            $bagian2 = $pisah_no_surat[1];
+            $bagian3 = $pisah_no_surat[2];
+            $bagian4 = $pisah_no_surat[3];
+
+            $bapb = $bagian1."-".$bagian2."-".$bagian3."-".$bagian4.".".$request->file('file_surat')->getClientOriginalExtension();
+            $request->file('file_surat')->move('pdf/bapb/', $bapb);
+            $data->file_surat = $bapb;
+            $data->save();
+        }
+        return redirect()->route('bapb')->with('success', 'Data berhasil dirubah');
+
+    }
+
+    public function hapus_bapb($id){
+
+        $data = Bapb::find($id);
+        $data->delete();
+        return redirect()->route('bapb')->with('success', 'Data berhasil dihapus');
+
+    }
+
 
 
 }

@@ -41,7 +41,9 @@
             <th>Satuan</th>
             <th>Keterangan</th>
             <th>Status</th>
-            <th>Aksi</th>
+            @if(in_array(Auth::user()->id, [1, 16, 17, 46, 47]))
+              <th>Aksi</th>
+            @endif
           </tr>
           </thead>
           <tbody>
@@ -67,13 +69,15 @@
                 <td><div class="label label-danger" style="font-size: 14px;">{{ $row->status }}</div></td>
               @endif
             @endif
-            <td style="padding: 5px;">
-              <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-rubah-pengajuan-{{ $row->id }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-              <a href="#" class="btn btn-danger hapus-pengajuan" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}" data-aset="{{ $row->assets }}"><i class="glyphicon glyphicon-trash"></i> Delete</a>
-              <br>
-              <a href="/setujui_pengajuan/{{ $row->id }}" class="btn btn-success" style="margin-top: 5px;"><i class="glyphicon glyphicon-ok"></i> Approve</a>
-              <a href="/batalkan_pengajuan/{{ $row->id }}" class="btn btn-danger" style="margin-top: 5px;"><i class="glyphicon glyphicon-remove"></i> Reject</a>
-            </td>
+            @if(in_array(Auth::user()->id, [1, 16, 17, 46, 47]))
+              <td style="padding: 5px;">
+                <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal-rubah-pengajuan-{{ $row->id }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                <a href="#" class="btn btn-danger hapus-pengajuan" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}" data-aset="{{ $row->assets }}"><i class="glyphicon glyphicon-trash"></i> Delete</a>
+                <br>
+                <a href="/setujui_pengajuan/{{ $row->id }}" class="btn btn-success" style="margin-top: 5px;"><i class="glyphicon glyphicon-ok"></i> Approve</a>
+                <a href="/batalkan_pengajuan/{{ $row->id }}" class="btn btn-danger" style="margin-top: 5px;"><i class="glyphicon glyphicon-remove"></i> Reject</a>
+              </td>
+            @endif
           </tr>
           @endforeach
           </tbody>

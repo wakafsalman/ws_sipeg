@@ -168,6 +168,17 @@ Route::get('/report_stock', [AssetController::class, 'report_stock'])->name('rep
 Route::post('/tambah_report_stock', [AssetController::class, 'tambah_report_stock'])->name('tambah_report_stock');
 Route::post('/rubah_report_stock/{id}', [AssetController::class, 'rubah_report_stock'])->name('rubah_report_stock');
 Route::get('/hapus_report_stock/{id}', [AssetController::class, 'hapus_report_stock'])->name('hapus_report_stock');
+Route::get('/stock_merchandise', [AssetController::class, 'stock_merchandise'])->name('stock_merchandise');
+Route::post('/kelola_limit/{id}', [AssetController::class, 'kelola_limit'])->name('kelola_limit');
+Route::get('/hapus_stock_merchandise/{id}', [AssetController::class, 'hapus_stock_merchandise'])->name('hapus_stock_merchandise');
+Route::get('/bast', [AssetController::class, 'bast'])->name('bast');
+Route::post('/upload_bast', [AssetController::class, 'upload_bast'])->name('upload_bast');
+Route::post('/rubah_bast/{id}', [AssetController::class, 'rubah_bast'])->name('rubah_bast');
+Route::get('/hapus_bast/{id}', [AssetController::class, 'hapus_bast'])->name('hapus_bast');
+Route::get('/bapb', [AssetController::class, 'bapb'])->name('bapb');
+Route::post('/upload_bapb', [AssetController::class, 'upload_bapb'])->name('upload_bapb');
+Route::post('/rubah_bapb/{id}', [AssetController::class, 'rubah_bapb'])->name('rubah_bapb');
+Route::get('/hapus_bapb/{id}', [AssetController::class, 'hapus_bapb'])->name('hapus_bapb');
 
 //PDF
 Route::get('/eksport_pdf', [PegawaiController::class, 'eksport_pdf'])->name('eksport_pdf');
