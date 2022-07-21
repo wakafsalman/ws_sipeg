@@ -39,7 +39,11 @@
           <tbody>
           @foreach($data as $row)
             <tr>
-            <td>{{ $row->divisis->nama }}</td>
+            @if($row->id_divisis == 2)
+              <td>Kolaborasi</td>
+            @else
+              <td>{{ $row->divisis->nama }}</td>
+            @endif
             <td>{{ $row->kode_kpis->kode }} - {{ $row->kode_kpis->nama }}</td>
             <td>{{ $row->deskripsi }}</td>
             <td>{{ $row->pegawais->nama }}</td>
